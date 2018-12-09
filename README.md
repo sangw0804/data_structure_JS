@@ -4,3 +4,4 @@
 
 - jest
 - expect
+- babel-preset-env
