@@ -4,7 +4,7 @@
   "description": "javascript data structure library",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --runInBand --detectOpenHandles test/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/sangw0804/data_structure_JS/issues"
   },
-  "homepage": "https://github.com/sangw0804/data_structure_JS#readme"
+  "homepage": "https://github.com/sangw0804/data_structure_JS#readme",
+  "dependencies": {
+    "expect": "^23.6.0",
+    "jest": "^23.6.0"
+  }
 }
