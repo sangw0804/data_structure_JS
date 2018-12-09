@@ -1,0 +1,22 @@
+{
+  "name": "datastructurejs",
+  "version": "1.0.0",
+  "description": "javascript data structure library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sangw0804/data_structure_JS.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "sangw0804",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sangw0804/data_structure_JS/issues"
+  },
+  "homepage": "https://github.com/sangw0804/data_structure_JS#readme"
+}
