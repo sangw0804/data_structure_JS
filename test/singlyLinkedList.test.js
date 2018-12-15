@@ -1,7 +1,10 @@
 import expect from 'expect';
 import { SinglyLinkedList } from '../index';
 
-let emptySll, oneNodeSll, twoNodeSll;
+// 테스트 용 SLL
+let emptySll;
+let oneNodeSll;
+let twoNodeSll;
 
 // 매 테스트마다 사용할 빈 SLL과 노드가 있는 SLL 만들기.
 beforeEach(() => {

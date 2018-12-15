@@ -1,0 +1,32 @@
+{
+  "extends": "airbnb",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 8,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "rules": {
+    "no-iterator": "off",
+    "no-console": "warn",
+    "arrow-parens": "off",
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "local",
+        "args": "none"
+      }
+    ],
+    "comma-dangle": "off",
+    "no-underscore-dangle": "off",
+    "consistent-return": "off",
+    "camelcase": "warn"
+  }
+}
