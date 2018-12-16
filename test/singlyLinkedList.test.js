@@ -79,4 +79,36 @@ describe('LinkedList test', () => {
       expect(twoNodeSll.tail.next).toBeNull();
     });
   });
+
+  // shift 메소드 테스트
+  describe('SLL - shift', () => {
+    // SLL 에 노드가 없을 경우 undefined 를 리턴한다.
+    it('should return undefined WHEN length === 0', () => {
+      const shiftedVal = emptySll.shift();
+      expect(shiftedVal).toBeUndefined();
+      expect(emptySll.length).toBe(0);
+      expect(emptySll.head).toBeNull();
+      expect(emptySll.tail).toBeNull();
+    });
+
+    // SLL 에 노드가 1개 있을 경우 그 노드의 값을 리턴한다. SLL은 empty 상태가 된다.
+    it('should return value of node and SLL become empty WHEN length === 1', () => {
+      const shiftedVal = oneNodeSll.shift();
+      expect(shiftedVal).toBe(1);
+      expect(emptySll.length).toBe(0);
+      expect(emptySll.head).toBeNull();
+      expect(emptySll.tail).toBeNull();
+    });
+
+    // SLL 에 노드가 2개 있을 경우 head 노드의 값을 리턴하고, head 가 tail 노드를 가리킨다.
+    it('should return value of head node and head point tail node WHEN length === 2', () => {
+      const shiftedVal = twoNodeSll.shift();
+      expect(shiftedVal).toBe(1);
+      expect(twoNodeSll.length).toBe(1);
+      expect(twoNodeSll.head.value).toBe(2);
+      expect(twoNodeSll.head.next).toBeNull();
+      expect(twoNodeSll.tail.value).toBe(2);
+      expect(twoNodeSll.tail.next).toBeNull();
+    });
+  });
 });
