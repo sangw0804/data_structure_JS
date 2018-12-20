@@ -111,4 +111,27 @@ describe('LinkedList test', () => {
       expect(twoNodeSll.tail.next).toBeNull();
     });
   });
+
+  // unshift 메소드 테스트
+  describe('SLL - unshift', () => {
+    // SLL에 노드가 없을 경우 하나의 노드를 만들고 head, tail로 지정한다.
+    it('should create new node, and set it as head && tail WHEN length === 0', () => {
+      emptySll.unshift(1);
+      expect(emptySll.head.value).toBe(1);
+      expect(emptySll.tail.value).toBe(1);
+      expect(emptySll.head.next).toBeNull();
+      expect(emptySll.tail.next).toBeNull();
+      expect(emptySll.length).toBe(1);
+    });
+
+    // SLL에 노드가 있을 경우, 하나의 노드를 만들어 기존의 노드를 가리키게 하고, 새 노드가 head 가 된다.
+    it('should set new node as new head, and new node should point old head WHEN length >= 1', () => {
+      oneNodeSll.unshift(2);
+      expect(oneNodeSll.head.value).toBe(2);
+      expect(oneNodeSll.head.next.value).toBe(1);
+      expect(oneNodeSll.tail.value).toBe(1);
+      expect(oneNodeSll.tail.next).toBeNull();
+      expect(oneNodeSll.length).toBe(2);
+    });
+  });
 });
