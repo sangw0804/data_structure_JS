@@ -5,6 +5,7 @@ import { SinglyLinkedList } from '../index';
 let emptySll;
 let oneNodeSll;
 let twoNodeSll;
+let threeNodeSll;
 
 // 매 테스트마다 사용할 빈 SLL과 노드가 있는 SLL 만들기.
 beforeEach(() => {
@@ -13,6 +14,11 @@ beforeEach(() => {
   oneNodeSll.push(1);
   twoNodeSll = new SinglyLinkedList();
   twoNodeSll.push(1).push(2);
+  threeNodeSll = new SinglyLinkedList();
+  threeNodeSll
+    .push(1)
+    .push(2)
+    .push(3);
 });
 
 describe('LinkedList test', () => {
@@ -132,6 +138,23 @@ describe('LinkedList test', () => {
       expect(oneNodeSll.tail.value).toBe(1);
       expect(oneNodeSll.tail.next).toBeNull();
       expect(oneNodeSll.length).toBe(2);
+    });
+  });
+
+  // insert 메소드 테스트
+  describe('SLL - insert', () => {
+    // 해당 index 위치에 노드를 생성해서 삽입한다.
+    it('should insert node in currect index', () => {
+      twoNodeSll.insert(1, 7);
+      expect(twoNodeSll.head.next.value).toBe(7);
+      expect(twoNodeSll.head.next.next.next).toBeNull();
+      expect(twoNodeSll.length).toBe(3);
+    });
+
+    // index 위치가 유효하지 않으면 에러를 발생시킨다.
+    it('should throw error with invalid index', () => {
+      expect(() => twoNodeSll.insert(3, 3)).toThrow('index is out of lange!');
+      expect(twoNodeSll.length).toBe(2);
     });
   });
 });
