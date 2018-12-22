@@ -178,4 +178,28 @@ describe('LinkedList test', () => {
       expect(threeNodeSll.size()).toBe(3);
     });
   });
+
+  // reverse 메소드 테스트
+  describe('SLL - reverse', () => {
+    // length > 1 일 때, SLL을 뒤집는다
+    it('should reverse SLL WHEN length > 1', () => {
+      threeNodeSll.reverse();
+      expect(threeNodeSll.head.value).toBe(3);
+      expect(threeNodeSll.head.next.value).toBe(2);
+      expect(threeNodeSll.head.next.next.value).toBe(1);
+      expect(threeNodeSll.head.next.next.next).toBeNull();
+      expect(threeNodeSll.tail.value).toBe(1);
+      expect(threeNodeSll.tail.next).toBeNull();
+      expect(threeNodeSll.size()).toBe(3);
+    });
+
+    // length <= 일 때, SLL은 변화 없다.
+    it('should not change SLL WHEN length <= 1', () => {
+      oneNodeSll.reverse();
+      expect(oneNodeSll.head.value).toBe(1);
+      expect(oneNodeSll.tail.value).toBe(1);
+      expect(oneNodeSll.tail.next).toBeNull();
+      expect(oneNodeSll.size()).toBe(1);
+    });
+  });
 });
