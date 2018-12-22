@@ -4,7 +4,8 @@
   "description": "javascript data structure library",
   "main": "index.js",
   "scripts": {
-    "test": "jest --runInBand --detectOpenHandles test/*.test.js"
+    "test": "jest --no-cache test/*.test.js",
+    "test-cover": "jest --no-cache --coverage test/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,14 @@
   },
   "homepage": "https://github.com/sangw0804/data_structure_JS#readme",
   "dependencies": {
+    "babel-preset-env": "^1.7.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
     "expect": "^23.6.0",
     "jest": "^23.6.0"
   }
