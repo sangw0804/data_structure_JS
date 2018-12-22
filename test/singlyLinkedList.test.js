@@ -1,5 +1,5 @@
 import expect from 'expect';
-import { SinglyLinkedList } from '../index';
+import { SinglyLinkedList } from '../lib';
 
 // 테스트 용 SLL
 let emptySll;
@@ -24,7 +24,7 @@ beforeEach(() => {
     .push(3);
 });
 
-describe('LinkedList test', () => {
+describe('Singly Linked List test', () => {
   // 초기화 테스트
   describe('Initialize SLL', () => {
     it('should make empty sll!', () => {
