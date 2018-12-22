@@ -7,6 +7,9 @@ let oneNodeSll;
 let twoNodeSll;
 let threeNodeSll;
 
+// 에러 문자열 상수
+const INDEX_OUT_OF_ORDER = 'index is out of lange!';
+
 // 매 테스트마다 사용할 빈 SLL과 노드가 있는 SLL 만들기.
 beforeEach(() => {
   emptySll = new SinglyLinkedList();
@@ -40,7 +43,7 @@ describe('LinkedList test', () => {
       expect(emptySll.tail.value).toBe(1);
       expect(emptySll.head.next).toBeNull();
       expect(emptySll.tail.next).toBeNull();
-      expect(emptySll.length).toBe(1);
+      expect(emptySll.size()).toBe(1);
     });
 
     // SLL에 노드가 있을 경우, 하나의 노드를 만들어 기존의 tail 노드가 새 노드를 가리키게 하고, 새 노드가 tail 이 된다.
@@ -50,7 +53,7 @@ describe('LinkedList test', () => {
       expect(oneNodeSll.head.next.value).toBe(2);
       expect(oneNodeSll.tail.value).toBe(2);
       expect(oneNodeSll.tail.next).toBeNull();
-      expect(oneNodeSll.length).toBe(2);
+      expect(oneNodeSll.size()).toBe(2);
     });
   });
 
@@ -60,7 +63,7 @@ describe('LinkedList test', () => {
     it('should return undefined WHEN length === 0', () => {
       const poppedVal = emptySll.pop();
       expect(poppedVal).toBeUndefined();
-      expect(emptySll.length).toBe(0);
+      expect(emptySll.size()).toBe(0);
       expect(emptySll.head).toBeNull();
       expect(emptySll.tail).toBeNull();
     });
@@ -69,7 +72,7 @@ describe('LinkedList test', () => {
     it('should return value of node and SLL become empty WHEN length === 1', () => {
       const poppedVal = oneNodeSll.pop();
       expect(poppedVal).toBe(1);
-      expect(emptySll.length).toBe(0);
+      expect(emptySll.size()).toBe(0);
       expect(emptySll.head).toBeNull();
       expect(emptySll.tail).toBeNull();
     });
@@ -78,7 +81,7 @@ describe('LinkedList test', () => {
     it('should return value of tail node and tail point head node WHEN length === 2', () => {
       const poppedVal = twoNodeSll.pop();
       expect(poppedVal).toBe(2);
-      expect(twoNodeSll.length).toBe(1);
+      expect(twoNodeSll.size()).toBe(1);
       expect(twoNodeSll.head.value).toBe(1);
       expect(twoNodeSll.head.next).toBeNull();
       expect(twoNodeSll.tail.value).toBe(1);
@@ -92,7 +95,7 @@ describe('LinkedList test', () => {
     it('should return undefined WHEN length === 0', () => {
       const shiftedVal = emptySll.shift();
       expect(shiftedVal).toBeUndefined();
-      expect(emptySll.length).toBe(0);
+      expect(emptySll.size()).toBe(0);
       expect(emptySll.head).toBeNull();
       expect(emptySll.tail).toBeNull();
     });
@@ -101,7 +104,7 @@ describe('LinkedList test', () => {
     it('should return value of node and SLL become empty WHEN length === 1', () => {
       const shiftedVal = oneNodeSll.shift();
       expect(shiftedVal).toBe(1);
-      expect(emptySll.length).toBe(0);
+      expect(emptySll.size()).toBe(0);
       expect(emptySll.head).toBeNull();
       expect(emptySll.tail).toBeNull();
     });
@@ -110,7 +113,7 @@ describe('LinkedList test', () => {
     it('should return value of head node and head point tail node WHEN length === 2', () => {
       const shiftedVal = twoNodeSll.shift();
       expect(shiftedVal).toBe(1);
-      expect(twoNodeSll.length).toBe(1);
+      expect(twoNodeSll.size()).toBe(1);
       expect(twoNodeSll.head.value).toBe(2);
       expect(twoNodeSll.head.next).toBeNull();
       expect(twoNodeSll.tail.value).toBe(2);
@@ -127,7 +130,7 @@ describe('LinkedList test', () => {
       expect(emptySll.tail.value).toBe(1);
       expect(emptySll.head.next).toBeNull();
       expect(emptySll.tail.next).toBeNull();
-      expect(emptySll.length).toBe(1);
+      expect(emptySll.size()).toBe(1);
     });
 
     // SLL에 노드가 있을 경우, 하나의 노드를 만들어 기존의 노드를 가리키게 하고, 새 노드가 head 가 된다.
@@ -137,7 +140,7 @@ describe('LinkedList test', () => {
       expect(oneNodeSll.head.next.value).toBe(1);
       expect(oneNodeSll.tail.value).toBe(1);
       expect(oneNodeSll.tail.next).toBeNull();
-      expect(oneNodeSll.length).toBe(2);
+      expect(oneNodeSll.size()).toBe(2);
     });
   });
 
@@ -148,13 +151,31 @@ describe('LinkedList test', () => {
       twoNodeSll.insert(1, 7);
       expect(twoNodeSll.head.next.value).toBe(7);
       expect(twoNodeSll.head.next.next.next).toBeNull();
-      expect(twoNodeSll.length).toBe(3);
+      expect(twoNodeSll.size()).toBe(3);
     });
 
     // index 위치가 유효하지 않으면 에러를 발생시킨다.
     it('should throw error with invalid index', () => {
-      expect(() => twoNodeSll.insert(3, 3)).toThrow('index is out of lange!');
-      expect(twoNodeSll.length).toBe(2);
+      expect(() => twoNodeSll.insert(3, 3)).toThrow(INDEX_OUT_OF_ORDER);
+      expect(twoNodeSll.size()).toBe(2);
+    });
+  });
+
+  // remove 메소드 테스트
+  describe('SLL - remove', () => {
+    // 해당 index 위치에 있는 노드를 제거하고 값을 리턴한다.
+    it('should remove node in correct index and return value', () => {
+      const removedValue = threeNodeSll.remove(0);
+      expect(removedValue).toBe(1);
+      expect(threeNodeSll.head.value).toBe(2);
+      expect(threeNodeSll.head.next.value).toBe(3);
+      expect(threeNodeSll.size()).toBe(2);
+    });
+
+    // index 위치가 유효하지 않으면 에러를 발생시킨다.
+    it('should throw error with invalid index', () => {
+      expect(() => threeNodeSll.remove(3)).toThrow(INDEX_OUT_OF_ORDER);
+      expect(threeNodeSll.size()).toBe(3);
     });
   });
 });

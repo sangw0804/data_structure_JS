@@ -4,7 +4,8 @@
   "description": "javascript data structure library",
   "main": "index.js",
   "scripts": {
-    "test": "jest --no-cache"
+    "test": "jest --no-cache test/*.test.js",
+    "test-cover": "jest --no-cache --coverage test/*.test.js"
   },
   "repository": {
     "type": "git",
