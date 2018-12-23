@@ -76,4 +76,27 @@ describe('Doubly Linked List test', () => {
       expect(twoNodeDll.size()).toBe(1);
     });
   });
+
+  // unshift 메소드 테스트
+  describe('DLL - unshift', () => {
+    // DLL 에 노드가 없을 경우 하나의 노드를 만들고 그 노드를 head 이자 tail 노드로 정한다.
+    it('should make new node and make it as a tail and head WHEN length === 0', () => {
+      emptyDll.unshift(1);
+      expect(emptyDll.head.value).toBe(1);
+      expect(emptyDll.tail.value).toBe(1);
+      expect(emptyDll.size()).toBe(1);
+    });
+
+    // DLL 에 노드가 있을 경우 head 앞에 하나의 노드를 추가하고 그 노드를 새 head 노드로 정한다.
+    it('should make new node and make it as new head WHEN length >= 1', () => {
+      oneNodeDll.unshift(2);
+      expect(oneNodeDll.head.value).toBe(2);
+      expect(oneNodeDll.head.next.value).toBe(1);
+      expect(oneNodeDll.head.next.next).toBeNull();
+      expect(oneNodeDll.tail.value).toBe(1);
+      expect(oneNodeDll.tail.before.value).toBe(2);
+      expect(oneNodeDll.tail.before.before).toBeNull();
+      expect(oneNodeDll.size()).toBe(2);
+    });
+  });
 });
