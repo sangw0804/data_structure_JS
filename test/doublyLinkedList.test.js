@@ -99,4 +99,36 @@ describe('Doubly Linked List test', () => {
       expect(oneNodeDll.size()).toBe(2);
     });
   });
+
+  // shift 메소드 테스트
+  describe('DLL - shift', () => {
+    // DLL 에 노드가 없을 경우 undefined 를 리턴한다.
+    it('should return undefined WHEN length === 0', () => {
+      const shiftedValue = emptyDll.shift();
+      expect(shiftedValue).toBeUndefined();
+      expect(emptyDll.size()).toBe(0);
+      expect(emptyDll.head).toBeNull();
+      expect(emptyDll.tail).toBeNull();
+    });
+
+    // DLL 에 노드가 하나 있을 경우 그 노드의 값을 리턴하고 빈 노드가 된다.
+    it('should return left value WHEN length === 1', () => {
+      const shiftedValue = oneNodeDll.shift();
+      expect(shiftedValue).toBe(1);
+      expect(oneNodeDll.size()).toBe(0);
+      expect(oneNodeDll.head).toBeNull();
+      expect(oneNodeDll.tail).toBeNull();
+    });
+
+    // DLL 에 노드가 두개 있을 경우 head 노드를 pop 해서 그 값을 리턴하고, tail 노드가 head 노드가 된다.
+    it('should return head value and tail node become head WHEN length === 2', () => {
+      const shiftedValue = twoNodeDll.shift();
+      expect(shiftedValue).toBe(1);
+      expect(twoNodeDll.head.value).toBe(2);
+      expect(twoNodeDll.head.next).toBeNull();
+      expect(twoNodeDll.head.before).toBeNull();
+      expect(twoNodeDll.tail.value).toBe(2);
+      expect(twoNodeDll.size()).toBe(1);
+    });
+  });
 });
