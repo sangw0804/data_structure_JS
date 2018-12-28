@@ -153,6 +153,15 @@ describe('Doubly Linked List test', () => {
       expect(twoNodeDll.size()).toBe(3);
     });
 
+    // 맨 뒤에 insert 하는 엣지 케이스
+    it('should insert node in tail', () => {
+      twoNodeDll.insert(2, 3);
+      expect(twoNodeDll.tail.value).toBe(3);
+      expect(twoNodeDll.head.next.next.value).toBe(3);
+      expect(twoNodeDll.tail.before.before.value).toBe(1);
+      expect(twoNodeDll.size()).toBe(3);
+    });
+
     // 유효하지 않은 index 인 경우 error를 발생시킨다.
     it('should throw error if index is invalid', () => {
       expect(() => twoNodeDll.insert(3, 4)).toThrow();
