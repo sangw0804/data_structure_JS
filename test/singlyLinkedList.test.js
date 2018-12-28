@@ -193,7 +193,7 @@ describe('Singly Linked List test', () => {
       expect(threeNodeSll.size()).toBe(3);
     });
 
-    // length <= 일 때, SLL은 변화 없다.
+    // length <= 1 일 때, SLL은 변화 없다.
     it('should not change SLL WHEN length <= 1', () => {
       oneNodeSll.reverse();
       expect(oneNodeSll.head.value).toBe(1);

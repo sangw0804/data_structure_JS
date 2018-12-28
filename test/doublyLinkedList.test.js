@@ -131,4 +131,32 @@ describe('Doubly Linked List test', () => {
       expect(twoNodeDll.size()).toBe(1);
     });
   });
+
+  // insert 메소드 테스트
+  describe('DLL - insert', () => {
+    // 해당 index 위치에 새로운 노드를 생성해서 삽입한다.
+    it('should insert node in valid index', () => {
+      twoNodeDll.insert(1, 3);
+      expect(twoNodeDll.head.next.value).toBe(3);
+      expect(twoNodeDll.head.next.next.value).toBe(2);
+      expect(twoNodeDll.tail.before.value).toBe(3);
+      expect(twoNodeDll.tail.before.before.value).toBe(1);
+      expect(twoNodeDll.size()).toBe(3);
+    });
+
+    // 맨 앞에 insert 하는 엣지 케이스
+    it('should insert node in head', () => {
+      twoNodeDll.insert(0, 3);
+      expect(twoNodeDll.head.value).toBe(3);
+      expect(twoNodeDll.head.next.next.value).toBe(2);
+      expect(twoNodeDll.tail.before.before.value).toBe(3);
+      expect(twoNodeDll.size()).toBe(3);
+    });
+
+    // 유효하지 않은 index 인 경우 error를 발생시킨다.
+    it('should throw error if index is invalid', () => {
+      expect(() => twoNodeDll.insert(3, 4)).toThrow();
+      expect(twoNodeDll.size()).toBe(2);
+    });
+  });
 });
