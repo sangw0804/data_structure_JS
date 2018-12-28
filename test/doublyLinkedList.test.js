@@ -1,10 +1,12 @@
 import expect from 'expect';
 import { DoublyLinkedList } from '../lib';
+import { INDEX_OUT_OF_ORDER } from '../lib/error';
 
 // 테스트 용 Dll
 let emptyDll;
 let oneNodeDll;
 let twoNodeDll;
+let threeNodeDll;
 
 // 매 테스트마다 사용할 Dll들 만들기
 beforeEach(() => {
@@ -13,6 +15,11 @@ beforeEach(() => {
   oneNodeDll.push(1);
   twoNodeDll = new DoublyLinkedList();
   twoNodeDll.push(1).push(2);
+  threeNodeDll = new DoublyLinkedList();
+  threeNodeDll
+    .push(1)
+    .push(2)
+    .push(3);
 });
 
 describe('Doubly Linked List test', () => {
@@ -166,6 +173,30 @@ describe('Doubly Linked List test', () => {
     it('should throw error if index is invalid', () => {
       expect(() => twoNodeDll.insert(3, 4)).toThrow();
       expect(twoNodeDll.size()).toBe(2);
+    });
+  });
+
+  // remove 메소드 테스트
+  describe('DLL - remove', () => {
+    // 해당 index 위치에 있는 노드를 pop 해서 삭제하고 그 값을 리턴한다.
+    it('should remove node with valid index and return value', () => {
+      const removedValue = threeNodeDll.remove(1);
+      expect(removedValue).toBe(2);
+      expect(threeNodeDll.size()).toBe(2);
+      expect(threeNodeDll.head.value).toBe(1);
+      expect(threeNodeDll.tail.value).toBe(3);
+      expect(threeNodeDll.head.next.value).toBe(3);
+      expect(threeNodeDll.tail.before.value).toBe(1);
+    });
+
+    // 유효하지 않은 index의 경우 에러를 발생시킨다.
+    it('should throw error with invalid index', () => {
+      expect(() => twoNodeDll.remove(2)).toThrow(INDEX_OUT_OF_ORDER);
+      expect(twoNodeDll.size()).toBe(2);
+      expect(twoNodeDll.head.value).toBe(1);
+      expect(twoNodeDll.head.next.value).toBe(2);
+      expect(twoNodeDll.tail.value).toBe(2);
+      expect(twoNodeDll.tail.before.value).toBe(1);
     });
   });
 });
