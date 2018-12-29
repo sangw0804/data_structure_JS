@@ -1,5 +1,5 @@
 import expect from 'expect';
-import { SinglyLinkedList } from '../index';
+import { SinglyLinkedList } from '../lib';
 
 // 테스트 용 SLL
 let emptySll;
@@ -24,7 +24,7 @@ beforeEach(() => {
     .push(3);
 });
 
-describe('LinkedList test', () => {
+describe('Singly Linked List test', () => {
   // 초기화 테스트
   describe('Initialize SLL', () => {
     it('should make empty sll!', () => {
@@ -193,7 +193,7 @@ describe('LinkedList test', () => {
       expect(threeNodeSll.size()).toBe(3);
     });
 
-    // length <= 일 때, SLL은 변화 없다.
+    // length <= 1 일 때, SLL은 변하지 않는다.
     it('should not change SLL WHEN length <= 1', () => {
       oneNodeSll.reverse();
       expect(oneNodeSll.head.value).toBe(1);
