@@ -1,6 +1,6 @@
 import expect from 'expect';
 import { BinarySearchTree } from '../lib';
-import { INVALID_VALUE, EXIST_VALUE } from '../lib/error';
+import { INVALID_VALUE, EXIST_VALUE, NON_EXIST_VALUE } from '../lib/error';
 
 let emptyBst;
 let multiNodeBst;
@@ -69,6 +69,41 @@ describe('Binary Search Tree Test', () => {
     it("should return false if given value doesn't exist", () => {
       const foundNode = multiNodeBst.find(100);
       expect(foundNode).toBe(false);
+    });
+  });
+
+  // remove 메소드 테스트
+  describe('BST - remove', () => {
+    // 주어진 value 를 가진 노드를 찾아서 해당 노드를 제거한다. (자식이 하니인 노드를 제거하는 경우)
+    it('should remove node and return the value', () => {
+      multiNodeBst.remove(8);
+      expect(multiNodeBst.root.value).toBe(10);
+      expect(multiNodeBst.root.leftChild.value).toBe(3);
+      expect(multiNodeBst.root.leftChild.leftChild).toBeNull();
+      expect(multiNodeBst.root.leftChild.rightChild).toBeNull();
+      expect(multiNodeBst.root.rightChild.value).toBe(21);
+      expect(multiNodeBst.root.rightChild.leftChild).toBeNull();
+      expect(multiNodeBst.root.rightChild.rightChild).toBeNull();
+      expect(multiNodeBst.size()).toBe(3);
+    });
+
+    // 주어진 value 를 가진 노드를 찾아서 해당 노드를 제거한다. (자식이 둘인 노드를 제거하는 경우)
+    it('should remove node and return the value', () => {
+      multiNodeBst.remove(10);
+      expect(multiNodeBst.root.value).toBe(21);
+      expect(multiNodeBst.root.leftChild.value).toBe(8);
+      expect(multiNodeBst.root.leftChild.leftChild.value).toBe(3);
+      expect(multiNodeBst.root.leftChild.rightChild).toBeNull();
+      expect(multiNodeBst.root.rightChild).toBeNull();
+      expect(multiNodeBst.root.leftChild.leftChild.rightChild).toBeNull();
+      expect(multiNodeBst.root.leftChild.leftChild.leftChild).toBeNull();
+      expect(multiNodeBst.size()).toBe(3);
+    });
+
+    // 주어진 value를 가진 노드가 없을 경우 에러를 발생시킨다.
+    it("should throw error if value doesn't exist", () => {
+      expect(() => multiNodeBst.remove(100)).toThrow(NON_EXIST_VALUE);
+      expect(multiNodeBst.size()).toBe(4);
     });
   });
 });
