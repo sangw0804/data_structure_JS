@@ -199,4 +199,33 @@ describe('Doubly Linked List test', () => {
       expect(twoNodeDll.tail.before.value).toBe(1);
     });
   });
+
+  // reverse 메소드 테스트
+  describe('DLL - reverse', () => {
+    // length > 1 일 때, DLL을 뒤집는다.
+    it('should reverse dll WHEN length > 1', () => {
+      threeNodeDll.reverse();
+      expect(threeNodeDll.head.before).toBeNull();
+      expect(threeNodeDll.head.value).toBe(3);
+      expect(threeNodeDll.head.next.value).toBe(2);
+      expect(threeNodeDll.head.next.next.value).toBe(1);
+      expect(threeNodeDll.head.next.next.next).toBeNull();
+      expect(threeNodeDll.tail.next).toBeNull();
+      expect(threeNodeDll.tail.value).toBe(1);
+      expect(threeNodeDll.tail.before.value).toBe(2);
+      expect(threeNodeDll.tail.before.before.value).toBe(3);
+      expect(threeNodeDll.tail.before.before.before).toBeNull();
+      expect(threeNodeDll.size()).toBe(3);
+    });
+
+    // length <= 1 일 때, DLL 은 변하지 않는다.
+    it('should remain same WHEN length <= 1', () => {
+      oneNodeDll.reverse();
+      expect(oneNodeDll.head.value).toBe(1);
+      expect(oneNodeDll.head.next).toBeNull();
+      expect(oneNodeDll.tail.value).toBe(1);
+      expect(oneNodeDll.tail.before).toBeNull();
+      expect(oneNodeDll.size()).toBe(1);
+    });
+  });
 });
