@@ -55,6 +55,30 @@ describe('MaxHeap Test', () => {
       expect(emptyMaxHeap.max).toBe(true);
     });
   });
+
+  // pop 메소드 테스트
+  describe('MaxHeap - pop', () => {
+    // 빈 heap 의 경우 undefined를 리턴한다.
+    it('should return undefined if empty', () => {
+      expect(emptyMaxHeap.pop()).toBeUndefined();
+      expect(emptyMaxHeap.size()).toBe(0);
+      expect(emptyMaxHeap.max).toBe(true);
+    });
+
+    // 현재 가장 큰 수를 리턴한 뒤, heap을 규칙대로 정렬한다.
+    it('should return max value and organize heap itself', () => {
+      expect(multiMaxHeap.pop()).toBe(20);
+      expect(multiMaxHeap.size()).toBe(4);
+      expect(multiMaxHeap.pop()).toBe(15);
+      expect(multiMaxHeap.size()).toBe(3);
+      expect(multiMaxHeap.pop()).toBe(10);
+      expect(multiMaxHeap.size()).toBe(2);
+      expect(multiMaxHeap.pop()).toBe(5);
+      expect(multiMaxHeap.size()).toBe(1);
+      expect(multiMaxHeap.pop()).toBe(1);
+      expect(multiMaxHeap.size()).toBe(0);
+    });
+  });
 });
 
 describe('MinHeap Test', () => {
@@ -85,6 +109,30 @@ describe('MinHeap Test', () => {
       expect(() => emptyMinHeap.insert('1')).toThrow(INVALID_VALUE);
       expect(emptyMinHeap.size()).toBe(0);
       expect(emptyMinHeap.max).toBe(false);
+    });
+  });
+
+  // pop 메소드 테스트
+  describe('MinHeap - pop', () => {
+    // 빈 heap 의 경우 undefined를 리턴한다.
+    it('should return undefined if empty', () => {
+      expect(emptyMinHeap.pop()).toBeUndefined();
+      expect(emptyMinHeap.size()).toBe(0);
+      expect(emptyMinHeap.max).toBe(false);
+    });
+
+    // 현재 가장 작은 수를 리턴한 뒤, heap을 규칙대로 정렬한다.
+    it('should return min value and organize heap itself', () => {
+      expect(multiMinHeap.pop()).toBe(1);
+      expect(multiMinHeap.size()).toBe(4);
+      expect(multiMinHeap.pop()).toBe(5);
+      expect(multiMinHeap.size()).toBe(3);
+      expect(multiMinHeap.pop()).toBe(10);
+      expect(multiMinHeap.size()).toBe(2);
+      expect(multiMinHeap.pop()).toBe(15);
+      expect(multiMinHeap.size()).toBe(1);
+      expect(multiMinHeap.pop()).toBe(20);
+      expect(multiMinHeap.size()).toBe(0);
     });
   });
 });
