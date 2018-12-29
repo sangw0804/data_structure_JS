@@ -1,14 +1,12 @@
 import expect from 'expect';
 import { SinglyLinkedList } from '../lib';
+import { INDEX_OUT_OF_ORDER } from '../lib/error';
 
 // 테스트 용 SLL
 let emptySll;
 let oneNodeSll;
 let twoNodeSll;
 let threeNodeSll;
-
-// 에러 문자열 상수
-const INDEX_OUT_OF_ORDER = 'index is out of lange!';
 
 // 매 테스트마다 사용할 빈 SLL과 노드가 있는 SLL 만들기.
 beforeEach(() => {
