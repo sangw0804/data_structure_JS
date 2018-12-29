@@ -56,4 +56,19 @@ describe('Binary Search Tree Test', () => {
       expect(multiNodeBst.size()).toBe(4);
     });
   });
+
+  // find 메소드 테스트
+  describe('BST - find', () => {
+    // 주어진 value 를 가진 노드를 찾아서 리턴한다.
+    it('should find and return node with given value', () => {
+      const foundNode = multiNodeBst.find(3);
+      expect(foundNode.value).toBe(3);
+    });
+
+    // 주어진 value 를 가진 노드가 없으면 false를 리턴한다.
+    it("should return false if given value doesn't exist", () => {
+      const foundNode = multiNodeBst.find(100);
+      expect(foundNode).toBe(false);
+    });
+  });
 });
