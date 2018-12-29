@@ -16,4 +16,19 @@ describe('Queue Test', () => {
       expect(emptyQueue.tail).toBeNull();
     });
   });
+
+  // enqueue & dequeue 테스트
+  describe('Queue - enqueue & dequeue', () => {
+    it('enqueue & dequeue values in queue', () => {
+      emptyQueue.enqueue(1);
+      expect(emptyQueue.size()).toBe(1);
+      expect(emptyQueue.dequeue()).toBe(1);
+      emptyQueue.enqueue(2);
+      emptyQueue.enqueue(3);
+      expect(emptyQueue.size()).toBe(2);
+      expect(emptyQueue.dequeue()).toBe(2);
+      expect(emptyQueue.dequeue()).toBe(3);
+      expect(emptyQueue.dequeue()).toBeUndefined();
+    });
+  });
 });
