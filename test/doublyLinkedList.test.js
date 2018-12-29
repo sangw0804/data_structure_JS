@@ -171,7 +171,7 @@ describe('Doubly Linked List test', () => {
 
     // 유효하지 않은 index 인 경우 error를 발생시킨다.
     it('should throw error if index is invalid', () => {
-      expect(() => twoNodeDll.insert(3, 4)).toThrow();
+      expect(() => twoNodeDll.insert(3, 4)).toThrow(INDEX_OUT_OF_ORDER);
       expect(twoNodeDll.size()).toBe(2);
     });
   });
