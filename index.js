@@ -11,5 +11,4 @@ export {
   BinarySearchTree,
   Heap,
   PriorityQueue
-} from './lib';
-export { SllComponent } from './components';
+} from './lib/index.js';

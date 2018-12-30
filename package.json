@@ -1,5 +1,5 @@
 {
-  "name": "datastructurejs",
+  "name": "data-structure-visualization",
   "version": "1.0.0",
   "description": "javascript data structure library",
   "main": "index.js",
@@ -15,14 +15,14 @@
     "javascript"
   ],
   "author": "sangw0804",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/sangw0804/data_structure_JS/issues"
   },
   "homepage": "https://github.com/sangw0804/data_structure_JS#readme",
   "dependencies": {
     "babel-preset-env": "^1.7.0",
-    "react": "^16.7.0"
+    "express": "^4.16.4"
   },
   "devDependencies": {
     "eslint": "^5.10.0",

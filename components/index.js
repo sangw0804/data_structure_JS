@@ -1,1 +1,1 @@
-export { SllComponent } from './singlyLinkedList/singlyLinkedList';
+export { createSinglyLinkedListElement } from './singlyLinkedList/singlyLinkedList.js';
