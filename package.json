@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/sangw0804/data_structure_JS#readme",
   "dependencies": {
-    "babel-preset-env": "^1.7.0"
+    "babel-preset-env": "^1.7.0",
+    "react": "^16.7.0"
   },
   "devDependencies": {
     "eslint": "^5.10.0",
