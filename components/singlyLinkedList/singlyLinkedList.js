@@ -14,6 +14,8 @@ const createSinglyLinkedListElement = sll => {
     current = current.next;
   }
 
+  result.appendChild(document.createTextNode('NULL'));
+
   return result;
 };
 
