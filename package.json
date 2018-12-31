@@ -4,6 +4,7 @@
   "description": "javascript data structure library",
   "main": "index.js",
   "scripts": {
+    "start": "node --experimental-modules server.mjs",
     "test": "jest --no-cache test/*.test.js",
     "test-cover": "jest --no-cache --coverage test/*.test.js"
   },
