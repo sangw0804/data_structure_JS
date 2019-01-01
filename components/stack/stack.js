@@ -1,6 +1,5 @@
 import { Stack } from '../../lib/index.js';
 import { createNodeElement } from '../node.js';
-import { createArrow } from '../pointer.js';
 
 const createStackElement = stack => {
   const result = document.createElement('div');
