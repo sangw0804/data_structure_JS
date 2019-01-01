@@ -3,3 +3,4 @@ export { createDoublyLinkedListElement } from './doublyLinkedList/doublyLinkedLi
 export { createStackElement } from './stack/stack.js';
 export { createQueueElement } from './queue/queue.js';
 export { createDequeueElement } from './dequeue/dequeue.js'
+export { createHeapElement } from './heap/heap.js';
