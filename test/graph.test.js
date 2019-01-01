@@ -77,4 +77,43 @@ describe('Graph Test', () => {
       expect(() => threeVertexGraph.addEdge('a', 'f')).toThrow(NON_EXIST_VALUE);
     });
   });
+
+  // removeEdge 메소드 테스트
+  describe('removeEdge', () => {
+    // 두 vertex를 연결하던 edge를 삭제한다.
+    it('should remove existing edge from graph', () => {
+      threeVertexTwoEdgeGraph.removeEdge('a', 'b');
+      expect(threeVertexTwoEdgeGraph.adjacencyList['a']).toEqual(['c']);
+      expect(threeVertexTwoEdgeGraph.adjacencyList['c']).toEqual(['a']);
+      expect(threeVertexTwoEdgeGraph.sizeVertex()).toBe(3);
+      expect(threeVertexTwoEdgeGraph.sizeEdge()).toBe(1);
+    });
+
+    // 만약 제거할 edge가 존재하지 않으면 에러를 발생시킨다.
+    it("should throw error if edge doesn't exist in graph", () => {
+      expect(() => threeVertexTwoEdgeGraph.removeEdge('a', 'f')).toThrow(NON_EXIST_VALUE);
+    });
+  });
+
+  // removeVertex 메소드 테스트
+  describe('removeVertex', () => {
+    // 그래프에 존재하는 vertex를 삭제한다.
+    it('should remove existing vertex from graph', () => {
+      threeVertexTwoEdgeGraph.removeVertex('c');
+      expect(threeVertexTwoEdgeGraph.sizeVertex()).toBe(2);
+      expect(threeVertexTwoEdgeGraph.sizeEdge()).toBe(1);
+    });
+
+    // 두개 이상의 edge가 연결되어 있는 vertex를 삭제하는 엣지 케이스.
+    it('should remove existing vertex from graph - vertex with 2 edges', () => {
+      threeVertexTwoEdgeGraph.removeVertex('a');
+      expect(threeVertexTwoEdgeGraph.sizeVertex()).toBe(2);
+      expect(threeVertexTwoEdgeGraph.sizeEdge()).toBe(0);
+    });
+
+    // 존재하지 않는 vertex일 경우 에러를 발생시킨다.
+    it("should throw error if vertex doesn't exist in graph", () => {
+      expect(() => threeVertexTwoEdgeGraph.removeVertex('f')).toThrow(NON_EXIST_VALUE);
+    });
+  });
 });
