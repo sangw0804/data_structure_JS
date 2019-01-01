@@ -43,18 +43,26 @@ const insertButton = document.getElementById('insert_button');
 const insertIndexInput = document.getElementById('insert_index_value');
 const insertValueInput = document.getElementById('insert_value_value');
 insertButton.onclick = () => {
-  sll.insert(+insertIndexInput.value, insertValueInput.value);
-  main.innerHTML = null;
-  main.appendChild(createSinglyLinkedListElement(sll));
+  try {
+    sll.insert(+insertIndexInput.value, insertValueInput.value);
+    main.innerHTML = null;
+    main.appendChild(createSinglyLinkedListElement(sll));
+  } catch (e) {
+    alert(e);
+  }
 };
 
 // remove
 const removeButton = document.getElementById('remove_button');
 const removeIndexInput = document.getElementById('remove_index_value');
 removeButton.onclick = () => {
-  sll.remove(+removeIndexInput.value);
-  main.innerHTML = null;
-  main.appendChild(createSinglyLinkedListElement(sll));
+  try {
+    sll.remove(+removeIndexInput.value);
+    main.innerHTML = null;
+    main.appendChild(createSinglyLinkedListElement(sll));
+  } catch (e) {
+    alert(e);
+  }
 };
 
 // reverse

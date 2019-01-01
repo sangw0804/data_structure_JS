@@ -8,16 +8,24 @@ const main = document.getElementById('main');
 const insertButton = document.getElementById('insert_button');
 const insertInput = document.getElementById('insert_value');
 insertButton.onclick = () => {
-  bst.insert(+insertInput.value);
-  main.innerHTML = null;
-  main.appendChild(createBinarySearchTreeElement(bst));
+  try {
+    bst.insert(+insertInput.value);
+    main.innerHTML = null;
+    main.appendChild(createBinarySearchTreeElement(bst));
+  } catch (e) {
+    alert(e);
+  }
 };
 
 // remove
 const removeButton = document.getElementById('remove_button');
 const removeInput = document.getElementById('remove_value');
 removeButton.onclick = () => {
-  bst.remove(+removeInput.value);
-  main.innerHTML = null;
-  main.appendChild(createBinarySearchTreeElement(bst));
+  try {
+    bst.remove(+removeInput.value);
+    main.innerHTML = null;
+    main.appendChild(createBinarySearchTreeElement(bst));
+  } catch (e) {
+    alert(e);
+  }
 };
