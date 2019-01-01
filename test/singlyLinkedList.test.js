@@ -33,7 +33,7 @@ describe('Singly Linked List test', () => {
   });
 
   // push 메소드 테스트
-  describe('SLL - push', () => {
+  describe('push', () => {
     // SLL에 노드가 없을 경우 하나의 노드를 만들고 head, tail로 지정한다.
     it('should create new node, and set it as head && tail WHEN length === 0', () => {
       emptySll.push(1);
@@ -56,7 +56,7 @@ describe('Singly Linked List test', () => {
   });
 
   // pop 메소드 테스트
-  describe('SLL - pop', () => {
+  describe('pop', () => {
     // SLL 에 노드가 없을 경우 undefined 를 리턴한다.
     it('should return undefined WHEN length === 0', () => {
       const poppedVal = emptySll.pop();
@@ -88,7 +88,7 @@ describe('Singly Linked List test', () => {
   });
 
   // shift 메소드 테스트
-  describe('SLL - shift', () => {
+  describe('shift', () => {
     // SLL 에 노드가 없을 경우 undefined 를 리턴한다.
     it('should return undefined WHEN length === 0', () => {
       const shiftedVal = emptySll.shift();
@@ -120,7 +120,7 @@ describe('Singly Linked List test', () => {
   });
 
   // unshift 메소드 테스트
-  describe('SLL - unshift', () => {
+  describe('unshift', () => {
     // SLL에 노드가 없을 경우 하나의 노드를 만들고 head, tail로 지정한다.
     it('should create new node, and set it as head && tail WHEN length === 0', () => {
       emptySll.unshift(1);
@@ -143,7 +143,7 @@ describe('Singly Linked List test', () => {
   });
 
   // insert 메소드 테스트
-  describe('SLL - insert', () => {
+  describe('insert', () => {
     // 해당 index 위치에 노드를 생성해서 삽입한다.
     it('should insert node in currect index', () => {
       twoNodeSll.insert(1, 7);
@@ -160,7 +160,7 @@ describe('Singly Linked List test', () => {
   });
 
   // remove 메소드 테스트
-  describe('SLL - remove', () => {
+  describe('remove', () => {
     // 해당 index 위치에 있는 노드를 제거하고 값을 리턴한다.
     it('should remove node in correct index and return value', () => {
       const removedValue = threeNodeSll.remove(0);
@@ -178,7 +178,7 @@ describe('Singly Linked List test', () => {
   });
 
   // reverse 메소드 테스트
-  describe('SLL - reverse', () => {
+  describe('reverse', () => {
     // length > 1 일 때, SLL을 뒤집는다
     it('should reverse SLL WHEN length > 1', () => {
       threeNodeSll.reverse();

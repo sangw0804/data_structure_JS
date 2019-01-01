@@ -28,7 +28,7 @@ beforeEach(() => {
 
 describe('MaxHeap Test', () => {
   // MaxHeap 초기화
-  describe('MaxHeap - initialize', () => {
+  describe('initialize', () => {
     it('should make empty maxHeap', () => {
       expect(emptyMaxHeap.size()).toBe(0);
       expect(emptyMaxHeap.max).toBe(true);
@@ -36,7 +36,7 @@ describe('MaxHeap Test', () => {
   });
 
   // insert 메소드 테스트
-  describe('MaxHeap - insert', () => {
+  describe('insert', () => {
     // 숫자가 value로 주어지면 맞는 위치에 insert 한다.
     it('should insert value in correct position', () => {
       emptyMaxHeap.insert(5);
@@ -57,7 +57,7 @@ describe('MaxHeap Test', () => {
   });
 
   // pop 메소드 테스트
-  describe('MaxHeap - pop', () => {
+  describe('pop', () => {
     // 빈 heap 의 경우 undefined를 리턴한다.
     it('should return undefined if empty', () => {
       expect(emptyMaxHeap.pop()).toBeUndefined();
@@ -83,7 +83,7 @@ describe('MaxHeap Test', () => {
 
 describe('MinHeap Test', () => {
   // MinHeap 초기화
-  describe('MinHeap - initialize', () => {
+  describe('initialize', () => {
     it('should make empty minHeap', () => {
       expect(emptyMinHeap.size()).toBe(0);
       expect(emptyMinHeap.max).toBe(false);
@@ -91,7 +91,7 @@ describe('MinHeap Test', () => {
   });
 
   // insert 메소드 테스트
-  describe('MinHeap - insert', () => {
+  describe('insert', () => {
     // 숫자가 value로 주어지면 맞는 위치에 insert 한다.
     it('should insert value in correct position', () => {
       emptyMinHeap.insert(5);
@@ -113,7 +113,7 @@ describe('MinHeap Test', () => {
   });
 
   // pop 메소드 테스트
-  describe('MinHeap - pop', () => {
+  describe('pop', () => {
     // 빈 heap 의 경우 undefined를 리턴한다.
     it('should return undefined if empty', () => {
       expect(emptyMinHeap.pop()).toBeUndefined();

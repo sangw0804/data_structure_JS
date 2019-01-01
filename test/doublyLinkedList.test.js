@@ -33,7 +33,7 @@ describe('Doubly Linked List test', () => {
   });
 
   // push 메소드 테스트
-  describe('DLL - push', () => {
+  describe('push', () => {
     // DLL 에 노드가 없을 경우 하나의 노드를 만들고 그 노드를 head 이자 tail 노드로 정한다.
     it('should make new node and make it as a tail and head WHEN length === 0', () => {
       emptyDll.push(1);
@@ -53,7 +53,7 @@ describe('Doubly Linked List test', () => {
   });
 
   // pop 메소드 테스트
-  describe('DLL - pop', () => {
+  describe('pop', () => {
     // DLL 에 노드가 없을 경우 undefined를 리턴한다
     it('should return undefined WHEN length === 0', () => {
       const poppedValue = emptyDll.pop();
@@ -85,7 +85,7 @@ describe('Doubly Linked List test', () => {
   });
 
   // unshift 메소드 테스트
-  describe('DLL - unshift', () => {
+  describe('unshift', () => {
     // DLL 에 노드가 없을 경우 하나의 노드를 만들고 그 노드를 head 이자 tail 노드로 정한다.
     it('should make new node and make it as a tail and head WHEN length === 0', () => {
       emptyDll.unshift(1);
@@ -108,7 +108,7 @@ describe('Doubly Linked List test', () => {
   });
 
   // shift 메소드 테스트
-  describe('DLL - shift', () => {
+  describe('shift', () => {
     // DLL 에 노드가 없을 경우 undefined 를 리턴한다.
     it('should return undefined WHEN length === 0', () => {
       const shiftedValue = emptyDll.shift();
@@ -140,7 +140,7 @@ describe('Doubly Linked List test', () => {
   });
 
   // insert 메소드 테스트
-  describe('DLL - insert', () => {
+  describe('insert', () => {
     // 해당 index 위치에 새로운 노드를 생성해서 삽입한다.
     it('should insert node in valid index', () => {
       twoNodeDll.insert(1, 3);
@@ -177,7 +177,7 @@ describe('Doubly Linked List test', () => {
   });
 
   // remove 메소드 테스트
-  describe('DLL - remove', () => {
+  describe('remove', () => {
     // 해당 index 위치에 있는 노드를 pop 해서 삭제하고 그 값을 리턴한다.
     it('should remove node with valid index and return value', () => {
       const removedValue = threeNodeDll.remove(1);
@@ -201,7 +201,7 @@ describe('Doubly Linked List test', () => {
   });
 
   // reverse 메소드 테스트
-  describe('DLL - reverse', () => {
+  describe('reverse', () => {
     // length > 1 일 때, DLL을 뒤집는다.
     it('should reverse dll WHEN length > 1', () => {
       threeNodeDll.reverse();

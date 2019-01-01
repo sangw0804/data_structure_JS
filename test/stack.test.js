@@ -17,7 +17,7 @@ describe('Stack Test', () => {
   });
 
   // push & pop 메소드 테스트
-  describe('Stack - push & pop', () => {
+  describe('push & pop', () => {
     it('should push & pop value in stack', () => {
       emptyStack.push(1);
       expect(emptyStack.size()).toBe(1);

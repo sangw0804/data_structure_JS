@@ -25,7 +25,7 @@ describe('Binary Search Tree Test', () => {
   });
 
   // insert 메소드 테스트
-  describe('BST - insert', () => {
+  describe('insert', () => {
     // 빈 BST에 insert 하면 root 가 된다.
     it('should make new node and set it as root WHEN length === 0', () => {
       emptyBst.insert(1);
@@ -58,7 +58,7 @@ describe('Binary Search Tree Test', () => {
   });
 
   // find 메소드 테스트
-  describe('BST - find', () => {
+  describe('find', () => {
     // 주어진 value 를 가진 노드를 찾아서 리턴한다.
     it('should find and return node with given value', () => {
       const foundNode = multiNodeBst.find(3);
@@ -73,7 +73,7 @@ describe('Binary Search Tree Test', () => {
   });
 
   // remove 메소드 테스트
-  describe('BST - remove', () => {
+  describe('remove', () => {
     // 주어진 value 를 가진 노드를 찾아서 해당 노드를 제거한다. (자식이 하니인 노드를 제거하는 경우)
     it('should remove node and return the value', () => {
       multiNodeBst.remove(8);

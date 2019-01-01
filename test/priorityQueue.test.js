@@ -24,7 +24,7 @@ describe('Priority Queue Test', () => {
   });
 
   // enqueue 테스트
-  describe('Priority Queue - enqueue', () => {
+  describe('enqueue', () => {
     // 노드를 생성해서 우선순위에 맞는 위치에 삽입한다.
     it('should make new node and insert it in correct position', () => {
       emptyPriorityQueue.enqueue('A', 3);
@@ -48,7 +48,7 @@ describe('Priority Queue Test', () => {
   });
 
   // dequeue 테스트
-  describe('Priority Queue - dequeue', () => {
+  describe('dequeue', () => {
     // 가장 우선순위가 낮은 노드를 리턴한다.
     it('should return node with lowest priority', () => {
       expect(multiPriorityQueue.dequeue().value).toBe('A');
