@@ -1,5 +1,5 @@
-import { SinglyLinkedList } from '../index.js';
-import { createSinglyLinkedListElement } from '../components/index.js';
+import { SinglyLinkedList } from '../../index.js';
+import { createSinglyLinkedListElement } from '../../components/index.js';
 
 const sll = new SinglyLinkedList();
 const main = document.getElementById('main');
