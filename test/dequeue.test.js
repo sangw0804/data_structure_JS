@@ -18,7 +18,7 @@ describe('Dequeue Test', () => {
   });
 
   // pushHead & pushTail & popHead & popTail 메소드 테스트
-  describe('Dequeue - pushHead & pushTail & popHead & popTail', () => {
+  describe('pushHead & pushTail & popHead & popTail', () => {
     it('should push & pop at both head & tail correctly', () => {
       emptyDequeue.pushHead(1);
       emptyDequeue.pushTail(2);

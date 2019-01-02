@@ -18,7 +18,7 @@ describe('Queue Test', () => {
   });
 
   // enqueue & dequeue 테스트
-  describe('Queue - enqueue & dequeue', () => {
+  describe('enqueue & dequeue', () => {
     it('enqueue & dequeue values in queue', () => {
       emptyQueue.enqueue(1);
       expect(emptyQueue.size()).toBe(1);

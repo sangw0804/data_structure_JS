@@ -10,5 +10,6 @@ export {
   Dequeue,
   BinarySearchTree,
   Heap,
-  PriorityQueue
+  PriorityQueue,
+  Graph
 } from './lib/index.js';
