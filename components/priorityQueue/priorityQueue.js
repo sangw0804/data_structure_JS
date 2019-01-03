@@ -1,4 +1,3 @@
-import { PriorityQueue } from '../../lib/index.js';
 import { createPriorityNodeElement, createNodeElement } from '../node.js';
 
 const createPriorityQueueElement = priorityQueue => {

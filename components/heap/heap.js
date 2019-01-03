@@ -1,4 +1,3 @@
-import { Heap } from '../../lib/index.js';
 import { createNodeElement } from '../node.js';
 
 const createHeapElement = heap => {

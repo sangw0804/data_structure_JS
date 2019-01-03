@@ -1,4 +1,3 @@
-import { SinglyLinkedList } from '../../lib/index.js';
 import { createNodeElement } from '../node.js';
 import { createArrow } from '../pointer.js';
 
