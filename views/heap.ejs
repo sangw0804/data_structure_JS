@@ -1,16 +1,10 @@
 <% include partials/header %>
-
-    <div id="name">Max Heap</div>
-    <div id="main"></div>
-    <div>
-      <input id="insert_value" type="number" />
-      <button id="insert_button">insert</button>
-    </div>
-    <div>
-      <button id="pop_button">pop</button>
-    </div>
-    <div>
-      <button id="change_button">Max / Min heap</button>
-    </div>
-
+<h1 id="name">Max Heap</h1>
+<button id="change_button">Max / Min heap</button>
+<div>
+  <input id="insert_value" type="number" placeholder="value" /> <button id="insert_button">insert</button>
+  <button id="pop_button">pop</button>
+</div>
+<div id="main"></div>
+<script type="module" src="./js/visualize_heap.js"></script>
 <% include partials/footer %>

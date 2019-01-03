@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  color: #222;
+}
+
+.container {
+  width: 1024px;
+  margin: 4rem auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.sidebar {
+  min-width: 18rem;
+  padding: 0 2rem;
+  list-style-type: none;
+  line-height: 2;
+  font-weight: 700;
+  font-size: 1.3rem;
+  border-right: 1px solid #ccc;
+}
+
+.sidebar > li > a {
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.5;
+}
+
+.introduction {
+  color: crimson;
+  opacity: 1 !important;
+}
+
+.index-title {
+  font-size: 5rem;
+  margin-bottom: 2rem;
+}
+
+.author {
+  font-size: 1.5rem;
+  text-align: right;
+}
+
+.author > a {
+  text-decoration: none;
+  color: lightslategray;
+}
+
+.content {
+  padding: 0 2rem;
+  width: 100%;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+input {
+  border: 1px solid #bbb;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  font-size: 1rem;
+  width: 10rem;
+}
+
+input:hover,
+input:focus {
+  border: 1px solid #222;
+}
+
+button {
+  border: 2px solid #222;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+button:hover {
+  background-color: #222;
+  color: #fff;
+}
+
+#main {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #222;
+}

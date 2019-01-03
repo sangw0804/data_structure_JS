@@ -5,8 +5,8 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
-app.use(express.static('/Users/sangwoo/Desktop/programming/dataStructureJS/public'));
-app.use(express.static('/Users/sangwoo/Desktop/programming/dataStructureJS'));
+app.use(express.static('./public'));
+app.use(express.static('./'));
 
 app.get('/:data_structure', (req, res) => {
   try {

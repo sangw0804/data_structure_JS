@@ -1,19 +1,13 @@
 <% include partials/header %>
-
-    <div id="main"></div>
-    <div>
-      <input id="push_tail_value" type="text" placeholder="value" />
-      <button id="push_tail_button">push_tail</button>
-    </div>
-    <div>
-      <button id="pop_tail_button">pop_tail</button>
-    </div>
-    <div>
-      <input id="push_head_value" type="text" placeholder="value" />
-      <button id="push_head_button">push_head</button>
-    </div>
-    <div>
-      <button id="pop_head_button">pop_head</button>
-    </div>
-
+<h1>Dequeue</h1>
+<div>
+  <input id="push_tail_value" type="text" placeholder="value" /> <button id="push_tail_button">push_tail</button>
+  <button id="pop_tail_button">pop_tail</button>
+</div>
+<div>
+  <input id="push_head_value" type="text" placeholder="value" /> <button id="push_head_button">push_head</button>
+  <button id="pop_head_button">pop_head</button>
+</div>
+<div id="main"></div>
+<script type="module" src="./js/visualize_dequeue.js"></script>
 <% include partials/footer %>
