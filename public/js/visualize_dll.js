@@ -8,9 +8,14 @@ const main = document.getElementById('main');
 const pushButton = document.getElementById('push_button');
 const pushInput = document.getElementById('push_value');
 pushButton.onclick = () => {
-  dll.push(pushInput.value);
-  main.innerHTML = null;
-  main.appendChild(createDoublyLinkedListElement(dll));
+  try {
+    if (!pushInput.value.length) throw new Error('채워지지 않은 필드가 있습니다.');
+    dll.push(pushInput.value);
+    main.innerHTML = null;
+    main.appendChild(createDoublyLinkedListElement(dll));
+  } catch (e) {
+    alert(e);
+  }
 };
 
 // pop
@@ -25,9 +30,14 @@ popButton.onclick = () => {
 const unshiftButton = document.getElementById('unshift_button');
 const unshiftInput = document.getElementById('unshift_value');
 unshiftButton.onclick = () => {
-  dll.unshift(unshiftInput.value);
-  main.innerHTML = null;
-  main.appendChild(createDoublyLinkedListElement(dll));
+  try {
+    if (!unshiftInput.value.length) throw new Error('채워지지 않은 필드가 있습니다.');
+    dll.unshift(unshiftInput.value);
+    main.innerHTML = null;
+    main.appendChild(createDoublyLinkedListElement(dll));
+  } catch (e) {
+    alert(e);
+  }
 };
 
 // shift
@@ -44,6 +54,7 @@ const insertIndexInput = document.getElementById('insert_index_value');
 const insertValueInput = document.getElementById('insert_value_value');
 insertButton.onclick = () => {
   try {
+    if (!insertIndexInput.value.length || !insertValueInput) throw new Error('채워지지 않은 필드가 있습니다.');
     dll.insert(+insertIndexInput.value, insertValueInput.value);
     main.innerHTML = null;
     main.appendChild(createDoublyLinkedListElement(dll));
@@ -57,6 +68,7 @@ const removeButton = document.getElementById('remove_button');
 const removeIndexInput = document.getElementById('remove_index_value');
 removeButton.onclick = () => {
   try {
+    if (!removeIndexInput.value.length) throw new Error('채워지지 않은 필드가 있습니다.');
     dll.remove(+removeIndexInput.value);
     main.innerHTML = null;
     main.appendChild(createDoublyLinkedListElement(dll));

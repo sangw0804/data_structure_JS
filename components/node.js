@@ -31,4 +31,22 @@ const createPriorityNodeElement = (value, priority) => {
   return priorityNodeElement;
 };
 
-export { createNodeElement, createPriorityNodeElement };
+const createEmptyNodeElement = () => {
+  const nodeElement = document.createElement('div');
+  nodeElement.setAttribute('style', 'font-size: 2rem; height: 100px; width:100px; display:inline-block; margin: 5px;');
+
+  nodeElement.appendChild(document.createTextNode('empty'));
+
+  return nodeElement;
+};
+
+const createEmptyPriorityNodeElement = () => {
+  const nodeElement = document.createElement('div');
+  nodeElement.setAttribute('style', 'font-size: 2rem; height: 100px; width:100px; display:inline-flex; margin: 5px;');
+
+  nodeElement.appendChild(document.createTextNode('empty'));
+
+  return nodeElement;
+};
+
+export { createNodeElement, createPriorityNodeElement, createEmptyNodeElement, createEmptyPriorityNodeElement };

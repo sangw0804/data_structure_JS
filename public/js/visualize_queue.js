@@ -8,9 +8,14 @@ const main = document.getElementById('main');
 const enqueueButton = document.getElementById('enqueue_button');
 const enqueueInput = document.getElementById('enqueue_value');
 enqueueButton.onclick = () => {
-  queue.enqueue(enqueueInput.value);
-  main.innerHTML = null;
-  main.appendChild(createQueueElement(queue));
+  try {
+    if (!enqueueInput.value.length) throw new Error('채워지지 않은 필드가 있습니다.');
+    queue.enqueue(enqueueInput.value);
+    main.innerHTML = null;
+    main.appendChild(createQueueElement(queue));
+  } catch (e) {
+    alert(e);
+  }
 };
 
 // dequeue

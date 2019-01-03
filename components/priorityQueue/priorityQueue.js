@@ -1,4 +1,4 @@
-import { createPriorityNodeElement, createNodeElement } from '../node.js';
+import { createPriorityNodeElement, createEmptyPriorityNodeElement } from '../node.js';
 
 const createPriorityQueueElement = priorityQueue => {
   const result = document.createElement('div');
@@ -22,7 +22,7 @@ const createPriorityQueueElement = priorityQueue => {
 
   if (priorityQueue.size() - 1 > end - power) {
     for (let i = priorityQueue.size(); i <= end; i += 1) {
-      row.appendChild(createNodeElement('empty'));
+      row.appendChild(createEmptyPriorityNodeElement());
     }
     result.appendChild(row);
   }

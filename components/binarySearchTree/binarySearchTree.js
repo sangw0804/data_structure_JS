@@ -1,7 +1,7 @@
-import { createNodeElement } from '../node.js';
+import { createNodeElement, createEmptyNodeElement } from '../node.js';
 
 const recursive = n => {
-  if (!n) return createNodeElement('empty');
+  if (!n) return createEmptyNodeElement();
   const currentElement = document.createElement('div');
   currentElement.setAttribute('style', 'display: inline-flex; flex-direction: column; align-items: center');
   currentElement.appendChild(createNodeElement(n.value));

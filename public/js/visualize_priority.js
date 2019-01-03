@@ -9,9 +9,15 @@ const enqueueButton = document.getElementById('enqueue_button');
 const enqueueValueInput = document.getElementById('enqueue_value_value');
 const enqueuePriorityInput = document.getElementById('enqueue_priority_value');
 enqueueButton.onclick = () => {
-  priorityQueue.enqueue(enqueueValueInput.value, +enqueuePriorityInput.value);
-  main.innerHTML = null;
-  main.appendChild(createPriorityQueueElement(priorityQueue));
+  try {
+    if (!enqueueValueInput.value.length || !enqueuePriorityInput.value.length)
+      throw new Error('채워지지 않은 필드가 있습니다.');
+    priorityQueue.enqueue(enqueueValueInput.value, +enqueuePriorityInput.value);
+    main.innerHTML = null;
+    main.appendChild(createPriorityQueueElement(priorityQueue));
+  } catch (e) {
+    alert(e);
+  }
 };
 
 // dequeue

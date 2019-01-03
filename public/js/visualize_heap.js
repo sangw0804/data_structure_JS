@@ -11,9 +11,14 @@ const name = document.getElementById('name');
 const insertButton = document.getElementById('insert_button');
 const insertInput = document.getElementById('insert_value');
 insertButton.onclick = () => {
-  heap.insert(+insertInput.value);
-  main.innerHTML = null;
-  main.appendChild(createHeapElement(heap));
+  try {
+    if (!insertInput.value.length) throw new Error('채워지지 않은 필드가 있습니다.');
+    heap.insert(+insertInput.value);
+    main.innerHTML = null;
+    main.appendChild(createHeapElement(heap));
+  } catch (e) {
+    alert(e);
+  }
 };
 
 // pop

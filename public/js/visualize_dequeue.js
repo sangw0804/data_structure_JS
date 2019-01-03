@@ -8,9 +8,14 @@ const main = document.getElementById('main');
 const pushTailButton = document.getElementById('push_tail_button');
 const pushTailInput = document.getElementById('push_tail_value');
 pushTailButton.onclick = () => {
-  dequeue.pushTail(pushTailInput.value);
-  main.innerHTML = null;
-  main.appendChild(createDequeueElement(dequeue));
+  try {
+    if (!pushTailInput.value.length) throw new Error('채워지지 않은 필드가 있습니다.');
+    dequeue.pushTail(pushTailInput.value);
+    main.innerHTML = null;
+    main.appendChild(createDequeueElement(dequeue));
+  } catch (e) {
+    alert(e);
+  }
 };
 
 // pop_tail
@@ -25,9 +30,14 @@ popTailButton.onclick = () => {
 const pushHeadButton = document.getElementById('push_head_button');
 const pushHeadInput = document.getElementById('push_head_value');
 pushHeadButton.onclick = () => {
-  dequeue.pushHead(pushHeadInput.value);
-  main.innerHTML = null;
-  main.appendChild(createDequeueElement(dequeue));
+  try {
+    if (!pushHeadInput.value.length) throw new Error('채워지지 않은 필드가 있습니다.');
+    dequeue.pushHead(pushHeadInput.value);
+    main.innerHTML = null;
+    main.appendChild(createDequeueElement(dequeue));
+  } catch (e) {
+    alert(e);
+  }
 };
 
 // pop_head

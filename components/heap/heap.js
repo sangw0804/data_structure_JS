@@ -1,4 +1,4 @@
-import { createNodeElement } from '../node.js';
+import { createNodeElement, createEmptyNodeElement } from '../node.js';
 
 const createHeapElement = heap => {
   const result = document.createElement('div');
@@ -22,7 +22,7 @@ const createHeapElement = heap => {
 
   if (heap.size() - 1 > end - power) {
     for (let i = heap.size(); i <= end; i += 1) {
-      row.appendChild(createNodeElement('empty'));
+      row.appendChild(createEmptyNodeElement());
     }
     result.appendChild(row);
   }
