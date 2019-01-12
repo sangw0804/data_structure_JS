@@ -2,14 +2,17 @@ import { createNodeElement, createEmptyNodeElement } from '../node.js';
 
 const recursive = n => {
   if (!n) return createEmptyNodeElement();
+
   const currentElement = document.createElement('div');
   currentElement.setAttribute('style', 'display: inline-flex; flex-direction: column; align-items: center');
   currentElement.appendChild(createNodeElement(n.value));
+
   const childrenElement = document.createElement('div');
   childrenElement.setAttribute('style', 'display: inline-flex;');
   childrenElement.appendChild(recursive(n.leftChild));
   childrenElement.appendChild(recursive(n.rightChild));
   currentElement.appendChild(childrenElement);
+
   return currentElement;
 };
 

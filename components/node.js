@@ -7,6 +7,7 @@ const createNodeElement = value => {
   );
 
   nodeElement.appendChild(document.createTextNode(`${value}`));
+
   return nodeElement;
 };
 
@@ -28,6 +29,7 @@ const createPriorityNodeElement = (value, priority) => {
 
   priorityNodeElement.appendChild(priorityNode);
   priorityNodeElement.appendChild(valueNode);
+
   return priorityNodeElement;
 };
 

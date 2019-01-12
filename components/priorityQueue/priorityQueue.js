@@ -8,6 +8,7 @@ const createPriorityQueueElement = priorityQueue => {
   let end = 0;
   let power = 1;
   let row = document.createElement('div');
+
   priorityQueue.nodes.forEach((node, index) => {
     if (index === end) {
       row.appendChild(createPriorityNodeElement(node.value, node.priority));

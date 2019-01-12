@@ -7,6 +7,7 @@ const createDequeueElement = dequeue => {
     'style',
     'border-top: 1px solid black; border-bottom: 1px solid black; display: flex; align-items: center'
   );
+
   if (!dequeue.size()) return result;
 
   let current = dequeue.head;

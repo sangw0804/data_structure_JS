@@ -7,6 +7,7 @@ const createQueueElement = queue => {
     'style',
     'border-top: 1px solid black; border-bottom: 1px solid black; display: flex; align-items: center'
   );
+
   if (!queue.size()) return result;
 
   let current = queue.head;

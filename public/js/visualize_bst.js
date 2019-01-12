@@ -1,7 +1,7 @@
 import { BinarySearchTree } from '../index.js';
 import { createBinarySearchTreeElement } from '../components/index.js';
 
-let bst = new BinarySearchTree();
+const bst = new BinarySearchTree();
 const main = document.getElementById('main');
 
 // insert
