@@ -199,11 +199,12 @@ dequeue.popHead(); // undefined
 import { Heap } from dataStructureJS
 
 // 힙 인스턴스 생성
-// new Heap(boolean isMax = true)
+// new Heap(isMax = true)
 // 생성자에 인자로 boolean 값을 줄 수 있다.
 // true 이면 max heap, false 이면 min heap이 생성되고, 기본값은 true 이다.
 const heap = new Heap();
 
+// insert 인자가 number 타입이 아니면 에러가 발생한다.
 heap.insert('not number'); // Error: Invalid value is given!
 
 heap.insert(4); // [4]
@@ -225,6 +226,39 @@ heap.pop(); // undefined
 
 ```
 
+### - Priority Queue
+
+```javascript
+
+import { PriorityQueue } from dataStructureJS
+
+// 우선순위 큐 인스턴스 생성
+const pq = new PriorityQueue();
+
+// pq.enqueue(priority, value)
+
+// priority 가 number 타입이 아니면 에러가 발생한다.
+pq.enqueue('not number', 'val'); // Error: Invalid value is given!
+
+pq.enqueue(3, 'wash your hand');
+// [{3, 'wash your hand'}]
+pq.enqueue(4, 'eat food');
+// [{3, 'wash your hand'}, {4, 'eat food'}]
+pq.enqueue(1, 'find out location of toilet');
+// [{1, 'find out location of toilet'}, {4, 'eat food'}, {3, 'wash your hand'}]
+
+pq.size(); // 3
+
+pq.dequeue(); // {priority: 1, value: 'find out location of toilet'}
+// [{3, 'wash your hand'}, {4, 'eat food'}]
+pq.dequeue(); // {priority: 3, value: 'wash your hand'}
+// [{4, 'eat food'}]
+pq.dequeue(); // {priority: 4, value: 'eat food'}
+// []
+pq.dequeue(); // undefined
+
+```
+
 <br>
 
 ## TEST
@@ -232,9 +266,7 @@ heap.pop(); // undefined
 - 테스트 실행
 
 ```
-
 npm run test
-
 ```
 
 <br>
@@ -244,9 +276,7 @@ npm run test
 루트 디렉토리에서 npm run start 로 visualization 웹 서버를 3000번 포트에 실행시킬 수 있습니다.
 
 ```
-
 npm run start
-
 ```
 
 <br>
@@ -258,7 +288,3 @@ npm run start
 ## LICENSE
 
 MIT
-
-```
-
-```
