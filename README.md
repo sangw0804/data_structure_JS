@@ -259,6 +259,86 @@ pq.dequeue(); // undefined
 
 ```
 
+### - Binary Search Tree
+
+```javascript
+
+import { BinarySearchTree } from dataStructureJS
+
+// 이진탐색트리 인스턴스 생성
+const bst = new BinarySearchTree();
+
+// insert 의 인자가 number 이외의 타입일 경우 에러 발생
+bst.insert('not number'); // Error: Invalid valud is given!
+
+bst.insert(4);
+// 4
+bst.insert(3);
+//   4
+// 3
+bst.insert(10);
+//   4
+// 3   10
+bst.insert(100);
+//   4
+// 3   10
+//       100
+
+bst.find(3); // true
+bst.find(11); // false
+
+bst.remove(10);
+//   4
+// 3   100
+bst.remove(20); // Error: given value doesn't exist!!
+
+```
+
+### - Graph
+
+```javascript
+
+import { Graph } from dataStructureJS
+
+// 그래프 인스턴스 생성
+const graph = new Graph();
+
+graph.addVertex('a');
+graph.addVertex('b');
+graph.addVertex('b'); // Error: given value already exists!
+graph.addVertex('c');
+
+graph.sizeVertex(); // 3
+
+graph.addEdge('a', 'b');
+graph.addEdge('a', 'z'); // Error: given value doesn't exist!
+graph.addEdge('a', 'c');
+//    a
+//  /  \
+// b   c
+
+graph.sizeEdge(); // 2
+
+graph.removeEdge('a', 'b');
+graph.removeEdge('a', 'z'); // Error: given value doesn't exist!
+//    a
+//     \
+// b   c
+
+graph.sizeEdge(); // 1
+
+graph.removeVertex('c');
+graph.removeVertex('d'); // Error: given value doesn't exist!
+//   a
+//
+// b
+// removeVertex 메소드를 실행하면 해당 vertex에 연결되어 있던 모든 edge들이 제거된다.
+
+graph.sizeVertex(); // 2
+graph.sizeEdge(); // 0
+
+```
+
 <br>
 
 ## TEST
