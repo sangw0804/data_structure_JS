@@ -37,8 +37,7 @@ visualization 웹 서버를 돌리기 위해 express / ejs를 사용하였습니
 ### - Singly Linked List
 
 ```javascript
-
-import { SinglyLinkedList } from dataStructureJS
+import { SinglyLinkedList } from 'data-structure-visualization';
 
 // SLL 인스턴스 생성
 const sll = new SinglyLinkedList();
@@ -79,14 +78,12 @@ sll.push(3); // [1, 2, 3]
 
 sll.reverse();
 sll; // [3, 2, 1]
-
 ```
 
 ### - Doubly Linked List
 
 ```javascript
-
-import { DoublyLinkedList } from dataStructureJS
+import { DoublyLinkedList } from 'data-structure-visualization';
 
 // DLL 인스턴스 생성
 const dll = new DoublyLinkedList();
@@ -127,14 +124,12 @@ dll.push(3); // [1, 2, 3]
 
 dll.reverse();
 dll; // [3, 2, 1]
-
 ```
 
 ### - Stack
 
 ```javascript
-
-import { Stack } from dataStructureJS
+import { Stack } from 'data-structure-visualization';
 
 // 스택 인스턴스 생성
 const stack = new Stack();
@@ -147,14 +142,12 @@ stack.size(); // 2
 stack.pop(); // 2
 stack.pop(); // 1
 stack.pop(); // undefined
-
 ```
 
 ### - Queue
 
 ```javascript
-
-import { Queue } from dataStructureJS
+import { Queue } from 'data-structure-visualization';
 
 // 큐 인스턴스 생성
 const queue = new Queue();
@@ -167,14 +160,12 @@ queue.size(); // 2
 queue.dequeue(); // 1
 queue.dequeue(); // 2
 queue.dequeue(); // undefined
-
 ```
 
 ### - Dequeue
 
 ```javascript
-
-import { Dequeue } from dataStructureJS
+import { Dequeue } from 'data-structure-visualization';
 
 // 덱 인스턴스 생성
 const dequeue = new Dequeue();
@@ -189,14 +180,12 @@ dequeue.popTail(); // 2
 dequeue.popHead(); // 3
 dequeue.popHead(); // 1
 dequeue.popHead(); // undefined
-
 ```
 
 ### - Heap
 
 ```javascript
-
-import { Heap } from dataStructureJS
+import { Heap } from 'data-structure-visualization';
 
 // 힙 인스턴스 생성
 // new Heap(isMax = true)
@@ -223,14 +212,12 @@ heap.pop(); // 5
 heap.pop(); // 4
 // []
 heap.pop(); // undefined
-
 ```
 
 ### - Priority Queue
 
 ```javascript
-
-import { PriorityQueue } from dataStructureJS
+import { PriorityQueue } from 'data-structure-visualization';
 
 // 우선순위 큐 인스턴스 생성
 const pq = new PriorityQueue();
@@ -256,14 +243,12 @@ pq.dequeue(); // {priority: 3, value: 'wash your hand'}
 pq.dequeue(); // {priority: 4, value: 'eat food'}
 // []
 pq.dequeue(); // undefined
-
 ```
 
 ### - Binary Search Tree
 
 ```javascript
-
-import { BinarySearchTree } from dataStructureJS
+import { BinarySearchTree } from 'data-structure-visualization';
 
 // 이진탐색트리 인스턴스 생성
 const bst = new BinarySearchTree();
@@ -291,14 +276,12 @@ bst.remove(10);
 //   4
 // 3   100
 bst.remove(20); // Error: given value doesn't exist!!
-
 ```
 
 ### - Graph
 
 ```javascript
-
-import { Graph } from dataStructureJS
+import { Graph } from 'data-structure-visualization';
 
 // 그래프 인스턴스 생성
 const graph = new Graph();
@@ -336,7 +319,6 @@ graph.removeVertex('d'); // Error: given value doesn't exist!
 
 graph.sizeVertex(); // 2
 graph.sizeEdge(); // 0
-
 ```
 
 <br>
