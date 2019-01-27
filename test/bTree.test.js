@@ -145,5 +145,50 @@ describe('B-Tree Test', () => {
     });
   });
 
-  describe();
+  describe('_borrowKey Test', () => {
+    it('should borrowKey from left sibling node', () => {
+      const testBTree = new BTree(3);
+      testBTree.root = new BTreeNode(3);
+      testBTree.root.values = ['d', 'h', 'm'];
+      testBTree.root.valueLength = 3;
+
+      const firstChild = new BTreeNode(3);
+      firstChild.values = ['a', 'b'];
+      firstChild.valueLength = 2;
+      firstChild.children = ['1', '2', '3'];
+
+      const secondChild = new BTreeNode(3);
+      secondChild.values = ['f'];
+      secondChild.valueLength = 1;
+      secondChild.children = ['4', '5'];
+
+      const thirdChild = new BTreeNode(3);
+      thirdChild.values = ['i', 'j'];
+      thirdChild.valueLength = 2;
+      thirdChild.children = ['6', '7', '8'];
+
+      const fourthChild = new BTreeNode(3);
+      fourthChild.values = ['o', 'p'];
+      fourthChild.valueLength = 2;
+      fourthChild.children = ['9', '10', '11'];
+
+      testBTree.root.children = [firstChild, secondChild, thirdChild, fourthChild];
+
+      expect(testBTree._borrowKey(testBTree.root, 1)).toBe(true);
+      expect(testBTree.root.size()).toBe(3);
+      expect(testBTree.root.values).toEqual(['d', 'i', 'm']);
+      expect(testBTree.root.children[0].size()).toBe(2);
+      expect(testBTree.root.children[0].values).toEqual(['a', 'b']);
+      expect(testBTree.root.children[1].size()).toBe(2);
+      expect(testBTree.root.children[1].values).toEqual(['f', 'h']);
+      expect(testBTree.root.children[2].size()).toBe(1);
+      expect(testBTree.root.children[2].values).toEqual(['j']);
+      expect(testBTree.root.children[3].size()).toBe(2);
+      expect(testBTree.root.children[3].values).toEqual(['o', 'p']);
+    });
+  });
+
+  // describe('Remove Test', () => {
+  //   it('should remove value from bTree', () => {});
+  // });
 });
