@@ -42,4 +42,12 @@ describe('B-TreeNode Test', () => {
       expect(twoBTreeNode.findValue(4)).toBe(-1);
     });
   });
+
+  describe('clear Test', () => {
+    it('should empty values and children', () => {
+      twoBTreeNode.clear();
+      expect(twoBTreeNode.size()).toBe(0);
+      expect(twoBTreeNode.children.length).toBe(0);
+    });
+  });
 });

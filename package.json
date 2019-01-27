@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node --experimental-modules server.mjs",
     "test": "jest --no-cache test/*.test.js",
+    "test-spec": "jest --no-cache",
     "test-cover": "jest --no-cache --coverage test/*.test.js"
   },
   "repository": {
