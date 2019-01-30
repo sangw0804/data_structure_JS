@@ -322,6 +322,43 @@ graph.sizeVertex(); // 2
 graph.sizeEdge(); // 0
 ```
 
+### - B - Tree
+
+> 현재 홀수 b-tree 만 지원합니다.
+
+```javascript
+import { BTree } from 'data-structure-visualization';
+
+// B-tree 인스턴스 생성
+// 생성자 함수의 첫번째 인자로 b-tree의 차수 전달.
+const btree = new BTree(3); // 3차 b-tree 생성
+new Btree(4); // Error : invalid value is given! (현재 홀수 b-tree 만 지원합니다.)
+
+btree.insert(5);
+btree.insert(8);
+btree.insert(11);
+btree.insert(13);
+btree.insert(15);
+btree.insert(15); // Error : given value already exist!
+
+btree.size(); // 5
+
+//     8
+//  /    \
+// 5  11 13 15
+
+btree.find(13); // BTreeNode { values: [12 ,13, 15], children: [], limit: 3 }
+btree.find(1); // false
+
+btree.remove(8);
+//    11
+//  /    \
+// 5   13 15
+btree.remove(1); // Error : given value doesn't exist!
+
+btree.size(); // 4
+```
+
 <br>
 
 ## TEST
