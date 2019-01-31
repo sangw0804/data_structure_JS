@@ -1,5 +1,7 @@
 # &#128055; data_structure_JS
 
+[NAVER D2 CAMPUS FEST 결승진출팀!](https://github.com/D2CampusFest/6th)
+
 <br>
 
 ## INTRODUCTION
