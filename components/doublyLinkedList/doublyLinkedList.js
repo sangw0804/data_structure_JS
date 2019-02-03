@@ -11,7 +11,7 @@ const createDoublyLinkedListElement = dll => {
   result.appendChild(document.createTextNode('NULL'));
   while (current) {
     result.appendChild(createArrow('left'));
-    result.appendChild(createNodeElement(current.value));
+    result.appendChild(createNodeElement(current.value, current.colored));
     result.appendChild(createArrow('right'));
     current = current.next;
   }

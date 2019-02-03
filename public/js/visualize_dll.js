@@ -1,18 +1,25 @@
 import { DoublyLinkedList } from '../index.js';
 import { createDoublyLinkedListElement } from '../components/index.js';
 
+import { delayAndApply } from './helpers/delayAndApply.js';
+
 const dll = new DoublyLinkedList();
 const main = document.getElementById('main');
 
 // push
 const pushButton = document.getElementById('push_button');
 const pushInput = document.getElementById('push_value');
-pushButton.onclick = () => {
+pushButton.onclick = async () => {
   try {
     if (!pushInput.value.length) throw new Error('채워지지 않은 필드가 있습니다.');
-    dll.push(pushInput.value);
-    main.innerHTML = null;
-    main.appendChild(createDoublyLinkedListElement(dll));
+
+    dll.push(pushInput.value, true);
+
+    const snapshots = dll.returnSnapshots();
+    for (let i = 0; i < snapshots.length; i += 1) {
+      await delayAndApply(main, createDoublyLinkedListElement(snapshots[i]), 1000);
+    }
+    await delayAndApply(main, createDoublyLinkedListElement(dll), 1000);
   } catch (e) {
     alert(e);
   }
@@ -20,21 +27,34 @@ pushButton.onclick = () => {
 
 // pop
 const popButton = document.getElementById('pop_button');
-popButton.onclick = () => {
-  dll.pop();
-  main.innerHTML = null;
-  main.appendChild(createDoublyLinkedListElement(dll));
+popButton.onclick = async () => {
+  try {
+    dll.pop(true);
+
+    const snapshots = dll.returnSnapshots();
+    for (let i = 0; i < snapshots.length; i += 1) {
+      await delayAndApply(main, createDoublyLinkedListElement(snapshots[i]), 1000);
+    }
+    await delayAndApply(main, createDoublyLinkedListElement(dll), 1000);
+  } catch (e) {
+    alert(e);
+  }
 };
 
 // unshift
 const unshiftButton = document.getElementById('unshift_button');
 const unshiftInput = document.getElementById('unshift_value');
-unshiftButton.onclick = () => {
+unshiftButton.onclick = async () => {
   try {
     if (!unshiftInput.value.length) throw new Error('채워지지 않은 필드가 있습니다.');
-    dll.unshift(unshiftInput.value);
-    main.innerHTML = null;
-    main.appendChild(createDoublyLinkedListElement(dll));
+
+    dll.unshift(unshiftInput.value, true);
+
+    const snapshots = dll.returnSnapshots();
+    for (let i = 0; i < snapshots.length; i += 1) {
+      await delayAndApply(main, createDoublyLinkedListElement(snapshots[i]), 1000);
+    }
+    await delayAndApply(main, createDoublyLinkedListElement(dll), 1000);
   } catch (e) {
     alert(e);
   }
@@ -42,22 +62,35 @@ unshiftButton.onclick = () => {
 
 // shift
 const shiftButton = document.getElementById('shift_button');
-shiftButton.onclick = () => {
-  dll.shift();
-  main.innerHTML = null;
-  main.appendChild(createDoublyLinkedListElement(dll));
+shiftButton.onclick = async () => {
+  try {
+    dll.shift(true);
+
+    const snapshots = dll.returnSnapshots();
+    for (let i = 0; i < snapshots.length; i += 1) {
+      await delayAndApply(main, createDoublyLinkedListElement(snapshots[i]), 1000);
+    }
+    await delayAndApply(main, createDoublyLinkedListElement(dll), 1000);
+  } catch (e) {
+    alert(e);
+  }
 };
 
 // insert
 const insertButton = document.getElementById('insert_button');
 const insertIndexInput = document.getElementById('insert_index_value');
 const insertValueInput = document.getElementById('insert_value_value');
-insertButton.onclick = () => {
+insertButton.onclick = async () => {
   try {
     if (!insertIndexInput.value.length || !insertValueInput) throw new Error('채워지지 않은 필드가 있습니다.');
-    dll.insert(+insertIndexInput.value, insertValueInput.value);
-    main.innerHTML = null;
-    main.appendChild(createDoublyLinkedListElement(dll));
+
+    dll.insert(+insertIndexInput.value, insertValueInput.value, true);
+
+    const snapshots = dll.returnSnapshots();
+    for (let i = 0; i < snapshots.length; i += 1) {
+      await delayAndApply(main, createDoublyLinkedListElement(snapshots[i]), 1000);
+    }
+    await delayAndApply(main, createDoublyLinkedListElement(dll), 1000);
   } catch (e) {
     alert(e);
   }
@@ -66,12 +99,17 @@ insertButton.onclick = () => {
 // remove
 const removeButton = document.getElementById('remove_button');
 const removeIndexInput = document.getElementById('remove_index_value');
-removeButton.onclick = () => {
+removeButton.onclick = async () => {
   try {
     if (!removeIndexInput.value.length) throw new Error('채워지지 않은 필드가 있습니다.');
-    dll.remove(+removeIndexInput.value);
-    main.innerHTML = null;
-    main.appendChild(createDoublyLinkedListElement(dll));
+
+    dll.remove(+removeIndexInput.value, true);
+
+    const snapshots = dll.returnSnapshots();
+    for (let i = 0; i < snapshots.length; i += 1) {
+      await delayAndApply(main, createDoublyLinkedListElement(snapshots[i]), 1000);
+    }
+    await delayAndApply(main, createDoublyLinkedListElement(dll), 1000);
   } catch (e) {
     alert(e);
   }
@@ -79,8 +117,12 @@ removeButton.onclick = () => {
 
 // reverse
 const reverseButton = document.getElementById('reverse_button');
-reverseButton.onclick = () => {
-  dll.reverse();
-  main.innerHTML = null;
-  main.appendChild(createDoublyLinkedListElement(dll));
+reverseButton.onclick = async () => {
+  try {
+    dll.reverse();
+    main.innerHTML = null;
+    main.appendChild(createDoublyLinkedListElement(dll));
+  } catch (e) {
+    alert(e);
+  }
 };

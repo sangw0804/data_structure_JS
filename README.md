@@ -19,6 +19,10 @@ JS 에 네이티브하게 존재하지 않는 자료구조들을 구현한 라�
 
 테스트를 위해 jest 와 expect를 사용하였습니다.
 
+- clone
+
+snapshot 생성을 위해 object cloning (deep, circular) 라이브러리인 clone을 사용했습니다.
+
 - babel-preset-env
 
 jest가 ES6 일부 문법을 이해하지 못해 바벨을 사용하였습니다.

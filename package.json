@@ -24,6 +24,7 @@
   "homepage": "https://github.com/sangw0804/data_structure_JS#readme",
   "dependencies": {
     "babel-preset-env": "^1.7.0",
+    "clone": "^2.1.2",
     "ejs": "^2.6.1",
     "express": "^4.16.4"
   },
