@@ -3,7 +3,9 @@ const createNodeElement = (value, colored) => {
 
   nodeElement.setAttribute(
     'style',
-    `font-size: 2rem; border-radius:10px; background-color: ${colored ? 'blue' : 'tomato'}; height: 100px; width:100px; display:inline-block; margin: 5px; text-align: center`
+    `font-size: 2rem; border-radius:10px; background-color: ${
+      colored ? `${colored}` : 'tomato'
+    }; height: 100px; width:100px; display:inline-block; margin: 5px; text-align: center`
   );
 
   nodeElement.appendChild(document.createTextNode(`${value}`));
