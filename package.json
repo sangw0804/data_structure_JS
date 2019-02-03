@@ -26,7 +26,8 @@
     "babel-preset-env": "^1.7.0",
     "clone": "^2.1.2",
     "ejs": "^2.6.1",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "leader-line": "^1.0.5"
   },
   "devDependencies": {
     "eslint": "^5.10.0",
