@@ -3,9 +3,8 @@ const createNodeElement = (value, colored) => {
 
   nodeElement.setAttribute(
     'style',
-    `font-size: 2rem; border-radius:10px; background-color: ${
-      colored ? `${colored}` : 'tomato'
-    }; height: 100px; width:100px; display:inline-block; margin: 5px; text-align: center`
+    `font-size: 2rem; border-radius:10px; background-color: ${colored ||
+      'tomato'}; height: 100px; width:100px; display:inline-block; margin: 5px; text-align: center`
   );
 
   nodeElement.appendChild(document.createTextNode(`${value}`));
@@ -13,12 +12,13 @@ const createNodeElement = (value, colored) => {
   return nodeElement;
 };
 
-const createPriorityNodeElement = (value, priority) => {
+const createPriorityNodeElement = (value, priority, colored) => {
   const priorityNodeElement = document.createElement('div');
 
   priorityNodeElement.setAttribute(
     'style',
-    'border-radius:10px; background-color: tomato; height: 100px; width:100px; display: inline-flex; flex-direction:column; justify-content: around; align-items:center; margin: 5px; text-align: center'
+    `border-radius:10px; background-color: ${colored ||
+      'tomato'}; height: 100px; width:100px; display: inline-flex; flex-direction:column; justify-content: around; align-items:center; margin: 5px; text-align: center`
   );
 
   const priorityNode = document.createElement('div');
