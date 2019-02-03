@@ -1,6 +1,8 @@
 import { BinarySearchTree } from '../index.js';
 import { createBinarySearchTreeElement } from '../components/index.js';
 
+import { delayAndApply } from './helpers/delayAndApply.js';
+
 const bst = new BinarySearchTree();
 const main = document.getElementById('main');
 
@@ -18,14 +20,10 @@ insertButton.onclick = async event => {
 
     const snapshots = bst.returnSnapshots();
     for (let i = 0; i < snapshots.length; i += 1) {
-      await new Promise((res, rej) => setTimeout(() => res(), 1000)); // 1초씩 딜레이 주기.
-      main.innerHTML = null;
-      main.appendChild(createBinarySearchTreeElement(snapshots[i]));
+      await delayAndApply(main, createBinarySearchTreeElement(snapshots[i]), 1000);
     }
 
-    await new Promise((res, rej) => setTimeout(() => res(), 1000)); // 1초씩 딜레이 주기.
-    main.innerHTML = null;
-    main.appendChild(createBinarySearchTreeElement(bst));
+    await delayAndApply(main, createBinarySearchTreeElement(bst), 1000);
 
     event.target.innerText = 'INSERT';
     event.target.removeAttribute('disabled');
@@ -48,14 +46,10 @@ removeButton.onclick = async event => {
 
     const snapshots = bst.returnSnapshots();
     for (let i = 0; i < snapshots.length; i += 1) {
-      await new Promise((res, rej) => setTimeout(() => res(), 1000)); // 1초씩 딜레이 주기.
-      main.innerHTML = null;
-      main.appendChild(createBinarySearchTreeElement(snapshots[i]));
+      await delayAndApply(main, createBinarySearchTreeElement(snapshots[i]), 1000);
     }
 
-    await new Promise((res, rej) => setTimeout(() => res(), 1000)); // 1초씩 딜레이 주기.
-    main.innerHTML = null;
-    main.appendChild(createBinarySearchTreeElement(bst));
+    await delayAndApply(main, createBinarySearchTreeElement(bst), 1000);
 
     event.target.innerText = 'REMOVE';
     event.target.removeAttribute('disabled');
