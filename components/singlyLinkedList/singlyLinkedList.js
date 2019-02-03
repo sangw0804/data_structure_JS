@@ -4,12 +4,11 @@ import { createArrow } from '../pointer.js';
 const createSinglyLinkedListElement = sll => {
   const result = document.createElement('div');
   result.setAttribute('id', 'sll');
-
   if (!sll.size()) return result;
 
   let current = sll.head;
   while (current) {
-    result.appendChild(createNodeElement(current.value));
+    result.appendChild(createNodeElement(current.value, current.colored));
     result.appendChild(createArrow('right'));
     current = current.next;
   }
