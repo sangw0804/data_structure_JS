@@ -52,4 +52,27 @@ const drawLineLL = (rootDom, isDLL) => {
   return lines;
 };
 
-export { drawLineBST, drawLineLL };
+const drawLineHeap = rootDom => {
+  let lines = [];
+  const heap = rootDom.firstChild;
+
+  for (let i = 0; i < heap.childNodes.length - 1; i += 1) {
+    const container = heap.childNodes[i];
+    const childrenContainer = heap.childNodes[i + 1];
+
+    for (let parentIndex = 0; parentIndex < container.childNodes.length; parentIndex += 1) {
+      for (let childIndex = parentIndex * 2; childIndex < parentIndex * 2 + 2; childIndex += 1) {
+        lines.push(
+          new LeaderLine(container.childNodes[parentIndex], childrenContainer.childNodes[childIndex], {
+            path: 'straight',
+            color: 'black'
+          })
+        );
+      }
+    }
+  }
+
+  return lines;
+};
+
+export { drawLineBST, drawLineLL, drawLineHeap };

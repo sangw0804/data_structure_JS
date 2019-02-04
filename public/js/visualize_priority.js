@@ -1,9 +1,10 @@
 import { PriorityQueue } from '../index.js';
 import { createPriorityQueueElement } from '../components/index.js';
-import { delayAndApply, buttonDisableHOC } from './helpers/index.js';
+import { delayAndApply, buttonDisableHOC, drawLineHeap } from './helpers/index.js';
 
 const priorityQueue = new PriorityQueue();
 const main = document.getElementById('main');
+let lines = [];
 
 // enqueue
 const enqueueButton = document.getElementById('enqueue_button');
@@ -19,8 +20,12 @@ enqueueButton.onclick = buttonDisableHOC(async () => {
     const snapshots = priorityQueue.returnSnapshots();
     for (let i = 0; i < snapshots.length; i += 1) {
       await delayAndApply(main, createPriorityQueueElement(snapshots[i]), 1000);
+      lines.forEach(l => l.remove());
+      lines = drawLineHeap(main);
     }
     await delayAndApply(main, createPriorityQueueElement(priorityQueue), 1000);
+    lines.forEach(l => l.remove());
+    lines = drawLineHeap(main);
   } catch (e) {
     alert(e);
   }
@@ -35,8 +40,12 @@ dequeueButton.onclick = buttonDisableHOC(async () => {
     const snapshots = priorityQueue.returnSnapshots();
     for (let i = 0; i < snapshots.length; i += 1) {
       await delayAndApply(main, createPriorityQueueElement(snapshots[i]), 1000);
+      lines.forEach(l => l.remove());
+      lines = drawLineHeap(main);
     }
     await delayAndApply(main, createPriorityQueueElement(priorityQueue), 1000);
+    lines.forEach(l => l.remove());
+    lines = drawLineHeap(main);
   } catch (e) {
     alert(e);
   }

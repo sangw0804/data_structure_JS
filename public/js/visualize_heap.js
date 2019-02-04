@@ -1,12 +1,13 @@
 import { Heap } from '../index.js';
 import { createHeapElement } from '../components/index.js';
-import { delayAndApply, buttonDisableHOC } from './helpers/index.js';
+import { delayAndApply, buttonDisableHOC, drawLineHeap } from './helpers/index.js';
 
 const heapName = { true: 'Max Heap', false: 'Min Heap' };
 let isMaxHeap = true;
 let heap = new Heap();
 const main = document.getElementById('main');
 const name = document.getElementById('name');
+let lines = [];
 
 // insert
 const insertButton = document.getElementById('insert_button');
@@ -19,8 +20,12 @@ insertButton.onclick = buttonDisableHOC(async () => {
     const snapshots = heap.returnSnapshots();
     for (let i = 0; i < snapshots.length; i += 1) {
       await delayAndApply(main, createHeapElement(snapshots[i]), 1000);
+      lines.forEach(l => l.remove());
+      lines = drawLineHeap(main);
     }
     await delayAndApply(main, createHeapElement(heap), 1000);
+    lines.forEach(l => l.remove());
+    lines = drawLineHeap(main);
   } catch (e) {
     alert(e);
   }
@@ -35,8 +40,12 @@ popButton.onclick = buttonDisableHOC(async () => {
     const snapshots = heap.returnSnapshots();
     for (let i = 0; i < snapshots.length; i += 1) {
       await delayAndApply(main, createHeapElement(snapshots[i]), 1000);
+      lines.forEach(l => l.remove());
+      lines = drawLineHeap(main);
     }
     await delayAndApply(main, createHeapElement(heap), 1000);
+    lines.forEach(l => l.remove());
+    lines = drawLineHeap(main);
   } catch (e) {
     alert(e);
   }
