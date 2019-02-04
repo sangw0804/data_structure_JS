@@ -9,16 +9,16 @@ const createHeapElement = heap => {
   let power = 1;
   let row = document.createElement('div');
 
-  heap.values.forEach((value, index) => {
+  heap.values.forEach((heapNode, index) => {
     if (index === end) {
-      const node = createNodeElement(value);
+      const node = createNodeElement(heapNode.value, heapNode.colored);
       row.appendChild(node);
       result.appendChild(row);
       row = document.createElement('div');
       power *= 2;
       end += power;
     } else {
-      const node = createNodeElement(value);
+      const node = createNodeElement(heapNode.value, heapNode.colored);
       row.appendChild(node);
     }
   });

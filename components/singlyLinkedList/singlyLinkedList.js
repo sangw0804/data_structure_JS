@@ -1,19 +1,19 @@
-import { createNodeElement } from '../node.js';
+import { createNodeElement, createEmptyNodeElement } from '../node.js';
 import { createArrow } from '../pointer.js';
 
 const createSinglyLinkedListElement = sll => {
   const result = document.createElement('div');
   result.setAttribute('id', 'sll');
-
   if (!sll.size()) return result;
 
   let current = sll.head;
   while (current) {
-    result.appendChild(createNodeElement(current.value));
-    result.appendChild(createArrow('right'));
+    const node = createNodeElement(current.value, current.colored);
+    node.style.margin = '15px';
+    result.appendChild(node);
     current = current.next;
   }
-  result.appendChild(document.createTextNode('NULL'));
+  result.appendChild(createEmptyNodeElement());
 
   return result;
 };

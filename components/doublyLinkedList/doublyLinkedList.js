@@ -1,4 +1,4 @@
-import { createNodeElement } from '../node.js';
+import { createNodeElement, createEmptyNodeElement } from '../node.js';
 import { createArrow } from '../pointer.js';
 
 const createDoublyLinkedListElement = dll => {
@@ -8,14 +8,15 @@ const createDoublyLinkedListElement = dll => {
 
   let current = dll.head;
 
-  result.appendChild(document.createTextNode('NULL'));
+  result.appendChild(createEmptyNodeElement());
   while (current) {
-    result.appendChild(createArrow('left'));
-    result.appendChild(createNodeElement(current.value));
-    result.appendChild(createArrow('right'));
+    const node = createNodeElement(current.value, current.colored);
+    node.style.margin = '15px';
+    result.appendChild(node);
+
     current = current.next;
   }
-  result.appendChild(document.createTextNode('NULL'));
+  result.appendChild(createEmptyNodeElement());
 
   return result;
 };

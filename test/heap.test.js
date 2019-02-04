@@ -40,11 +40,11 @@ describe('MaxHeap Test', () => {
     // 숫자가 value로 주어지면 맞는 위치에 insert 한다.
     it('should insert value in correct position', () => {
       emptyMaxHeap.insert(5);
-      expect(emptyMaxHeap.values[0]).toBe(5);
+      expect(emptyMaxHeap.values[0].value).toBe(5);
       emptyMaxHeap.insert(3);
-      expect(emptyMaxHeap.values[1]).toBe(3);
+      expect(emptyMaxHeap.values[1].value).toBe(3);
       emptyMaxHeap.insert(10);
-      expect(emptyMaxHeap.values[0]).toBe(10);
+      expect(emptyMaxHeap.values[0].value).toBe(10);
       expect(emptyMaxHeap.size()).toBe(3);
     });
 
@@ -67,15 +67,15 @@ describe('MaxHeap Test', () => {
 
     // 현재 가장 큰 수를 리턴한 뒤, heap을 규칙대로 정렬한다.
     it('should return max value and organize heap itself', () => {
-      expect(multiMaxHeap.pop()).toBe(20);
+      expect(multiMaxHeap.pop().value).toBe(20);
       expect(multiMaxHeap.size()).toBe(4);
-      expect(multiMaxHeap.pop()).toBe(15);
+      expect(multiMaxHeap.pop().value).toBe(15);
       expect(multiMaxHeap.size()).toBe(3);
-      expect(multiMaxHeap.pop()).toBe(10);
+      expect(multiMaxHeap.pop().value).toBe(10);
       expect(multiMaxHeap.size()).toBe(2);
-      expect(multiMaxHeap.pop()).toBe(5);
+      expect(multiMaxHeap.pop().value).toBe(5);
       expect(multiMaxHeap.size()).toBe(1);
-      expect(multiMaxHeap.pop()).toBe(1);
+      expect(multiMaxHeap.pop().value).toBe(1);
       expect(multiMaxHeap.size()).toBe(0);
     });
   });
@@ -95,12 +95,12 @@ describe('MinHeap Test', () => {
     // 숫자가 value로 주어지면 맞는 위치에 insert 한다.
     it('should insert value in correct position', () => {
       emptyMinHeap.insert(5);
-      expect(emptyMinHeap.values[0]).toBe(5);
+      expect(emptyMinHeap.values[0].value).toBe(5);
       emptyMinHeap.insert(3);
-      expect(emptyMinHeap.values[1]).toBe(5);
+      expect(emptyMinHeap.values[1].value).toBe(5);
       emptyMinHeap.insert(10);
-      expect(emptyMinHeap.values[0]).toBe(3);
-      expect(emptyMinHeap.values[2]).toBe(10);
+      expect(emptyMinHeap.values[0].value).toBe(3);
+      expect(emptyMinHeap.values[2].value).toBe(10);
       expect(emptyMinHeap.size()).toBe(3);
     });
 
@@ -123,15 +123,15 @@ describe('MinHeap Test', () => {
 
     // 현재 가장 작은 수를 리턴한 뒤, heap을 규칙대로 정렬한다.
     it('should return min value and organize heap itself', () => {
-      expect(multiMinHeap.pop()).toBe(1);
+      expect(multiMinHeap.pop().value).toBe(1);
       expect(multiMinHeap.size()).toBe(4);
-      expect(multiMinHeap.pop()).toBe(5);
+      expect(multiMinHeap.pop().value).toBe(5);
       expect(multiMinHeap.size()).toBe(3);
-      expect(multiMinHeap.pop()).toBe(10);
+      expect(multiMinHeap.pop().value).toBe(10);
       expect(multiMinHeap.size()).toBe(2);
-      expect(multiMinHeap.pop()).toBe(15);
+      expect(multiMinHeap.pop().value).toBe(15);
       expect(multiMinHeap.size()).toBe(1);
-      expect(multiMinHeap.pop()).toBe(20);
+      expect(multiMinHeap.pop().value).toBe(20);
       expect(multiMinHeap.size()).toBe(0);
     });
   });

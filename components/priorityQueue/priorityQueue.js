@@ -11,13 +11,13 @@ const createPriorityQueueElement = priorityQueue => {
 
   priorityQueue.nodes.forEach((node, index) => {
     if (index === end) {
-      row.appendChild(createPriorityNodeElement(node.value, node.priority));
+      row.appendChild(createPriorityNodeElement(node.value, node.priority, node.colored));
       result.appendChild(row);
       row = document.createElement('div');
       power *= 2;
       end += power;
     } else {
-      row.appendChild(createPriorityNodeElement(node.value, node.priority));
+      row.appendChild(createPriorityNodeElement(node.value, node.priority, node.colored));
     }
   });
 
