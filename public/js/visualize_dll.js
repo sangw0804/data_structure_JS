@@ -1,10 +1,11 @@
 import { DoublyLinkedList } from '../index.js';
 import { createDoublyLinkedListElement } from '../components/index.js';
 
-import { delayAndApply, buttonDisableHOC } from './helpers/index.js';
+import { delayAndApply, buttonDisableHOC, drawLineLL } from './helpers/index.js';
 
 const dll = new DoublyLinkedList();
 const main = document.getElementById('main');
+let lines = [];
 
 // push
 const pushButton = document.getElementById('push_button');
@@ -18,8 +19,12 @@ pushButton.onclick = buttonDisableHOC(async () => {
     const snapshots = dll.returnSnapshots();
     for (let i = 0; i < snapshots.length; i += 1) {
       await delayAndApply(main, createDoublyLinkedListElement(snapshots[i]), 1000);
+      lines.forEach(l => l.remove());
+      lines = drawLineLL(main, true);
     }
     await delayAndApply(main, createDoublyLinkedListElement(dll), 1000);
+    lines.forEach(l => l.remove());
+    lines = drawLineLL(main, true);
   } catch (e) {
     alert(e);
   }
@@ -34,8 +39,12 @@ popButton.onclick = buttonDisableHOC(async () => {
     const snapshots = dll.returnSnapshots();
     for (let i = 0; i < snapshots.length; i += 1) {
       await delayAndApply(main, createDoublyLinkedListElement(snapshots[i]), 1000);
+      lines.forEach(l => l.remove());
+      lines = drawLineLL(main, true);
     }
     await delayAndApply(main, createDoublyLinkedListElement(dll), 1000);
+    lines.forEach(l => l.remove());
+    lines = drawLineLL(main, true);
   } catch (e) {
     alert(e);
   }
@@ -53,8 +62,12 @@ unshiftButton.onclick = buttonDisableHOC(async () => {
     const snapshots = dll.returnSnapshots();
     for (let i = 0; i < snapshots.length; i += 1) {
       await delayAndApply(main, createDoublyLinkedListElement(snapshots[i]), 1000);
+      lines.forEach(l => l.remove());
+      lines = drawLineLL(main, true);
     }
     await delayAndApply(main, createDoublyLinkedListElement(dll), 1000);
+    lines.forEach(l => l.remove());
+    lines = drawLineLL(main, true);
   } catch (e) {
     alert(e);
   }
@@ -69,8 +82,12 @@ shiftButton.onclick = buttonDisableHOC(async () => {
     const snapshots = dll.returnSnapshots();
     for (let i = 0; i < snapshots.length; i += 1) {
       await delayAndApply(main, createDoublyLinkedListElement(snapshots[i]), 1000);
+      lines.forEach(l => l.remove());
+      lines = drawLineLL(main, true);
     }
     await delayAndApply(main, createDoublyLinkedListElement(dll), 1000);
+    lines.forEach(l => l.remove());
+    lines = drawLineLL(main, true);
   } catch (e) {
     alert(e);
   }
@@ -89,8 +106,12 @@ insertButton.onclick = buttonDisableHOC(async () => {
     const snapshots = dll.returnSnapshots();
     for (let i = 0; i < snapshots.length; i += 1) {
       await delayAndApply(main, createDoublyLinkedListElement(snapshots[i]), 1000);
+      lines.forEach(l => l.remove());
+      lines = drawLineLL(main, true);
     }
     await delayAndApply(main, createDoublyLinkedListElement(dll), 1000);
+    lines.forEach(l => l.remove());
+    lines = drawLineLL(main, true);
   } catch (e) {
     alert(e);
   }
@@ -108,8 +129,12 @@ removeButton.onclick = buttonDisableHOC(async () => {
     const snapshots = dll.returnSnapshots();
     for (let i = 0; i < snapshots.length; i += 1) {
       await delayAndApply(main, createDoublyLinkedListElement(snapshots[i]), 1000);
+      lines.forEach(l => l.remove());
+      lines = drawLineLL(main, true);
     }
     await delayAndApply(main, createDoublyLinkedListElement(dll), 1000);
+    lines.forEach(l => l.remove());
+    lines = drawLineLL(main, true);
   } catch (e) {
     alert(e);
   }
@@ -122,6 +147,8 @@ reverseButton.onclick = async () => {
     dll.reverse();
     main.innerHTML = null;
     main.appendChild(createDoublyLinkedListElement(dll));
+    lines.forEach(l => l.remove());
+    lines = drawLineLL(main, true);
   } catch (e) {
     alert(e);
   }

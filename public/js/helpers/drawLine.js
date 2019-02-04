@@ -1,7 +1,7 @@
 import LeaderLine from '../../node_modules/leader-line/leader-line.min.js';
 import { Queue } from '../../../lib/index.js';
 
-const drawLine = rootDom => {
+const drawLineBST = rootDom => {
   const lines = [];
 
   const q = new Queue();
@@ -26,4 +26,30 @@ const drawLine = rootDom => {
   return lines;
 };
 
-export { drawLine };
+const drawLineLL = (rootDom, isDLL) => {
+  const container = rootDom.firstChild;
+  const lines = [];
+
+  for (let i = 0; i < container.childNodes.length - 1; i += 1) {
+    if (!isDLL || i) {
+      lines.push(
+        new LeaderLine(container.childNodes[i], container.childNodes[i + 1], {
+          path: 'straight',
+          color: 'black'
+        })
+      );
+    }
+    if (isDLL && i !== container.childNodes.length - 2) {
+      lines.push(
+        new LeaderLine(container.childNodes[i + 1], container.childNodes[i], {
+          path: 'straight',
+          color: 'black'
+        })
+      );
+    }
+  }
+
+  return lines;
+};
+
+export { drawLineBST, drawLineLL };

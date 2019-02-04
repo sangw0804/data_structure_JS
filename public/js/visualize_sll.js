@@ -1,10 +1,11 @@
 import { SinglyLinkedList } from '../../index.js';
 import { createSinglyLinkedListElement } from '../../components/index.js';
 
-import { delayAndApply, buttonDisableHOC } from './helpers/index.js';
+import { delayAndApply, buttonDisableHOC, drawLineLL } from './helpers/index.js';
 
 const sll = new SinglyLinkedList();
 const main = document.getElementById('main');
+let lines = [];
 
 // push
 const pushButton = document.getElementById('push_button');
@@ -18,8 +19,12 @@ pushButton.onclick = buttonDisableHOC(async event => {
     const snapshots = sll.returnSnapshots();
     for (let i = 0; i < snapshots.length; i += 1) {
       await delayAndApply(main, createSinglyLinkedListElement(snapshots[i]), 1000);
+      lines.forEach(l => l.remove());
+      lines = drawLineLL(main, false);
     }
     await delayAndApply(main, createSinglyLinkedListElement(sll), 1000);
+    lines.forEach(l => l.remove());
+    lines = drawLineLL(main, false);
   } catch (e) {
     alert(e);
   }
@@ -34,8 +39,12 @@ popButton.onclick = buttonDisableHOC(async event => {
     const snapshots = sll.returnSnapshots();
     for (let i = 0; i < snapshots.length; i += 1) {
       await delayAndApply(main, createSinglyLinkedListElement(snapshots[i]), 1000);
+      lines.forEach(l => l.remove());
+      lines = drawLineLL(main, false);
     }
     await delayAndApply(main, createSinglyLinkedListElement(sll), 1000);
+    lines.forEach(l => l.remove());
+    lines = drawLineLL(main, false);
   } catch (e) {
     alert(e);
   }
@@ -53,12 +62,16 @@ unshiftButton.onclick = buttonDisableHOC(async event => {
     const snapshots = sll.returnSnapshots();
     for (let i = 0; i < snapshots.length; i += 1) {
       await delayAndApply(main, createSinglyLinkedListElement(snapshots[i]), 1000);
+      lines.forEach(l => l.remove());
+      lines = drawLineLL(main, false);
     }
     await delayAndApply(main, createSinglyLinkedListElement(sll), 1000);
+    lines.forEach(l => l.remove());
+    lines = drawLineLL(main, false);
   } catch (e) {
     alert(e);
   }
-}, 'INSHIFT');
+}, 'UNSHIFT');
 
 // shift
 const shiftButton = document.getElementById('shift_button');
@@ -69,8 +82,12 @@ shiftButton.onclick = buttonDisableHOC(async event => {
     const snapshots = sll.returnSnapshots();
     for (let i = 0; i < snapshots.length; i += 1) {
       await delayAndApply(main, createSinglyLinkedListElement(snapshots[i]), 1000);
+      lines.forEach(l => l.remove());
+      lines = drawLineLL(main, false);
     }
     await delayAndApply(main, createSinglyLinkedListElement(sll), 1000);
+    lines.forEach(l => l.remove());
+    lines = drawLineLL(main, false);
   } catch (e) {
     alert(e);
   }
@@ -90,8 +107,12 @@ insertButton.onclick = buttonDisableHOC(async event => {
     const snapshots = sll.returnSnapshots();
     for (let i = 0; i < snapshots.length; i += 1) {
       await delayAndApply(main, createSinglyLinkedListElement(snapshots[i]), 1000);
+      lines.forEach(l => l.remove());
+      lines = drawLineLL(main, false);
     }
     await delayAndApply(main, createSinglyLinkedListElement(sll), 1000);
+    lines.forEach(l => l.remove());
+    lines = drawLineLL(main, false);
   } catch (e) {
     alert(e);
   }
@@ -109,8 +130,12 @@ removeButton.onclick = buttonDisableHOC(async event => {
     const snapshots = sll.returnSnapshots();
     for (let i = 0; i < snapshots.length; i += 1) {
       await delayAndApply(main, createSinglyLinkedListElement(snapshots[i]), 1000);
+      lines.forEach(l => l.remove());
+      lines = drawLineLL(main, false);
     }
     await delayAndApply(main, createSinglyLinkedListElement(sll), 1000);
+    lines.forEach(l => l.remove());
+    lines = drawLineLL(main, false);
   } catch (e) {
     alert(e);
   }
@@ -121,6 +146,10 @@ const reverseButton = document.getElementById('reverse_button');
 reverseButton.onclick = async event => {
   try {
     sll.reverse();
+    main.innerHTML = null;
+    main.appendChild(createSinglyLinkedListElement(sll));
+    lines.forEach(l => l.remove());
+    lines = drawLineLL(main, false);
 
     // const snapshots = sll.returnSnapshots();
     // for (let i = 0; i < snapshots.length; i += 1) {
