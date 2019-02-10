@@ -35,7 +35,7 @@ const createPriorityNodeElement = ({ value, priority, colored }) => {
   return priorityNodeElement;
 };
 
-const createBTreeNodeElement = ({ values, children, valueLength, colored }) => {
+const createBTreeNodeElement = ({ values, children, valueLength, colored, valuesColor }) => {
   const BTreeNodeElement = document.createElement('div');
 
   BTreeNodeElement.setAttribute(
@@ -47,11 +47,14 @@ const createBTreeNodeElement = ({ values, children, valueLength, colored }) => {
   const valuesElement = document.createElement('div');
   valuesElement.setAttribute(
     'style',
-    'flex-basis: 50%; width: 100%; display: flex; flex-direction: row; justify-content: around'
+    'flex-basis: 80%; width: 100%; display: flex; flex-direction: row; justify-content: around'
   );
   for (let i = 0; i < valueLength; i += 1) {
     const tempDivElement = document.createElement('div');
-    tempDivElement.setAttribute('style', `flex-basis: ${100 / valueLength}%`);
+    tempDivElement.setAttribute(
+      'style',
+      `flex-basis: ${100 / valueLength}%; ${valuesColor[i] ? `background-color: ${valuesColor[i]};` : ''}`
+    );
     tempDivElement.innerText = values[i];
     valuesElement.appendChild(tempDivElement);
   }
@@ -59,7 +62,7 @@ const createBTreeNodeElement = ({ values, children, valueLength, colored }) => {
   const childrenElement = document.createElement('div');
   childrenElement.setAttribute(
     'style',
-    'flex-basis: 50%; width: 100%; display: flex; flex-direction: row; justify-content: around'
+    'flex-basis: 20%; width: 100%; display: flex; flex-direction: row; justify-content: around'
   );
   for (let i = 0; i < valueLength + 1; i += 1) {
     const tempDivElement = document.createElement('div');

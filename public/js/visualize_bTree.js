@@ -14,14 +14,14 @@ insertButton.onclick = buttonDisableHOC(async event => {
   try {
     if (!insertInput.value.length) throw new Error('채워지지 않은 필드가 있습니다.');
 
-    bTree.insert(+insertInput.value);
+    bTree.insert(+insertInput.value, true);
 
-    // const snapshots = bst.returnSnapshots();
-    // for (let i = 0; i < snapshots.length; i += 1) {
-    //   await delayAndApply(main, createBTreeElement(snapshots[i]), 1000);
-    //   lines.forEach(l => l.remove());
-    //   lines = drawLineBTree(main.firstChild);
-    // }
+    const snapshots = bTree.returnSnapshots();
+    for (let i = 0; i < snapshots.length; i += 1) {
+      await delayAndApply(main, createBTreeElement(snapshots[i]), 1000);
+      lines.forEach(l => l.remove());
+      lines = drawLineBTree(main.firstChild);
+    }
 
     await delayAndApply(main, createBTreeElement(bTree), 1000);
     lines.forEach(l => l.remove());
