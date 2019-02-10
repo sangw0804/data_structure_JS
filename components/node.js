@@ -35,6 +35,44 @@ const createPriorityNodeElement = ({ value, priority, colored }) => {
   return priorityNodeElement;
 };
 
+const createBTreeNodeElement = ({ values, children, valueLength, colored }) => {
+  const BTreeNodeElement = document.createElement('div');
+
+  BTreeNodeElement.setAttribute(
+    'style',
+    `border-radius:10px; background-color: ${colored || 'tomato'}; height: 100px; width: ${80 *
+      valueLength}px; display: inline-flex; flex-direction: column; margin: 5px; text-align: center`
+  );
+
+  const valuesElement = document.createElement('div');
+  valuesElement.setAttribute(
+    'style',
+    'flex-basis: 50%; width: 100%; display: flex; flex-direction: row; justify-content: around'
+  );
+  for (let i = 0; i < valueLength; i += 1) {
+    const tempDivElement = document.createElement('div');
+    tempDivElement.setAttribute('style', `flex-basis: ${100 / valueLength}%`);
+    tempDivElement.innerText = values[i];
+    valuesElement.appendChild(tempDivElement);
+  }
+
+  const childrenElement = document.createElement('div');
+  childrenElement.setAttribute(
+    'style',
+    'flex-basis: 50%; width: 100%; display: flex; flex-direction: row; justify-content: around'
+  );
+  for (let i = 0; i < valueLength + 1; i += 1) {
+    const tempDivElement = document.createElement('div');
+    tempDivElement.setAttribute('style', `flex-basis: ${100 / (valueLength + 1)}%`);
+    childrenElement.appendChild(tempDivElement);
+  }
+
+  BTreeNodeElement.appendChild(valuesElement);
+  BTreeNodeElement.appendChild(childrenElement);
+
+  return BTreeNodeElement;
+};
+
 const createEmptyNodeElement = () => {
   const nodeElement = document.createElement('div');
   nodeElement.setAttribute('style', 'font-size: 2rem; height: 100px; width:100px; display:inline-block; margin: 5px;');
@@ -53,4 +91,10 @@ const createEmptyPriorityNodeElement = () => {
   return nodeElement;
 };
 
-export { createNodeElement, createPriorityNodeElement, createEmptyNodeElement, createEmptyPriorityNodeElement };
+export {
+  createNodeElement,
+  createPriorityNodeElement,
+  createEmptyNodeElement,
+  createEmptyPriorityNodeElement,
+  createBTreeNodeElement
+};

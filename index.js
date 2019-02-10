@@ -11,5 +11,6 @@ export {
   BinarySearchTree,
   Heap,
   PriorityQueue,
-  Graph
+  Graph,
+  BTree
 } from './lib/index.js';
