@@ -1,11 +1,11 @@
 import { BTree } from '../index.js';
 import { createBTreeElement } from '../components/index.js';
 
-import { delayAndApply, buttonDisableHOC, drawLineBST } from './helpers/index.js';
+import { delayAndApply, buttonDisableHOC, drawLineBTree } from './helpers/index.js';
 
 const bTree = new BTree(3);
 const main = document.getElementById('main');
-// let lines = [];
+let lines = [];
 
 // insert
 const insertButton = document.getElementById('insert_button');
@@ -20,12 +20,12 @@ insertButton.onclick = buttonDisableHOC(async event => {
     // for (let i = 0; i < snapshots.length; i += 1) {
     //   await delayAndApply(main, createBTreeElement(snapshots[i]), 1000);
     //   lines.forEach(l => l.remove());
-    //   lines = drawLineBST(main.firstChild);
+    //   lines = drawLineBTree(main.firstChild);
     // }
 
     await delayAndApply(main, createBTreeElement(bTree), 1000);
-    // lines.forEach(l => l.remove());
-    // lines = drawLineBST(main.firstChild);
+    lines.forEach(l => l.remove());
+    lines = drawLineBTree(main.firstChild);
   } catch (e) {
     console.log(e);
     alert(e);
@@ -45,12 +45,12 @@ removeButton.onclick = buttonDisableHOC(async event => {
     // for (let i = 0; i < snapshots.length; i += 1) {
     //   await delayAndApply(main, createBTreeElement(snapshots[i]), 1000);
     //   lines.forEach(l => l.remove());
-    //   lines = drawLineBST(main.firstChild);
+    //   lines = drawLineBTree(main.firstChild);
     // }
 
     await delayAndApply(main, createBTreeElement(bTree), 1000);
-    // lines.forEach(l => l.remove());
-    // lines = drawLineBST(main.firstChild);
+    lines.forEach(l => l.remove());
+    lines = drawLineBTree(main.firstChild);
   } catch (e) {
     alert(e);
   }
