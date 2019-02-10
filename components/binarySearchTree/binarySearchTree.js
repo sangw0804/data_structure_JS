@@ -5,7 +5,7 @@ const recursive = n => {
 
   const currentElement = document.createElement('div');
   currentElement.setAttribute('style', 'display: inline-flex; flex-direction: column; align-items: center');
-  currentElement.appendChild(createNodeElement(n.value, n.colored));
+  currentElement.appendChild(createNodeElement(n));
 
   const childrenElement = document.createElement('div');
   childrenElement.setAttribute('style', 'display: inline-flex;');

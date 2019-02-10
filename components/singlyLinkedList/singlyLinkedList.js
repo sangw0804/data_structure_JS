@@ -8,7 +8,7 @@ const createSinglyLinkedListElement = sll => {
 
   let current = sll.head;
   while (current) {
-    const node = createNodeElement(current.value, current.colored);
+    const node = createNodeElement(current);
     node.style.margin = '15px';
     result.appendChild(node);
     current = current.next;

@@ -10,7 +10,7 @@ const createDoublyLinkedListElement = dll => {
 
   result.appendChild(createEmptyNodeElement());
   while (current) {
-    const node = createNodeElement(current.value, current.colored);
+    const node = createNodeElement(current);
     node.style.margin = '15px';
     result.appendChild(node);
 

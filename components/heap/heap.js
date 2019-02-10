@@ -11,14 +11,14 @@ const createHeapElement = heap => {
 
   heap.values.forEach((heapNode, index) => {
     if (index === end) {
-      const node = createNodeElement(heapNode.value, heapNode.colored);
+      const node = createNodeElement(heapNode);
       row.appendChild(node);
       result.appendChild(row);
       row = document.createElement('div');
       power *= 2;
       end += power;
     } else {
-      const node = createNodeElement(heapNode.value, heapNode.colored);
+      const node = createNodeElement(heapNode);
       row.appendChild(node);
     }
   });

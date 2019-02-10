@@ -12,7 +12,7 @@ const createDequeueElement = dequeue => {
 
   let current = dequeue.head;
   while (current) {
-    result.appendChild(createNodeElement(current.value));
+    result.appendChild(createNodeElement(current));
     current = current.next;
   }
 

@@ -11,7 +11,7 @@ const createStackElement = stack => {
   if (!stack.size()) return result;
 
   stack.stacks.forEach(s => {
-    result.appendChild(createNodeElement(s));
+    result.appendChild(createNodeElement({ value: s }));
   });
 
   return result;

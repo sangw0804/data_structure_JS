@@ -12,7 +12,7 @@ const createQueueElement = queue => {
 
   let current = queue.head;
   while (current) {
-    result.appendChild(createNodeElement(current.value));
+    result.appendChild(createNodeElement(current));
     current = current.next;
   }
 

@@ -1,4 +1,4 @@
-const createNodeElement = (value, colored) => {
+const createNodeElement = ({ value, colored }) => {
   const nodeElement = document.createElement('div');
 
   nodeElement.setAttribute(
@@ -12,7 +12,7 @@ const createNodeElement = (value, colored) => {
   return nodeElement;
 };
 
-const createPriorityNodeElement = (value, priority, colored) => {
+const createPriorityNodeElement = ({ value, priority, colored }) => {
   const priorityNodeElement = document.createElement('div');
 
   priorityNodeElement.setAttribute(
