@@ -53,7 +53,9 @@ const createBTreeNodeElement = ({ values, children, valueLength, colored, values
     const tempDivElement = document.createElement('div');
     tempDivElement.setAttribute(
       'style',
-      `flex-basis: ${100 / valueLength}%; ${valuesColor[i] ? `background-color: ${valuesColor[i]};` : ''}`
+      `flex-basis: ${100 / valueLength}%; border-radius:10px; ${
+        valuesColor[i] ? `background-color: ${valuesColor[i]};` : ''
+      }`
     );
     tempDivElement.innerText = values[i];
     valuesElement.appendChild(tempDivElement);
