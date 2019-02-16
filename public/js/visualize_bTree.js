@@ -14,11 +14,9 @@ insertButton.onclick = buttonDisableHOC(async event => {
   try {
     if (!insertInput.value.length) throw new Error('채워지지 않은 필드가 있습니다.');
 
-    bTree.insert(+insertInput.value, true);
-
-    const snapshots = bTree.returnSnapshots();
-    for (let i = 0; i < snapshots.length; i += 1) {
-      await delayAndApply(main, createBTreeElement(snapshots[i]), 100);
+    const insertGenerator = bTree.insertGen(+insertInput.value);
+    for (let snapshot of insertGenerator) {
+      await delayAndApply(main, createBTreeElement(snapshot), 100);
       lines.forEach(l => l.remove());
       lines = drawLineBTree(main.firstChild);
     }
