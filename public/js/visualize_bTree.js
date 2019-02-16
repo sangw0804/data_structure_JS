@@ -37,18 +37,15 @@ const removeInput = document.getElementById('remove_value');
 removeButton.onclick = buttonDisableHOC(async event => {
   try {
     if (!removeInput.value.length) throw new Error('채워지지 않은 필드가 있습니다.');
-    console.log('hi');
-    bTree.remove(+removeInput.value, true);
+    const removeGenerator = bTree.removeGen(+removeInput.value);
 
-    const snapshots = bTree.returnSnapshots();
-    console.log(snapshots);
-    for (let i = 0; i < snapshots.length; i += 1) {
-      await delayAndApply(main, createBTreeElement(snapshots[i]), 100);
+    for (let snapshot of removeGenerator) {
+      await delayAndApply(main, createBTreeElement(snapshot), 1000);
       lines.forEach(l => l.remove());
       lines = drawLineBTree(main.firstChild);
     }
 
-    await delayAndApply(main, createBTreeElement(bTree), 100);
+    await delayAndApply(main, createBTreeElement(bTree), 1000);
     lines.forEach(l => l.remove());
     lines = drawLineBTree(main.firstChild);
   } catch (e) {
