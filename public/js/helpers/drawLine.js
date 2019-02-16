@@ -75,4 +75,28 @@ const drawLineHeap = rootDom => {
   return lines;
 };
 
-export { drawLineBST, drawLineLL, drawLineHeap };
+const drawLineBTree = rootDom => {
+  const lines = [];
+
+  const q = new Queue();
+  q.enqueue(rootDom.firstChild);
+
+  while (q.size() > 0) {
+    const container = q.dequeue();
+
+    for (let i = 0; i < container.childNodes[1].childNodes.length; i += 1) {
+      const child = container.childNodes[1].childNodes[i];
+      q.enqueue(child);
+      lines.push(
+        new LeaderLine(container.childNodes[0].childNodes[1].childNodes[i], child.firstChild.firstChild, {
+          path: 'straight',
+          color: 'black'
+        })
+      );
+    }
+  }
+
+  return lines;
+};
+
+export { drawLineBST, drawLineLL, drawLineHeap, drawLineBTree };
