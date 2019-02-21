@@ -14,11 +14,10 @@ pushButton.onclick = buttonDisableHOC(async () => {
   try {
     if (!pushInput.value.length) throw new Error('채워지지 않은 필드가 있습니다.');
 
-    dll.push(pushInput.value, true);
+    const iter = dll.pushGen(pushInput.value);
 
-    const snapshots = dll.returnSnapshots();
-    for (let i = 0; i < snapshots.length; i += 1) {
-      await delayAndApply(main, createDoublyLinkedListElement(snapshots[i]), 1000);
+    for (let snapshot of iter) {
+      await delayAndApply(main, createDoublyLinkedListElement(snapshot), 1000);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, true);
     }
@@ -34,11 +33,10 @@ pushButton.onclick = buttonDisableHOC(async () => {
 const popButton = document.getElementById('pop_button');
 popButton.onclick = buttonDisableHOC(async () => {
   try {
-    dll.pop(true);
+    const iter = dll.popGen();
 
-    const snapshots = dll.returnSnapshots();
-    for (let i = 0; i < snapshots.length; i += 1) {
-      await delayAndApply(main, createDoublyLinkedListElement(snapshots[i]), 1000);
+    for (let snapshot of iter) {
+      await delayAndApply(main, createDoublyLinkedListElement(snapshot), 1000);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, true);
     }
@@ -57,11 +55,10 @@ unshiftButton.onclick = buttonDisableHOC(async () => {
   try {
     if (!unshiftInput.value.length) throw new Error('채워지지 않은 필드가 있습니다.');
 
-    dll.unshift(unshiftInput.value, true);
+    const iter = dll.unshiftGen(unshiftInput.value);
 
-    const snapshots = dll.returnSnapshots();
-    for (let i = 0; i < snapshots.length; i += 1) {
-      await delayAndApply(main, createDoublyLinkedListElement(snapshots[i]), 1000);
+    for (let snapshot of iter) {
+      await delayAndApply(main, createDoublyLinkedListElement(snapshot), 1000);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, true);
     }
@@ -77,11 +74,10 @@ unshiftButton.onclick = buttonDisableHOC(async () => {
 const shiftButton = document.getElementById('shift_button');
 shiftButton.onclick = buttonDisableHOC(async () => {
   try {
-    dll.shift(true);
+    const iter = dll.shiftGen();
 
-    const snapshots = dll.returnSnapshots();
-    for (let i = 0; i < snapshots.length; i += 1) {
-      await delayAndApply(main, createDoublyLinkedListElement(snapshots[i]), 1000);
+    for (let snapshot of iter) {
+      await delayAndApply(main, createDoublyLinkedListElement(snapshot), 1000);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, true);
     }
@@ -101,11 +97,10 @@ insertButton.onclick = buttonDisableHOC(async () => {
   try {
     if (!insertIndexInput.value.length || !insertValueInput) throw new Error('채워지지 않은 필드가 있습니다.');
 
-    dll.insert(+insertIndexInput.value, insertValueInput.value, true);
+    const iter = dll.insertGen(+insertIndexInput.value, insertValueInput.value);
 
-    const snapshots = dll.returnSnapshots();
-    for (let i = 0; i < snapshots.length; i += 1) {
-      await delayAndApply(main, createDoublyLinkedListElement(snapshots[i]), 1000);
+    for (let snapshot of iter) {
+      await delayAndApply(main, createDoublyLinkedListElement(snapshot), 1000);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, true);
     }
@@ -124,11 +119,10 @@ removeButton.onclick = buttonDisableHOC(async () => {
   try {
     if (!removeIndexInput.value.length) throw new Error('채워지지 않은 필드가 있습니다.');
 
-    dll.remove(+removeIndexInput.value, true);
+    const iter = dll.removeGen(+removeIndexInput.value);
 
-    const snapshots = dll.returnSnapshots();
-    for (let i = 0; i < snapshots.length; i += 1) {
-      await delayAndApply(main, createDoublyLinkedListElement(snapshots[i]), 1000);
+    for (let snapshot of iter) {
+      await delayAndApply(main, createDoublyLinkedListElement(snapshot), 1000);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, true);
     }
