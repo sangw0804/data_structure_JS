@@ -2,6 +2,10 @@
 
 [NAVER D2 CAMPUS FEST 결승진출팀!](https://github.com/D2CampusFest/6th)
 
+[document-page](https://sangw0804.github.io/data_structure_JS_doc)
+
+[github-page](https://github.com/sangw0804/data_structure_JS)
+
 <br>
 
 ## INTRODUCTION
