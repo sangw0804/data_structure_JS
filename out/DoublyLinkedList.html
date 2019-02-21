@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>BinarySearchTree - Documentation</title>
+    <title>DoublyLinkedList - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -31,7 +31,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">BinarySearchTree</h1>
+    <h1 class="page-title">DoublyLinkedList</h1>
     
 
     
@@ -44,10 +44,10 @@
 <header>
     
         <h2>
-        BinarySearchTree
+        DoublyLinkedList
         </h2>
         
-            <div class="class-description">Binary Search Tree 클래스</div>
+            <div class="class-description">doubly linked list 클래스</div>
         
     
 </header>
@@ -62,7 +62,7 @@
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="BinarySearchTree"><span class="type-signature"></span>new BinarySearchTree<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="DoublyLinkedList"><span class="type-signature"></span>new DoublyLinkedList<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
@@ -74,7 +74,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="binarySearchTree.js.html">binarySearchTree.js</a>, <a href="binarySearchTree.js.html#line7">line 7</a>
+        <a href="doublyLinkedList.js.html">doublyLinkedList.js</a>, <a href="doublyLinkedList.js.html#line9">line 9</a>
     </li></ul></dd>
     
 
@@ -166,7 +166,7 @@
 
     
 
-    <h4 class="name" id="_findMinimum"><span class="type-signature"></span>_findMinimum<span class="signature">(startNode)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id="_get"><span class="type-signature"></span>_get<span class="signature">(index)</span><span class="type-signature"> &rarr; {DoubleNode}</span></h4>
 
     
 
@@ -178,7 +178,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="binarySearchTree.js.html">binarySearchTree.js</a>, <a href="binarySearchTree.js.html#line19">line 19</a>
+        <a href="doublyLinkedList.js.html">doublyLinkedList.js</a>, <a href="doublyLinkedList.js.html#line21">line 21</a>
     </li></ul></dd>
     
 
@@ -218,7 +218,7 @@
 
 
 <div class="description">
-    startNode를 root 로 하는 subtree에서 가장 작은 값을 리턴한다.
+    해당 index 에 위치한 노드를 반납.
 </div>
 
 
@@ -256,13 +256,13 @@
 
         <tr>
             
-                <td class="name"><code>startNode</code></td>
+                <td class="name"><code>index</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">BinaryTreeNode</span>
+<span class="param-type">number</span>
 
 
             
@@ -298,7 +298,7 @@
 
         
 <div class="param-desc">
-    가장 작은 값.
+    해당 노드를 리턴.
 </div>
 
 
@@ -309,7 +309,7 @@
     </dt>
     <dd>
         
-<span class="param-type">number</span>
+<span class="param-type">DoubleNode</span>
 
 
     </dd>
@@ -324,7 +324,7 @@
 
     
 
-    <h4 class="name" id="_findMinimumGen"><span class="type-signature">(generator) </span>_findMinimumGen<span class="signature">(startNode)</span><span class="type-signature"> &rarr; {<a href="BinarySearchTree.html">BinarySearchTree</a>}</span></h4>
+    <h4 class="name" id="_getGen"><span class="type-signature">(generator) </span>_getGen<span class="signature">(index)</span><span class="type-signature"> &rarr; {<a href="DoublyLinkedList.html">DoublyLinkedList</a>}</span></h4>
 
     
 
@@ -336,7 +336,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="binarySearchTree.js.html">binarySearchTree.js</a>, <a href="binarySearchTree.js.html#line164">line 164</a>
+        <a href="doublyLinkedList.js.html">doublyLinkedList.js</a>, <a href="doublyLinkedList.js.html#line203">line 203</a>
     </li></ul></dd>
     
 
@@ -376,7 +376,7 @@
 
 
 <div class="description">
-    remove 메소드의 진행 상태를 generate 하는 제너레이터 함수.
+    _get 메소드의 진행 상태를 generate 하는 제너레이터 함수.
 </div>
 
 
@@ -414,13 +414,13 @@
 
         <tr>
             
-                <td class="name"><code>startNode</code></td>
+                <td class="name"><code>index</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">BinaryTreeNode</span>
+<span class="param-type">number</span>
 
 
             
@@ -456,7 +456,7 @@
 
         
 <div class="param-desc">
-    가장 작은 값.
+    해당 노드를 리턴.
 </div>
 
 
@@ -467,7 +467,7 @@
     </dt>
     <dd>
         
-<span class="param-type">number</span>
+<span class="param-type">DoubleNode</span>
 
 
     </dd>
@@ -491,7 +491,7 @@
     </dt>
     <dd>
         
-<span class="param-type"><a href="BinarySearchTree.html">BinarySearchTree</a></span>
+<span class="param-type"><a href="DoublyLinkedList.html">DoublyLinkedList</a></span>
 
 
     </dd>
@@ -504,7 +504,7 @@
 
     
 
-    <h4 class="name" id="_removeRecursive"><span class="type-signature"></span>_removeRecursive<span class="signature">(node, value)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="insert"><span class="type-signature"></span>insert<span class="signature">(index, value)</span><span class="type-signature"> &rarr; {<a href="DoublyLinkedList.html">DoublyLinkedList</a>}</span></h4>
 
     
 
@@ -516,7 +516,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="binarySearchTree.js.html">binarySearchTree.js</a>, <a href="binarySearchTree.js.html#line127">line 127</a>
+        <a href="doublyLinkedList.js.html">doublyLinkedList.js</a>, <a href="doublyLinkedList.js.html#line129">line 129</a>
     </li></ul></dd>
     
 
@@ -556,7 +556,7 @@
 
 
 <div class="description">
-    재귀적으로 remove를 구현하는 헬퍼 함수.
+    해당 index 에 새 노드를 생성해서 삽입.
 </div>
 
 
@@ -594,405 +594,7 @@
 
         <tr>
             
-                <td class="name"><code>node</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">BinaryTreeNode</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">지우려는 노드.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>value</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">지우려는 값.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Throws:</h5>
-
-        
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        지우려는 값이 존재하지 않으면 예외 발생.
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl class="param-type">
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type">NON_EXIST_VALUE</span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="_removeRecursiveGen"><span class="type-signature">(generator) </span>_removeRecursiveGen<span class="signature">(node, value)</span><span class="type-signature"> &rarr; {<a href="BinarySearchTree.html">BinarySearchTree</a>}</span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="binarySearchTree.js.html">binarySearchTree.js</a>, <a href="binarySearchTree.js.html#line255">line 255</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    removeRecursive 메소드의 진행 상태를 generate 하는 제너레이터 함수.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>node</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">BinaryTreeNode</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">지우려는 노드.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>value</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">지우려는 값.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Throws:</h5>
-
-        
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        지우려는 값이 존재하지 않으면 예외 발생.
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl class="param-type">
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type">NON_EXIST_VALUE</span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-
-    
-
-
-
-		
-<h5>Yields:</h5>		
-		
-        
-<div class="param-desc">
-    진행 상태가 시각적으로 표시된 자기 자신.
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="BinarySearchTree.html">BinarySearchTree</a></span>
-
-
-    </dd>
-</dl>
-		
-    
-
-        
-            
-
-    
-
-    <h4 class="name" id="find"><span class="type-signature"></span>find<span class="signature">(value)</span><span class="type-signature"> &rarr; {BinaryTreeNode}</span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="binarySearchTree.js.html">binarySearchTree.js</a>, <a href="binarySearchTree.js.html#line48">line 48</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    value 가 BST 안에 있으면 해당 node를 리턴, 없으면 false 리턴.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>value</code></td>
+                <td class="name"><code>index</code></td>
             
 
             <td class="type">
@@ -1012,141 +614,6 @@
         </tr>
 
     
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    찾은 node를 리턴, value가 BST안에 없으면 false 리턴.
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">BinaryTreeNode</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="insert"><span class="type-signature"></span>insert<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="BinarySearchTree.html">BinarySearchTree</a>}</span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="binarySearchTree.js.html">binarySearchTree.js</a>, <a href="binarySearchTree.js.html#line71">line 71</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    bst 에 주어진 값을 알맞은 위치에 넣는다.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
 
         <tr>
             
@@ -1156,7 +623,7 @@
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">*</span>
 
 
             
@@ -1187,13 +654,13 @@
 
 
 <h5>Throws:</h5>
-<ul>
-        <li>
+
+        
 
 <dl>
     <dt>
         <div class="param-desc">
-        value가 number타입이 아닐 경우 예외 발생.
+        index가 현재 DLL의 범위를 벗어나면 예외 발생.
         </div>
     </dt>
     <dd></dd>
@@ -1204,7 +671,7 @@
             </dt>
             <dd>
                 
-<span class="param-type">INVALID_VALUE</span>
+<span class="param-type">INDEX_OUT_OF_ORDER</span>
 
 
             </dd>
@@ -1213,44 +680,13 @@
     <dd></dd>
 </dl>
 
-</li>
+
     
-        <li>
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        value가 이미 존재할 경우 예외 발생.
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl class="param-type">
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type">EXIST_VALUE</span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-</li>
-    </ul>
 
 
 <h5>Returns:</h5>
 
         
-<div class="param-desc">
-    주어진 값이 삽입된 자기 자신 리턴.
-</div>
-
 
 
 <dl class="param-type">
@@ -1259,7 +695,7 @@
     </dt>
     <dd>
         
-<span class="param-type"><a href="BinarySearchTree.html">BinarySearchTree</a></span>
+<span class="param-type"><a href="DoublyLinkedList.html">DoublyLinkedList</a></span>
 
 
     </dd>
@@ -1274,7 +710,7 @@
 
     
 
-    <h4 class="name" id="insertGen"><span class="type-signature">(generator) </span>insertGen<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="BinarySearchTree.html">BinarySearchTree</a>}</span></h4>
+    <h4 class="name" id="insertGen"><span class="type-signature">(generator) </span>insertGen<span class="signature">(index, value)</span><span class="type-signature"> &rarr; {<a href="DoublyLinkedList.html">DoublyLinkedList</a>}</span></h4>
 
     
 
@@ -1286,7 +722,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="binarySearchTree.js.html">binarySearchTree.js</a>, <a href="binarySearchTree.js.html#line191">line 191</a>
+        <a href="doublyLinkedList.js.html">doublyLinkedList.js</a>, <a href="doublyLinkedList.js.html#line337">line 337</a>
     </li></ul></dd>
     
 
@@ -1364,13 +800,36 @@
 
         <tr>
             
-                <td class="name"><code>value</code></td>
+                <td class="name"><code>index</code></td>
             
 
             <td class="type">
             
                 
 <span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
 
 
             
@@ -1401,13 +860,13 @@
 
 
 <h5>Throws:</h5>
-<ul>
-        <li>
+
+        
 
 <dl>
     <dt>
         <div class="param-desc">
-        value가 number타입이 아닐 경우 예외 발생.
+        index가 현재 DLL의 범위를 벗어나면 예외 발생.
         </div>
     </dt>
     <dd></dd>
@@ -1418,7 +877,7 @@
             </dt>
             <dd>
                 
-<span class="param-type">INVALID_VALUE</span>
+<span class="param-type">INDEX_OUT_OF_ORDER</span>
 
 
             </dd>
@@ -1427,44 +886,13 @@
     <dd></dd>
 </dl>
 
-</li>
+
     
-        <li>
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        value가 이미 존재할 경우 예외 발생.
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl class="param-type">
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type">EXIST_VALUE</span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-</li>
-    </ul>
 
 
 <h5>Returns:</h5>
 
         
-<div class="param-desc">
-    주어진 값이 삽입된 자기 자신 리턴.
-</div>
-
 
 
 <dl class="param-type">
@@ -1473,7 +901,7 @@
     </dt>
     <dd>
         
-<span class="param-type"><a href="BinarySearchTree.html">BinarySearchTree</a></span>
+<span class="param-type"><a href="DoublyLinkedList.html">DoublyLinkedList</a></span>
 
 
     </dd>
@@ -1497,7 +925,7 @@
     </dt>
     <dd>
         
-<span class="param-type"><a href="BinarySearchTree.html">BinarySearchTree</a></span>
+<span class="param-type"><a href="DoublyLinkedList.html">DoublyLinkedList</a></span>
 
 
     </dd>
@@ -1510,7 +938,7 @@
 
     
 
-    <h4 class="name" id="remove"><span class="type-signature"></span>remove<span class="signature">(value)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="pop"><span class="type-signature"></span>pop<span class="signature">()</span><span class="type-signature"> &rarr; {*}</span></h4>
 
     
 
@@ -1522,7 +950,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="binarySearchTree.js.html">binarySearchTree.js</a>, <a href="binarySearchTree.js.html#line116">line 116</a>
+        <a href="doublyLinkedList.js.html">doublyLinkedList.js</a>, <a href="doublyLinkedList.js.html#line66">line 66</a>
     </li></ul></dd>
     
 
@@ -1562,7 +990,247 @@
 
 
 <div class="description">
-    해당 value를 찾아서 삭제한다.
+    tail 노드를 pop 해서 그 값을 리턴.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    pop된 값을 리턴.
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="popGen"><span class="type-signature">(generator) </span>popGen<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="DoublyLinkedList.html">DoublyLinkedList</a>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="doublyLinkedList.js.html">doublyLinkedList.js</a>, <a href="doublyLinkedList.js.html#line256">line 256</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    pop 메소드의 진행 상태를 generate 하는 제너레이터 함수.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    pop된 값을 리턴.
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
+
+
+    </dd>
+</dl>
+
+    
+
+		
+<h5>Yields:</h5>		
+		
+        
+<div class="param-desc">
+    진행 상태가 시각적으로 표시된 자기 자신.
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="DoublyLinkedList.html">DoublyLinkedList</a></span>
+
+
+    </dd>
+</dl>
+		
+    
+
+        
+            
+
+    
+
+    <h4 class="name" id="push"><span class="type-signature"></span>push<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="DoublyLinkedList.html">DoublyLinkedList</a>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="doublyLinkedList.js.html">doublyLinkedList.js</a>, <a href="doublyLinkedList.js.html#line46">line 46</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    tail 위치에 새 노드 삽입. 자기 자신을 리턴.
 </div>
 
 
@@ -1606,7 +1274,7 @@
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">*</span>
 
 
             
@@ -1638,6 +1306,28 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    새 노드가 삽입된 자기 자신을 리턴.
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="DoublyLinkedList.html">DoublyLinkedList</a></span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -1646,7 +1336,7 @@
 
     
 
-    <h4 class="name" id="removeGen"><span class="type-signature">(generator) </span>removeGen<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="BinarySearchTree.html">BinarySearchTree</a>}</span></h4>
+    <h4 class="name" id="pushGen"><span class="type-signature">(generator) </span>pushGen<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="DoublyLinkedList.html">DoublyLinkedList</a>}</span></h4>
 
     
 
@@ -1658,7 +1348,374 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="binarySearchTree.js.html">binarySearchTree.js</a>, <a href="binarySearchTree.js.html#line242">line 242</a>
+        <a href="doublyLinkedList.js.html">doublyLinkedList.js</a>, <a href="doublyLinkedList.js.html#line230">line 230</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    push 메소드의 진행 상태를 generate 하는 제너레이터 함수.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    새 노드가 삽입된 자기 자신을 리턴.
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="DoublyLinkedList.html">DoublyLinkedList</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+		
+<h5>Yields:</h5>		
+		
+        
+<div class="param-desc">
+    진행 상태가 시각적으로 표시된 자기 자신.
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="DoublyLinkedList.html">DoublyLinkedList</a></span>
+
+
+    </dd>
+</dl>
+		
+    
+
+        
+            
+
+    
+
+    <h4 class="name" id="remove"><span class="type-signature"></span>remove<span class="signature">(index)</span><span class="type-signature"> &rarr; {*}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="doublyLinkedList.js.html">doublyLinkedList.js</a>, <a href="doublyLinkedList.js.html#line158">line 158</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    해당 index 위치에 있는 노드를 pop 하고 그 값을 리턴한다.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        index가 현재 DLL의 범위를 벗어나면 예외 발생.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">INDEX_OUT_OF_ORDER</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    pop된 값을 리턴한다.
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="removeGen"><span class="type-signature">(generator) </span>removeGen<span class="signature">(index)</span><span class="type-signature"> &rarr; {<a href="DoublyLinkedList.html">DoublyLinkedList</a>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="doublyLinkedList.js.html">doublyLinkedList.js</a>, <a href="doublyLinkedList.js.html#line368">line 368</a>
     </li></ul></dd>
     
 
@@ -1736,7 +1793,7 @@
 
         <tr>
             
-                <td class="name"><code>value</code></td>
+                <td class="name"><code>index</code></td>
             
 
             <td class="type">
@@ -1772,8 +1829,59 @@
 
 
 
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        index가 현재 DLL의 범위를 벗어나면 예외 발생.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl class="param-type">
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">INDEX_OUT_OF_ORDER</span>
 
 
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    pop된 값을 리턴한다.
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
+
+
+    </dd>
+</dl>
+
+    
 
 		
 <h5>Yields:</h5>		
@@ -1791,7 +1899,7 @@
     </dt>
     <dd>
         
-<span class="param-type"><a href="BinarySearchTree.html">BinarySearchTree</a></span>
+<span class="param-type"><a href="DoublyLinkedList.html">DoublyLinkedList</a></span>
 
 
     </dd>
@@ -1804,7 +1912,7 @@
 
     
 
-    <h4 class="name" id="size"><span class="type-signature"></span>size<span class="signature">()</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id="reverse"><span class="type-signature"></span>reverse<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="DoublyLinkedList.html">DoublyLinkedList</a>}</span></h4>
 
     
 
@@ -1816,7 +1924,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="binarySearchTree.js.html">binarySearchTree.js</a>, <a href="binarySearchTree.js.html#line39">line 39</a>
+        <a href="doublyLinkedList.js.html">doublyLinkedList.js</a>, <a href="doublyLinkedList.js.html#line182">line 182</a>
     </li></ul></dd>
     
 
@@ -1856,7 +1964,7 @@
 
 
 <div class="description">
-    현재 BST 안에 있는 노드의 개수를 리턴한다.
+    dll 을 뒤집는다.
 </div>
 
 
@@ -1887,9 +1995,346 @@
 
         
 <div class="param-desc">
-    노드의 개수
+    뒤집힌 dll 객체.
 </div>
 
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="DoublyLinkedList.html">DoublyLinkedList</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="shift"><span class="type-signature"></span>shift<span class="signature">()</span><span class="type-signature"> &rarr; {*}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="doublyLinkedList.js.html">doublyLinkedList.js</a>, <a href="doublyLinkedList.js.html#line106">line 106</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    head 노드를 pop 해서 그 값을 리턴.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="shiftGen"><span class="type-signature">(generator) </span>shiftGen<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="DoublyLinkedList.html">DoublyLinkedList</a>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="doublyLinkedList.js.html">doublyLinkedList.js</a>, <a href="doublyLinkedList.js.html#line308">line 308</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    shift 메소드의 진행 상태를 generate 하는 제너레이터 함수.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
+
+
+    </dd>
+</dl>
+
+    
+
+		
+<h5>Yields:</h5>		
+		
+        
+<div class="param-desc">
+    진행 상태가 시각적으로 표시된 자기 자신.
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="DoublyLinkedList.html">DoublyLinkedList</a></span>
+
+
+    </dd>
+</dl>
+		
+    
+
+        
+            
+
+    
+
+    <h4 class="name" id="size"><span class="type-signature"></span>size<span class="signature">()</span><span class="type-signature"> &rarr; {number}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="doublyLinkedList.js.html">doublyLinkedList.js</a>, <a href="doublyLinkedList.js.html#line37">line 37</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    DLL의 노드 개수를 구해서 리턴.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
 
 
 <dl class="param-type">
@@ -1907,6 +2352,336 @@
     
 
 
+
+        
+            
+
+    
+
+    <h4 class="name" id="unshift"><span class="type-signature"></span>unshift<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="DoublyLinkedList.html">DoublyLinkedList</a>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="doublyLinkedList.js.html">doublyLinkedList.js</a>, <a href="doublyLinkedList.js.html#line87">line 87</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    head 위치에 새 노드 삽입. 자기 자신을 리턴.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="DoublyLinkedList.html">DoublyLinkedList</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="unshiftGen"><span class="type-signature">(generator) </span>unshiftGen<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="DoublyLinkedList.html">DoublyLinkedList</a>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="doublyLinkedList.js.html">doublyLinkedList.js</a>, <a href="doublyLinkedList.js.html#line283">line 283</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    unshift 메소드의 진행 상태를 generate 하는 제너레이터 함수.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="DoublyLinkedList.html">DoublyLinkedList</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+		
+<h5>Yields:</h5>		
+		
+        
+<div class="param-desc">
+    진행 상태가 시각적으로 표시된 자기 자신.
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="DoublyLinkedList.html">DoublyLinkedList</a></span>
+
+
+    </dd>
+</dl>
+		
+    
 
         
     
