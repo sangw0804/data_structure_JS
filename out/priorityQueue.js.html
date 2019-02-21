@@ -1,4 +1,47 @@
-import { PriorityNode } from './node.js';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>priorityQueue.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="PriorityQueue.html">PriorityQueue</a><ul class='methods'><li data-type='method'><a href="PriorityQueue.html#dequeue">dequeue</a></li><li data-type='method'><a href="PriorityQueue.html#enqueue">enqueue</a></li><li data-type='method'><a href="PriorityQueue.html#size">size</a></li></ul></li><li><a href="Queue.html">Queue</a><ul class='methods'><li data-type='method'><a href="Queue.html#dequeue">dequeue</a></li><li data-type='method'><a href="Queue.html#enqueue">enqueue</a></li><li data-type='method'><a href="Queue.html#size">size</a></li></ul></li><li><a href="SinglyLinkedList.html">SinglyLinkedList</a><ul class='methods'><li data-type='method'><a href="SinglyLinkedList.html#insert">insert</a></li><li data-type='method'><a href="SinglyLinkedList.html#pop">pop</a></li><li data-type='method'><a href="SinglyLinkedList.html#push">push</a></li><li data-type='method'><a href="SinglyLinkedList.html#remove">remove</a></li><li data-type='method'><a href="SinglyLinkedList.html#reverse">reverse</a></li><li data-type='method'><a href="SinglyLinkedList.html#shift">shift</a></li><li data-type='method'><a href="SinglyLinkedList.html#size">size</a></li><li data-type='method'><a href="SinglyLinkedList.html#unshift">unshift</a></li></ul></li><li><a href="Stack.html">Stack</a><ul class='methods'><li data-type='method'><a href="Stack.html#pop">pop</a></li><li data-type='method'><a href="Stack.html#push">push</a></li><li data-type='method'><a href="Stack.html#size">size</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">priorityQueue.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { PriorityNode } from './node.js';
 import { INVALID_VALUE } from './error.js';
 import clone from '../node_modules/clone/clone.js';
 
@@ -48,13 +91,13 @@ class PriorityQueue {
     let index = this.size() - 1;
     let parentIndex = Math.floor((index - 1) / 2);
 
-    if (isSnapshot && index > 0) {
+    if (isSnapshot &amp;&amp; index > 0) {
       this.nodes[index].colored = 'blue';
       this.nodes[parentIndex].colored = 'green';
       this.snapshots.push(clone(this));
     }
 
-    while (index > 0 && this.nodes[index].priority < this.nodes[parentIndex].priority) {
+    while (index > 0 &amp;&amp; this.nodes[index].priority &lt; this.nodes[parentIndex].priority) {
       [this.nodes[index], this.nodes[parentIndex]] = [this.nodes[parentIndex], this.nodes[index]];
       if (isSnapshot) {
         this.snapshots.push(clone(this));
@@ -64,14 +107,14 @@ class PriorityQueue {
 
       index = parentIndex;
       parentIndex = Math.floor((index - 1) / 2);
-      if (isSnapshot && index > 0) {
+      if (isSnapshot &amp;&amp; index > 0) {
         this.nodes[index].colored = 'blue';
         this.nodes[parentIndex].colored = 'green';
         this.snapshots.push(clone(this));
       }
     }
 
-    if (isSnapshot && index > 0) {
+    if (isSnapshot &amp;&amp; index > 0) {
       delete this.nodes[index].colored;
       delete this.nodes[parentIndex].colored;
     }
@@ -104,14 +147,14 @@ class PriorityQueue {
 
     let index = 0;
     let childIndex = index * 2 + 1;
-    while (childIndex < this.size()) {
+    while (childIndex &lt; this.size()) {
       if (isSnapshot) {
         this.nodes[index].colored = 'blue';
         this.nodes[childIndex].colored = 'green';
         this.snapshots.push(clone(this));
       }
 
-      if (this.nodes[childIndex + 1] && this.nodes[childIndex].priority > this.nodes[childIndex + 1].priority) {
+      if (this.nodes[childIndex + 1] &amp;&amp; this.nodes[childIndex].priority > this.nodes[childIndex + 1].priority) {
         if (isSnapshot) {
           delete this.nodes[childIndex].colored;
           this.nodes[childIndex + 1].colored = 'green';
@@ -119,7 +162,7 @@ class PriorityQueue {
         }
         childIndex += 1;
       }
-      if (this.nodes[index].priority <= this.nodes[childIndex].priority) {
+      if (this.nodes[index].priority &lt;= this.nodes[childIndex].priority) {
         if (isSnapshot) {
           delete this.values[index].colored;
           delete this.values[childIndex].colored;
@@ -146,3 +189,26 @@ class PriorityQueue {
 }
 
 export { PriorityQueue };
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Feb 21 2019 19:39:28 GMT+0900 (KST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+
+
+</body>
+</html>

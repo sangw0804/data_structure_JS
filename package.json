@@ -7,7 +7,8 @@
     "start": "node --experimental-modules server.mjs",
     "test": "jest --no-cache test/*.test.js",
     "test-spec": "jest --no-cache",
-    "test-cover": "jest --no-cache --coverage test/*.test.js"
+    "test-cover": "jest --no-cache --coverage test/*.test.js",
+    "create-doc": "node_modules/.bin/jsdoc -r lib -t node_modules/docdash"
   },
   "repository": {
     "type": "git",

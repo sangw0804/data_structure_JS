@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>stack.js - Documentation</title>
+    <title>queue.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -31,7 +31,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">stack.js</h1>
+    <h1 class="page-title">queue.js</h1>
     
 
     
@@ -41,44 +41,60 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/** 스택 클래스 */
+            <pre class="prettyprint source linenums"><code>import { SingleNode } from './node.js';
 
-class Stack {
-  /**
-   * 스택 생성.
-   */
+/** Queue 클래스 생성 */
+class Queue {
   constructor() {
-    this.stacks = [];
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
   }
 
   /**
-   * 현재 스택의 요소 개수를 리턴.
+   * 현재 Queue의 요소 개수를 리턴한다.
    * @return {number}
    */
   size() {
-    return this.stacks.length;
+    return this.length;
   }
 
   /**
-   * 스택의 맨 뒤에 요소 삽입.
+   * value 로 새 노드를 만들어 tail에 삽입한다.
    * @param {*} value
-   * @return {Stack} - 자기 자신 리턴
+   * @return {Queue} 자기 자신을 리턴.
    */
-  push(value) {
-    this.stacks.push(value);
+  enqueue(value) {
+    const newNode = new SingleNode(value);
+
+    if (!this.length) {
+      this.head = newNode;
+    } else {
+      this.tail.next = newNode;
+    }
+    this.tail = newNode;
+
+    this.length += 1;
     return this;
   }
 
   /**
-   * 스택의 맨 뒤 요소를 빼서 리턴한다.
+   * head 노드를 pop 해서 그 값을 리턴한다.
    * @return {*}
    */
-  pop() {
-    return this.stacks.pop();
+  dequeue() {
+    if (!this.length) return undefined;
+
+    const poppedNode = this.head;
+    this.head = this.head.next;
+    if (this.length === 1) this.tail = null;
+
+    this.length -= 1;
+    return poppedNode.value;
   }
 }
 
-export { Stack };
+export { Queue };
 </code></pre>
         </article>
     </section>

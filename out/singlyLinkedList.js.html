@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>singlyLinkedList.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="PriorityQueue.html">PriorityQueue</a><ul class='methods'><li data-type='method'><a href="PriorityQueue.html#dequeue">dequeue</a></li><li data-type='method'><a href="PriorityQueue.html#enqueue">enqueue</a></li><li data-type='method'><a href="PriorityQueue.html#size">size</a></li></ul></li><li><a href="Queue.html">Queue</a><ul class='methods'><li data-type='method'><a href="Queue.html#dequeue">dequeue</a></li><li data-type='method'><a href="Queue.html#enqueue">enqueue</a></li><li data-type='method'><a href="Queue.html#size">size</a></li></ul></li><li><a href="SinglyLinkedList.html">SinglyLinkedList</a><ul class='methods'><li data-type='method'><a href="SinglyLinkedList.html#insert">insert</a></li><li data-type='method'><a href="SinglyLinkedList.html#pop">pop</a></li><li data-type='method'><a href="SinglyLinkedList.html#push">push</a></li><li data-type='method'><a href="SinglyLinkedList.html#remove">remove</a></li><li data-type='method'><a href="SinglyLinkedList.html#reverse">reverse</a></li><li data-type='method'><a href="SinglyLinkedList.html#shift">shift</a></li><li data-type='method'><a href="SinglyLinkedList.html#size">size</a></li><li data-type='method'><a href="SinglyLinkedList.html#unshift">unshift</a></li></ul></li><li><a href="Stack.html">Stack</a><ul class='methods'><li data-type='method'><a href="Stack.html#pop">pop</a></li><li data-type='method'><a href="Stack.html#push">push</a></li><li data-type='method'><a href="Stack.html#size">size</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">singlyLinkedList.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import clone from '../node_modules/clone/clone.js';
+
+import { SingleNode } from './node.js';
+import { INDEX_OUT_OF_ORDER } from './error.js';
+
+/** Singly Linked List 생성 */
+class SinglyLinkedList {
+  /**
+   * SLL 생성
+   */
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+    this.snapshots = [];
+  }
+
+  returnSnapshots() {
+    const temp = this.snapshots;
+    this.snapshots = [];
+    return temp;
+  }
+
+  /**
+   * SLL 요소 개수 리턴.
+   * @return {number}
+   */
+  size() {
+    return this.length;
+  }
+
+  /**
+   * SLL의 맨 뒤에 요소 삽입.
+   * @param {*} value - 삽입 할 요소
+   * @param {boolean} isSnapshot
+   * @return {SinglyLinkedList} - 자기 자신.
+   */
+  push(value, isSnapshot = false) {
+    const newNode = new SingleNode(value);
+
+    if (this.length) {
+      if (isSnapshot) {
+        this.tail.colored = 'blue';
+        this.snapshots.push(clone(this));
+        delete this.tail.colored;
+      }
+      this.tail.next = newNode;
+    } else {
+      this.head = newNode;
+    }
+
+    this.tail = newNode;
+    this.length += 1;
+    return this;
+  }
+
+  /**
+   * SLL의 맨 뒤 요소를 빼서 리턴.
+   * @param {*} isSnapshot
+   * @return {*}
+   */
+  pop(isSnapshot = false) {
+    if (!this.length) return undefined;
+
+    let before = this.head;
+    if (isSnapshot) {
+      before.colored = 'blue';
+      this.snapshots.push(clone(this));
+      delete before.colored;
+    }
+    while (before.next &amp;&amp; before.next.next) {
+      before = before.next;
+      if (isSnapshot) {
+        before.colored = 'blue';
+        this.snapshots.push(clone(this));
+        delete before.colored;
+      }
+    }
+
+    const poppedNode = this.tail;
+
+    this.tail = before;
+    this.tail.next = null;
+
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    }
+
+    this.length -= 1;
+    return poppedNode.value;
+  }
+
+  /**
+   * SLL의 맨 앞 요소를 빼서 리턴
+   * @param {*} isSnapshot
+   * @return {*}
+   */
+  shift(isSnapshot = false) {
+    if (!this.length) return undefined;
+
+    const poppedNode = this.head;
+    if (isSnapshot) {
+      poppedNode.colored = 'blue';
+      this.snapshots.push(clone(this));
+      delete poppedNode.colored;
+    }
+    this.head = this.head.next;
+    if (this.length === 1) this.tail = null;
+
+    this.length -= 1;
+    return poppedNode.value;
+  }
+
+  /**
+   * SLL의 맨 앞에 요소 삽입
+   * @param {*} value - 삽입 할 요소.
+   * @param {*} isSnapshot
+   * @return {SinglyLinkedList} - 자기 자신
+   */
+  unshift(value, isSnapshot = false) {
+    if (this.length &amp;&amp; isSnapshot) {
+      this.head.colored = 'blue';
+      this.snapshots.push(clone(this));
+      delete this.head.colored;
+    }
+    const newNode = new SingleNode(value);
+    newNode.next = this.head;
+    this.head = newNode;
+
+    if (!this.length) this.tail = newNode;
+
+    this.length += 1;
+    return this;
+  }
+
+  /**
+   * SLL 의 해당 index에 요소 삽입.
+   * @param {*} index
+   * @param {*} value
+   * @param {*} isSnapshot
+   * @throws {INDEX_OUT_OF_ORDER} index가 SLL의 범위를 벗어날 경우 예외 발생.
+   * @return {SinglyLinkedList}
+   */
+  insert(index, value, isSnapshot = false) {
+    const newNode = new SingleNode(value);
+
+    if (index > this.length || index &lt; 0) {
+      throw new Error(INDEX_OUT_OF_ORDER);
+    } else if (index === this.length) {
+      return this.push(value, isSnapshot);
+    } else if (!index) {
+      return this.unshift(value, isSnapshot);
+    }
+
+    let before = this.head;
+
+    if (isSnapshot) {
+      before.colored = 'blue';
+      this.snapshots.push(clone(this));
+      delete before.colored;
+    }
+    for (let i = 1; i &lt; index; i += 1) {
+      before = before.next;
+      if (isSnapshot) {
+        before.colored = 'blue';
+        this.snapshots.push(clone(this));
+        delete before.colored;
+      }
+    }
+    newNode.next = before.next;
+    before.next = newNode;
+
+    this.length += 1;
+    return this;
+  }
+
+  /**
+   * 해당 index 에 위치한 요소를 제거해서 리턴.
+   * @param {*} index
+   * @param {*} isSnapshot
+   * @throws {INDEX_OUT_OF_ORDER} index가 SLL의 범위를 벗어날 경우 예외 발생.
+   * @return {SinglyLinkedList}
+   */
+  remove(index, isSnapshot = false) {
+    if (index &lt; 0 || index >= this.length) {
+      throw new Error(INDEX_OUT_OF_ORDER);
+    } else if (!index) {
+      return this.shift(isSnapshot);
+    } else if (index === this.length - 1) {
+      return this.pop(isSnapshot);
+    }
+
+    let before = this.head;
+    if (isSnapshot) {
+      before.colored = 'blue';
+      this.snapshots.push(clone(this));
+      delete before.colored;
+    }
+    for (let i = 1; i &lt; index; i += 1) {
+      before = before.next;
+      if (isSnapshot) {
+        before.colored = 'blue';
+        this.snapshots.push(clone(this));
+        delete before.colored;
+      }
+    }
+    const poppedNode = before.next;
+    before.next = poppedNode.next;
+
+    this.length -= 1;
+    return poppedNode.value;
+  }
+
+  /**
+   * LL 을 뒤집어 head 가 tail을 가리키고, tail은 head를 가리키게 된다.
+   * @return {SinglyLinkedList}
+   */
+  reverse() {
+    if (this.length &lt;= 1) return this;
+
+    let before = null;
+    let current = this.head;
+    let after = current.next;
+    while (current) {
+      current.next = before;
+      before = current;
+      current = after;
+      if (after) after = after.next;
+    }
+
+    [this.head, this.tail] = [this.tail, this.head];
+
+    return this;
+  }
+}
+
+export { SinglyLinkedList };
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Feb 21 2019 19:39:28 GMT+0900 (KST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+
+
+</body>
+</html>
