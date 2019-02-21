@@ -27,6 +27,7 @@
     "clone": "^2.1.2",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "jsdoc": "^3.5.5",
     "leader-line": "^1.0.5"
   },
   "devDependencies": {
@@ -36,7 +37,8 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "expect": "^23.6.0",
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "tui-jsdoc-template": "^1.2.2"
   },
   "jest": {
     "transformIgnorePatterns": [
