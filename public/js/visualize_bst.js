@@ -14,11 +14,10 @@ insertButton.onclick = buttonDisableHOC(async event => {
   try {
     if (!insertInput.value.length) throw new Error('채워지지 않은 필드가 있습니다.');
 
-    bst.insert(+insertInput.value, true);
+    const iter = bst.insertGen(+insertInput.value);
 
-    const snapshots = bst.returnSnapshots();
-    for (let i = 0; i < snapshots.length; i += 1) {
-      await delayAndApply(main, createBinarySearchTreeElement(snapshots[i]), 1000);
+    for (let snapshot of iter) {
+      await delayAndApply(main, createBinarySearchTreeElement(snapshot), 1000);
       lines.forEach(l => l.remove());
       lines = drawLineBST(main.firstChild);
     }
@@ -38,11 +37,10 @@ removeButton.onclick = buttonDisableHOC(async event => {
   try {
     if (!removeInput.value.length) throw new Error('채워지지 않은 필드가 있습니다.');
 
-    bst.remove(+removeInput.value, true);
+    const iter = bst.removeGen(+removeInput.value);
 
-    const snapshots = bst.returnSnapshots();
-    for (let i = 0; i < snapshots.length; i += 1) {
-      await delayAndApply(main, createBinarySearchTreeElement(snapshots[i]), 1000);
+    for (let snapshot of iter) {
+      await delayAndApply(main, createBinarySearchTreeElement(snapshot), 1000);
       lines.forEach(l => l.remove());
       lines = drawLineBST(main.firstChild);
     }

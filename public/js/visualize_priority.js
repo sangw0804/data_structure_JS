@@ -15,11 +15,10 @@ enqueueButton.onclick = buttonDisableHOC(async () => {
     if (!enqueueValueInput.value.length || !enqueuePriorityInput.value.length)
       throw new Error('채워지지 않은 필드가 있습니다.');
 
-    priorityQueue.enqueue(enqueueValueInput.value, +enqueuePriorityInput.value, true);
+    const iter = priorityQueue.enqueueGen(enqueueValueInput.value, +enqueuePriorityInput.value);
 
-    const snapshots = priorityQueue.returnSnapshots();
-    for (let i = 0; i < snapshots.length; i += 1) {
-      await delayAndApply(main, createPriorityQueueElement(snapshots[i]), 1000);
+    for (let snapshot of iter) {
+      await delayAndApply(main, createPriorityQueueElement(snapshot), 1000);
       lines.forEach(l => l.remove());
       lines = drawLineHeap(main);
     }
@@ -35,11 +34,10 @@ enqueueButton.onclick = buttonDisableHOC(async () => {
 const dequeueButton = document.getElementById('dequeue_button');
 dequeueButton.onclick = buttonDisableHOC(async () => {
   try {
-    priorityQueue.dequeue(true);
+    const iter = priorityQueue.dequeueGen();
 
-    const snapshots = priorityQueue.returnSnapshots();
-    for (let i = 0; i < snapshots.length; i += 1) {
-      await delayAndApply(main, createPriorityQueueElement(snapshots[i]), 1000);
+    for (let snapshot of iter) {
+      await delayAndApply(main, createPriorityQueueElement(snapshot), 1000);
       lines.forEach(l => l.remove());
       lines = drawLineHeap(main);
     }

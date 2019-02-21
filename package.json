@@ -7,7 +7,8 @@
     "start": "node --experimental-modules server.mjs",
     "test": "jest --no-cache test/*.test.js",
     "test-spec": "jest --no-cache",
-    "test-cover": "jest --no-cache --coverage test/*.test.js"
+    "test-cover": "jest --no-cache --coverage test/*.test.js",
+    "create-doc": "node_modules/.bin/jsdoc -r lib README.md -t node_modules/docdash"
   },
   "repository": {
     "type": "git",
@@ -25,8 +26,10 @@
   "dependencies": {
     "babel-preset-env": "^1.7.0",
     "clone": "^2.1.2",
+    "docdash": "^1.0.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "jsdoc": "^3.5.5",
     "leader-line": "^1.0.5"
   },
   "devDependencies": {

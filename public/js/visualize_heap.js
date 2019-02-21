@@ -15,11 +15,10 @@ const insertInput = document.getElementById('insert_value');
 insertButton.onclick = buttonDisableHOC(async () => {
   try {
     if (!insertInput.value.length) throw new Error('채워지지 않은 필드가 있습니다.');
-    heap.insert(+insertInput.value, true);
+    const iter = heap.insertGen(+insertInput.value);
 
-    const snapshots = heap.returnSnapshots();
-    for (let i = 0; i < snapshots.length; i += 1) {
-      await delayAndApply(main, createHeapElement(snapshots[i]), 1000);
+    for (let snapshot of iter) {
+      await delayAndApply(main, createHeapElement(snapshot), 1000);
       lines.forEach(l => l.remove());
       lines = drawLineHeap(main);
     }
@@ -35,11 +34,10 @@ insertButton.onclick = buttonDisableHOC(async () => {
 const popButton = document.getElementById('pop_button');
 popButton.onclick = buttonDisableHOC(async () => {
   try {
-    heap.pop(true);
+    const iter = heap.popGen();
 
-    const snapshots = heap.returnSnapshots();
-    for (let i = 0; i < snapshots.length; i += 1) {
-      await delayAndApply(main, createHeapElement(snapshots[i]), 1000);
+    for (let snapshot of iter) {
+      await delayAndApply(main, createHeapElement(snapshot), 1000);
       lines.forEach(l => l.remove());
       lines = drawLineHeap(main);
     }

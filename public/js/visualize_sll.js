@@ -14,11 +14,10 @@ pushButton.onclick = buttonDisableHOC(async event => {
   try {
     if (!pushInput.value.length) throw new Error('채워지지 않은 필드가 있습니다.');
 
-    sll.push(pushInput.value, true);
+    const iter = sll.pushGen(pushInput.value);
 
-    const snapshots = sll.returnSnapshots();
-    for (let i = 0; i < snapshots.length; i += 1) {
-      await delayAndApply(main, createSinglyLinkedListElement(snapshots[i]), 1000);
+    for (let snapshot of iter) {
+      await delayAndApply(main, createSinglyLinkedListElement(snapshot), 1000);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, false);
     }
@@ -34,11 +33,10 @@ pushButton.onclick = buttonDisableHOC(async event => {
 const popButton = document.getElementById('pop_button');
 popButton.onclick = buttonDisableHOC(async event => {
   try {
-    sll.pop(true);
+    const iter = sll.popGen();
 
-    const snapshots = sll.returnSnapshots();
-    for (let i = 0; i < snapshots.length; i += 1) {
-      await delayAndApply(main, createSinglyLinkedListElement(snapshots[i]), 1000);
+    for (let snapshot of iter) {
+      await delayAndApply(main, createSinglyLinkedListElement(snapshot), 1000);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, false);
     }
@@ -57,11 +55,10 @@ unshiftButton.onclick = buttonDisableHOC(async event => {
   try {
     if (!unshiftInput.value.length) throw new Error('채워지지 않은 필드가 있습니다!');
 
-    sll.unshift(unshiftInput.value, true);
+    const iter = sll.unshiftGen(unshiftInput.value);
 
-    const snapshots = sll.returnSnapshots();
-    for (let i = 0; i < snapshots.length; i += 1) {
-      await delayAndApply(main, createSinglyLinkedListElement(snapshots[i]), 1000);
+    for (let snapshot of iter) {
+      await delayAndApply(main, createSinglyLinkedListElement(snapshot), 1000);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, false);
     }
@@ -77,11 +74,10 @@ unshiftButton.onclick = buttonDisableHOC(async event => {
 const shiftButton = document.getElementById('shift_button');
 shiftButton.onclick = buttonDisableHOC(async event => {
   try {
-    sll.shift(true);
+    const iter = sll.shiftGen();
 
-    const snapshots = sll.returnSnapshots();
-    for (let i = 0; i < snapshots.length; i += 1) {
-      await delayAndApply(main, createSinglyLinkedListElement(snapshots[i]), 1000);
+    for (let snapshot of iter) {
+      await delayAndApply(main, createSinglyLinkedListElement(snapshot), 1000);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, false);
     }
@@ -102,11 +98,10 @@ insertButton.onclick = buttonDisableHOC(async event => {
     if (!insertIndexInput.value.length || !insertValueInput.value.length)
       throw new Error('채워지지 않은 필드가 있습니다.');
 
-    sll.insert(+insertIndexInput.value, insertValueInput.value, true);
+    const iter = sll.insertGen(+insertIndexInput.value, insertValueInput.value);
 
-    const snapshots = sll.returnSnapshots();
-    for (let i = 0; i < snapshots.length; i += 1) {
-      await delayAndApply(main, createSinglyLinkedListElement(snapshots[i]), 1000);
+    for (let snapshot of iter) {
+      await delayAndApply(main, createSinglyLinkedListElement(snapshot), 1000);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, false);
     }
@@ -125,11 +120,10 @@ removeButton.onclick = buttonDisableHOC(async event => {
   try {
     if (!removeIndexInput.value.length) throw new Error('채워지지 않은 필드가 있습니다.');
 
-    sll.remove(+removeIndexInput.value, true);
+    const iter = sll.removeGen(+removeIndexInput.value);
 
-    const snapshots = sll.returnSnapshots();
-    for (let i = 0; i < snapshots.length; i += 1) {
-      await delayAndApply(main, createSinglyLinkedListElement(snapshots[i]), 1000);
+    for (let snapshot of iter) {
+      await delayAndApply(main, createSinglyLinkedListElement(snapshot), 1000);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, false);
     }
@@ -150,12 +144,6 @@ reverseButton.onclick = async event => {
     main.appendChild(createSinglyLinkedListElement(sll));
     lines.forEach(l => l.remove());
     lines = drawLineLL(main, false);
-
-    // const snapshots = sll.returnSnapshots();
-    // for (let i = 0; i < snapshots.length; i += 1) {
-    //   await delayAndApply(main, createSinglyLinkedListElement(snapshots[i]), 1000);
-    // }
-    // await delayAndApply(main, createSinglyLinkedListElement(sll), 1000);
   } catch (e) {
     alert(e);
   }
