@@ -26,7 +26,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="PriorityQueue.html">PriorityQueue</a><ul class='methods'><li data-type='method'><a href="PriorityQueue.html#dequeue">dequeue</a></li><li data-type='method'><a href="PriorityQueue.html#enqueue">enqueue</a></li><li data-type='method'><a href="PriorityQueue.html#size">size</a></li></ul></li><li><a href="Queue.html">Queue</a><ul class='methods'><li data-type='method'><a href="Queue.html#dequeue">dequeue</a></li><li data-type='method'><a href="Queue.html#enqueue">enqueue</a></li><li data-type='method'><a href="Queue.html#size">size</a></li></ul></li><li><a href="SinglyLinkedList.html">SinglyLinkedList</a><ul class='methods'><li data-type='method'><a href="SinglyLinkedList.html#insert">insert</a></li><li data-type='method'><a href="SinglyLinkedList.html#pop">pop</a></li><li data-type='method'><a href="SinglyLinkedList.html#push">push</a></li><li data-type='method'><a href="SinglyLinkedList.html#remove">remove</a></li><li data-type='method'><a href="SinglyLinkedList.html#reverse">reverse</a></li><li data-type='method'><a href="SinglyLinkedList.html#shift">shift</a></li><li data-type='method'><a href="SinglyLinkedList.html#size">size</a></li><li data-type='method'><a href="SinglyLinkedList.html#unshift">unshift</a></li></ul></li><li><a href="Stack.html">Stack</a><ul class='methods'><li data-type='method'><a href="Stack.html#pop">pop</a></li><li data-type='method'><a href="Stack.html#push">push</a></li><li data-type='method'><a href="Stack.html#size">size</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BinarySearchTree.html">BinarySearchTree</a><ul class='methods'><li data-type='method'><a href="BinarySearchTree.html#_findMinimum">_findMinimum</a></li><li data-type='method'><a href="BinarySearchTree.html#find">find</a></li><li data-type='method'><a href="BinarySearchTree.html#size">size</a></li></ul></li><li><a href="Heap.html">Heap</a><ul class='methods'><li data-type='method'><a href="Heap.html#_compare">_compare</a></li><li data-type='method'><a href="Heap.html#insert">insert</a></li><li data-type='method'><a href="Heap.html#insertGen">insertGen</a></li><li data-type='method'><a href="Heap.html#pop">pop</a></li><li data-type='method'><a href="Heap.html#popGen">popGen</a></li><li data-type='method'><a href="Heap.html#size">size</a></li></ul></li><li><a href="PriorityQueue.html">PriorityQueue</a><ul class='methods'><li data-type='method'><a href="PriorityQueue.html#dequeue">dequeue</a></li><li data-type='method'><a href="PriorityQueue.html#dequeueGen">dequeueGen</a></li><li data-type='method'><a href="PriorityQueue.html#enqueue">enqueue</a></li><li data-type='method'><a href="PriorityQueue.html#enqueueGen">enqueueGen</a></li><li data-type='method'><a href="PriorityQueue.html#size">size</a></li></ul></li><li><a href="Queue.html">Queue</a><ul class='methods'><li data-type='method'><a href="Queue.html#dequeue">dequeue</a></li><li data-type='method'><a href="Queue.html#enqueue">enqueue</a></li><li data-type='method'><a href="Queue.html#size">size</a></li></ul></li><li><a href="SinglyLinkedList.html">SinglyLinkedList</a><ul class='methods'><li data-type='method'><a href="SinglyLinkedList.html#insert">insert</a></li><li data-type='method'><a href="SinglyLinkedList.html#insertGen">insertGen</a></li><li data-type='method'><a href="SinglyLinkedList.html#pop">pop</a></li><li data-type='method'><a href="SinglyLinkedList.html#popGen">popGen</a></li><li data-type='method'><a href="SinglyLinkedList.html#push">push</a></li><li data-type='method'><a href="SinglyLinkedList.html#pushGen">pushGen</a></li><li data-type='method'><a href="SinglyLinkedList.html#remove">remove</a></li><li data-type='method'><a href="SinglyLinkedList.html#removeGen">removeGen</a></li><li data-type='method'><a href="SinglyLinkedList.html#reverse">reverse</a></li><li data-type='method'><a href="SinglyLinkedList.html#shift">shift</a></li><li data-type='method'><a href="SinglyLinkedList.html#shiftGen">shiftGen</a></li><li data-type='method'><a href="SinglyLinkedList.html#size">size</a></li><li data-type='method'><a href="SinglyLinkedList.html#unshift">unshift</a></li><li data-type='method'><a href="SinglyLinkedList.html#unshiftGen">unshiftGen</a></li></ul></li><li><a href="Stack.html">Stack</a><ul class='methods'><li data-type='method'><a href="Stack.html#pop">pop</a></li><li data-type='method'><a href="Stack.html#push">push</a></li><li data-type='method'><a href="Stack.html#size">size</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -125,7 +125,7 @@ class PriorityQueue {
   /**
    * 우선순위가 가장 낮은 노드를 pop 해서 리턴하고, 남은 노드들을 우선순위대로 정렬한다.
    * @param {boolean} isSnapshot
-   * @return {PriorityNode} 노드 자체를 리턴한다.
+   * @return {PriorityNode} 노드 자체를 리턴한다.l
    */
   dequeue(isSnapshot = false) {
     if (!this.size()) return undefined;
@@ -186,6 +186,111 @@ class PriorityQueue {
 
     return poppedNode;
   }
+
+  /**
+   * enqueue 메소드의 진행 상태를 generate 하는 제너레이터 함수.
+   * @generator
+   * @param {*} value
+   * @param {number} priority
+   * @throws {INVALID_VALUE} 만약 priority가 number가 아니라면 예외 발생
+   * @yields {PriorityQueue} 진행 상황이 시각적으로 표시된 자기 자신.
+   * @return {PriorityQueue} 자기 자신.
+   */
+  *enqueueGen(value, priority) {
+    if (typeof priority !== 'number') throw new Error(INVALID_VALUE);
+
+    this.nodes.push(new PriorityNode(value, priority));
+
+    yield this;
+
+    let index = this.size() - 1;
+    let parentIndex = Math.floor((index - 1) / 2);
+
+    if (index > 0) {
+      this.nodes[index].colored = 'blue';
+      this.nodes[parentIndex].colored = 'green';
+      yield this;
+    }
+
+    while (index > 0 &amp;&amp; this.nodes[index].priority &lt; this.nodes[parentIndex].priority) {
+      [this.nodes[index], this.nodes[parentIndex]] = [this.nodes[parentIndex], this.nodes[index]];
+
+      yield this;
+      delete this.nodes[index].colored;
+      delete this.nodes[parentIndex].colored;
+
+      index = parentIndex;
+      parentIndex = Math.floor((index - 1) / 2);
+      if (index > 0) {
+        this.nodes[index].colored = 'blue';
+        this.nodes[parentIndex].colored = 'green';
+        yield this;
+      }
+    }
+
+    if (index > 0) {
+      delete this.nodes[index].colored;
+      delete this.nodes[parentIndex].colored;
+    }
+
+    return this;
+  }
+
+  /**
+   * dequeue 메소드의 진행 상태를 generate 하는 제너레이터 함수.
+   * @generator
+   * @yields {PriorityQueue} 진행 상태가 시각적으로 표시된 자기 자신.
+   * @return {PriorityNode} 노드 자체를 리턴한다.
+   */
+  *dequeueGen() {
+    if (!this.size()) return undefined;
+    if (this.size() === 1) return this.nodes.pop();
+
+    const poppedNode = this.nodes[0];
+
+    poppedNode.colored = 'white';
+    yield this;
+    this.nodes[this.nodes.length - 1].colored = 'blue';
+    yield this;
+
+    this.nodes[0] = this.nodes.pop();
+
+    yield this;
+
+    let index = 0;
+    let childIndex = index * 2 + 1;
+    while (childIndex &lt; this.size()) {
+      this.nodes[index].colored = 'blue';
+      this.nodes[childIndex].colored = 'green';
+      yield this;
+
+      if (this.nodes[childIndex + 1] &amp;&amp; this.nodes[childIndex].priority > this.nodes[childIndex + 1].priority) {
+        delete this.nodes[childIndex].colored;
+        this.nodes[childIndex + 1].colored = 'green';
+        yield this;
+
+        childIndex += 1;
+      }
+      if (this.nodes[index].priority &lt;= this.nodes[childIndex].priority) {
+        delete this.values[index].colored;
+        delete this.values[childIndex].colored;
+
+        break;
+      }
+      [this.nodes[index], this.nodes[childIndex]] = [this.nodes[childIndex], this.nodes[index]];
+
+      yield this;
+      delete this.nodes[index].colored;
+      delete this.nodes[childIndex].colored;
+
+      index = childIndex;
+      childIndex = index * 2 + 1;
+    }
+
+    delete this.nodes[0].colored;
+
+    return poppedNode;
+  }
 }
 
 export { PriorityQueue };
@@ -203,7 +308,7 @@ export { PriorityQueue };
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Feb 21 2019 19:39:28 GMT+0900 (KST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Feb 21 2019 21:52:43 GMT+0900 (KST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
