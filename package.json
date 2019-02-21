@@ -8,7 +8,7 @@
     "test": "jest --no-cache test/*.test.js",
     "test-spec": "jest --no-cache",
     "test-cover": "jest --no-cache --coverage test/*.test.js",
-    "create-doc": "node_modules/.bin/jsdoc -r lib -t node_modules/docdash"
+    "create-doc": "node_modules/.bin/jsdoc -r lib README.md -t node_modules/docdash"
   },
   "repository": {
     "type": "git",
