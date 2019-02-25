@@ -3,6 +3,8 @@ import { createSinglyLinkedListElement } from '../../components/index.js';
 
 import { delayAndApply, buttonDisableHOC, drawLineLL } from './helpers/index.js';
 
+const delayTime = 500;
+
 const sll = new SinglyLinkedList();
 const main = document.getElementById('main');
 let lines = [];
@@ -17,11 +19,11 @@ pushButton.onclick = buttonDisableHOC(async event => {
     const iter = sll.pushGen(pushInput.value);
 
     for (let snapshot of iter) {
-      await delayAndApply(main, createSinglyLinkedListElement(snapshot), 1000);
+      await delayAndApply(main, createSinglyLinkedListElement(snapshot), delayTime);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, false);
     }
-    await delayAndApply(main, createSinglyLinkedListElement(sll), 1000);
+    await delayAndApply(main, createSinglyLinkedListElement(sll), delayTime);
     lines.forEach(l => l.remove());
     lines = drawLineLL(main, false);
   } catch (e) {
@@ -36,11 +38,11 @@ popButton.onclick = buttonDisableHOC(async event => {
     const iter = sll.popGen();
 
     for (let snapshot of iter) {
-      await delayAndApply(main, createSinglyLinkedListElement(snapshot), 1000);
+      await delayAndApply(main, createSinglyLinkedListElement(snapshot), delayTime);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, false);
     }
-    await delayAndApply(main, createSinglyLinkedListElement(sll), 1000);
+    await delayAndApply(main, createSinglyLinkedListElement(sll), delayTime);
     lines.forEach(l => l.remove());
     lines = drawLineLL(main, false);
   } catch (e) {
@@ -58,11 +60,11 @@ unshiftButton.onclick = buttonDisableHOC(async event => {
     const iter = sll.unshiftGen(unshiftInput.value);
 
     for (let snapshot of iter) {
-      await delayAndApply(main, createSinglyLinkedListElement(snapshot), 1000);
+      await delayAndApply(main, createSinglyLinkedListElement(snapshot), delayTime);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, false);
     }
-    await delayAndApply(main, createSinglyLinkedListElement(sll), 1000);
+    await delayAndApply(main, createSinglyLinkedListElement(sll), delayTime);
     lines.forEach(l => l.remove());
     lines = drawLineLL(main, false);
   } catch (e) {
@@ -77,11 +79,11 @@ shiftButton.onclick = buttonDisableHOC(async event => {
     const iter = sll.shiftGen();
 
     for (let snapshot of iter) {
-      await delayAndApply(main, createSinglyLinkedListElement(snapshot), 1000);
+      await delayAndApply(main, createSinglyLinkedListElement(snapshot), delayTime);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, false);
     }
-    await delayAndApply(main, createSinglyLinkedListElement(sll), 1000);
+    await delayAndApply(main, createSinglyLinkedListElement(sll), delayTime);
     lines.forEach(l => l.remove());
     lines = drawLineLL(main, false);
   } catch (e) {
@@ -101,11 +103,11 @@ insertButton.onclick = buttonDisableHOC(async event => {
     const iter = sll.insertGen(+insertIndexInput.value, insertValueInput.value);
 
     for (let snapshot of iter) {
-      await delayAndApply(main, createSinglyLinkedListElement(snapshot), 1000);
+      await delayAndApply(main, createSinglyLinkedListElement(snapshot), delayTime);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, false);
     }
-    await delayAndApply(main, createSinglyLinkedListElement(sll), 1000);
+    await delayAndApply(main, createSinglyLinkedListElement(sll), delayTime);
     lines.forEach(l => l.remove());
     lines = drawLineLL(main, false);
   } catch (e) {
@@ -123,11 +125,11 @@ removeButton.onclick = buttonDisableHOC(async event => {
     const iter = sll.removeGen(+removeIndexInput.value);
 
     for (let snapshot of iter) {
-      await delayAndApply(main, createSinglyLinkedListElement(snapshot), 1000);
+      await delayAndApply(main, createSinglyLinkedListElement(snapshot), delayTime);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, false);
     }
-    await delayAndApply(main, createSinglyLinkedListElement(sll), 1000);
+    await delayAndApply(main, createSinglyLinkedListElement(sll), delayTime);
     lines.forEach(l => l.remove());
     lines = drawLineLL(main, false);
   } catch (e) {

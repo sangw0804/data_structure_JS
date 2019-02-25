@@ -3,6 +3,8 @@ import { createBinarySearchTreeElement } from '../components/index.js';
 
 import { delayAndApply, buttonDisableHOC, drawLineBST } from './helpers/index.js';
 
+const delayTime = 500;
+
 const bst = new BinarySearchTree();
 const main = document.getElementById('main');
 let lines = [];
@@ -17,12 +19,12 @@ insertButton.onclick = buttonDisableHOC(async event => {
     const iter = bst.insertGen(+insertInput.value);
 
     for (let snapshot of iter) {
-      await delayAndApply(main, createBinarySearchTreeElement(snapshot), 1000);
+      await delayAndApply(main, createBinarySearchTreeElement(snapshot), delayTime);
       lines.forEach(l => l.remove());
       lines = drawLineBST(main.firstChild);
     }
 
-    await delayAndApply(main, createBinarySearchTreeElement(bst), 1000);
+    await delayAndApply(main, createBinarySearchTreeElement(bst), delayTime);
     lines.forEach(l => l.remove());
     lines = drawLineBST(main.firstChild);
   } catch (e) {
@@ -40,12 +42,12 @@ removeButton.onclick = buttonDisableHOC(async event => {
     const iter = bst.removeGen(+removeInput.value);
 
     for (let snapshot of iter) {
-      await delayAndApply(main, createBinarySearchTreeElement(snapshot), 1000);
+      await delayAndApply(main, createBinarySearchTreeElement(snapshot), delayTime);
       lines.forEach(l => l.remove());
       lines = drawLineBST(main.firstChild);
     }
 
-    await delayAndApply(main, createBinarySearchTreeElement(bst), 1000);
+    await delayAndApply(main, createBinarySearchTreeElement(bst), delayTime);
     lines.forEach(l => l.remove());
     lines = drawLineBST(main.firstChild);
   } catch (e) {

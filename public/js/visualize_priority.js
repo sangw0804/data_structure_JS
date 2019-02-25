@@ -2,6 +2,8 @@ import { PriorityQueue } from '../index.js';
 import { createPriorityQueueElement } from '../components/index.js';
 import { delayAndApply, buttonDisableHOC, drawLineHeap } from './helpers/index.js';
 
+const delayTime = 500;
+
 const priorityQueue = new PriorityQueue();
 const main = document.getElementById('main');
 let lines = [];
@@ -18,11 +20,11 @@ enqueueButton.onclick = buttonDisableHOC(async () => {
     const iter = priorityQueue.enqueueGen(enqueueValueInput.value, +enqueuePriorityInput.value);
 
     for (let snapshot of iter) {
-      await delayAndApply(main, createPriorityQueueElement(snapshot), 1000);
+      await delayAndApply(main, createPriorityQueueElement(snapshot), delayTime);
       lines.forEach(l => l.remove());
       lines = drawLineHeap(main);
     }
-    await delayAndApply(main, createPriorityQueueElement(priorityQueue), 1000);
+    await delayAndApply(main, createPriorityQueueElement(priorityQueue), delayTime);
     lines.forEach(l => l.remove());
     lines = drawLineHeap(main);
   } catch (e) {
@@ -37,11 +39,11 @@ dequeueButton.onclick = buttonDisableHOC(async () => {
     const iter = priorityQueue.dequeueGen();
 
     for (let snapshot of iter) {
-      await delayAndApply(main, createPriorityQueueElement(snapshot), 1000);
+      await delayAndApply(main, createPriorityQueueElement(snapshot), delayTime);
       lines.forEach(l => l.remove());
       lines = drawLineHeap(main);
     }
-    await delayAndApply(main, createPriorityQueueElement(priorityQueue), 1000);
+    await delayAndApply(main, createPriorityQueueElement(priorityQueue), delayTime);
     lines.forEach(l => l.remove());
     lines = drawLineHeap(main);
   } catch (e) {

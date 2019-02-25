@@ -3,6 +3,8 @@ import { createDoublyLinkedListElement } from '../components/index.js';
 
 import { delayAndApply, buttonDisableHOC, drawLineLL } from './helpers/index.js';
 
+const delayTime = 500;
+
 const dll = new DoublyLinkedList();
 const main = document.getElementById('main');
 let lines = [];
@@ -17,11 +19,11 @@ pushButton.onclick = buttonDisableHOC(async () => {
     const iter = dll.pushGen(pushInput.value);
 
     for (let snapshot of iter) {
-      await delayAndApply(main, createDoublyLinkedListElement(snapshot), 1000);
+      await delayAndApply(main, createDoublyLinkedListElement(snapshot), delayTime);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, true);
     }
-    await delayAndApply(main, createDoublyLinkedListElement(dll), 1000);
+    await delayAndApply(main, createDoublyLinkedListElement(dll), delayTime);
     lines.forEach(l => l.remove());
     lines = drawLineLL(main, true);
   } catch (e) {
@@ -36,11 +38,11 @@ popButton.onclick = buttonDisableHOC(async () => {
     const iter = dll.popGen();
 
     for (let snapshot of iter) {
-      await delayAndApply(main, createDoublyLinkedListElement(snapshot), 1000);
+      await delayAndApply(main, createDoublyLinkedListElement(snapshot), delayTime);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, true);
     }
-    await delayAndApply(main, createDoublyLinkedListElement(dll), 1000);
+    await delayAndApply(main, createDoublyLinkedListElement(dll), delayTime);
     lines.forEach(l => l.remove());
     lines = drawLineLL(main, true);
   } catch (e) {
@@ -58,11 +60,11 @@ unshiftButton.onclick = buttonDisableHOC(async () => {
     const iter = dll.unshiftGen(unshiftInput.value);
 
     for (let snapshot of iter) {
-      await delayAndApply(main, createDoublyLinkedListElement(snapshot), 1000);
+      await delayAndApply(main, createDoublyLinkedListElement(snapshot), delayTime);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, true);
     }
-    await delayAndApply(main, createDoublyLinkedListElement(dll), 1000);
+    await delayAndApply(main, createDoublyLinkedListElement(dll), delayTime);
     lines.forEach(l => l.remove());
     lines = drawLineLL(main, true);
   } catch (e) {
@@ -77,11 +79,11 @@ shiftButton.onclick = buttonDisableHOC(async () => {
     const iter = dll.shiftGen();
 
     for (let snapshot of iter) {
-      await delayAndApply(main, createDoublyLinkedListElement(snapshot), 1000);
+      await delayAndApply(main, createDoublyLinkedListElement(snapshot), delayTime);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, true);
     }
-    await delayAndApply(main, createDoublyLinkedListElement(dll), 1000);
+    await delayAndApply(main, createDoublyLinkedListElement(dll), delayTime);
     lines.forEach(l => l.remove());
     lines = drawLineLL(main, true);
   } catch (e) {
@@ -100,11 +102,11 @@ insertButton.onclick = buttonDisableHOC(async () => {
     const iter = dll.insertGen(+insertIndexInput.value, insertValueInput.value);
 
     for (let snapshot of iter) {
-      await delayAndApply(main, createDoublyLinkedListElement(snapshot), 1000);
+      await delayAndApply(main, createDoublyLinkedListElement(snapshot), delayTime);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, true);
     }
-    await delayAndApply(main, createDoublyLinkedListElement(dll), 1000);
+    await delayAndApply(main, createDoublyLinkedListElement(dll), delayTime);
     lines.forEach(l => l.remove());
     lines = drawLineLL(main, true);
   } catch (e) {
@@ -122,11 +124,11 @@ removeButton.onclick = buttonDisableHOC(async () => {
     const iter = dll.removeGen(+removeIndexInput.value);
 
     for (let snapshot of iter) {
-      await delayAndApply(main, createDoublyLinkedListElement(snapshot), 1000);
+      await delayAndApply(main, createDoublyLinkedListElement(snapshot), delayTime);
       lines.forEach(l => l.remove());
       lines = drawLineLL(main, true);
     }
-    await delayAndApply(main, createDoublyLinkedListElement(dll), 1000);
+    await delayAndApply(main, createDoublyLinkedListElement(dll), delayTime);
     lines.forEach(l => l.remove());
     lines = drawLineLL(main, true);
   } catch (e) {

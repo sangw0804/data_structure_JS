@@ -3,6 +3,8 @@ import { createBTreeElement } from '../components/index.js';
 
 import { delayAndApply, buttonDisableHOC, drawLineBTree } from './helpers/index.js';
 
+const delayTime = 500;
+
 const bTree = new BTree(3);
 const main = document.getElementById('main');
 let lines = [];
@@ -16,12 +18,12 @@ insertButton.onclick = buttonDisableHOC(async event => {
 
     const insertGenerator = bTree.insertGen(+insertInput.value);
     for (let snapshot of insertGenerator) {
-      await delayAndApply(main, createBTreeElement(snapshot), 100);
+      await delayAndApply(main, createBTreeElement(snapshot), delayTime);
       lines.forEach(l => l.remove());
       lines = drawLineBTree(main.firstChild);
     }
 
-    await delayAndApply(main, createBTreeElement(bTree), 100);
+    await delayAndApply(main, createBTreeElement(bTree), delayTime);
     lines.forEach(l => l.remove());
     lines = drawLineBTree(main.firstChild);
   } catch (e) {
@@ -38,12 +40,12 @@ removeButton.onclick = buttonDisableHOC(async event => {
     const removeGenerator = bTree.removeGen(+removeInput.value);
 
     for (let snapshot of removeGenerator) {
-      await delayAndApply(main, createBTreeElement(snapshot), 1000);
+      await delayAndApply(main, createBTreeElement(snapshot), delayTime);
       lines.forEach(l => l.remove());
       lines = drawLineBTree(main.firstChild);
     }
 
-    await delayAndApply(main, createBTreeElement(bTree), 1000);
+    await delayAndApply(main, createBTreeElement(bTree), delayTime);
     lines.forEach(l => l.remove());
     lines = drawLineBTree(main.firstChild);
   } catch (e) {
